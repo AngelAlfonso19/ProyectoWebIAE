@@ -18,7 +18,7 @@ hr{
 
 #Score{
     margin-top: 90px;
-    margin-left: 284px;
+    margin-left: 150px;
     width: 193px;
     height: 179px;
     text-align: center;
@@ -26,6 +26,19 @@ hr{
     letter-spacing: 0;
     color: #004270;
     opacity: 1;
+}
+
+#gearOption{
+    margin-top: 50px;
+    margin-right: 0px;
+    width: 130px;
+    height: 130px;
+    background: transparent;
+    opacity: 1;
+}
+
+#layoutSidenav_content{
+    background-color:#F5F9FE;
 }
 
 .fixed-top, .sb-nav-fixed #layoutSidenav #layoutSidenav_nav, .sb-nav-fixed .sb-topnav {
