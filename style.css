@@ -74,9 +74,77 @@ hr{
 
 .profile_profileInformation{
     margin-top: -40px;
-    margin-left: 300px;
+    margin-left: 270px;
+    border-radius: 10px;
 }
 
+/*Modal design*/
+
+.modal-content{
+    margin-top: 100px;
+    width: 400px;
+    margin-left: 200px;
+    background-color:#F5F5F5;
+}
+
+.modalButton{
+    width: 400px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 35px;
+    /* UI Properties */
+    background: #004270 0% 0% no-repeat padding-box;
+    color: #FFFFFF;
+    font-size:1.5rem;
+    box-shadow: 0px 2px 6px #00000029;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.button{
+    width: 498px;
+    height: 60px;
+    /* UI Properties */
+    background: #004270 0% 0% no-repeat padding-box;
+    color: #FFFFFF;
+    font-size:2rem;
+    box-shadow: 0px 2px 6px #00000029;
+    border: 1px solid #707070;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+#logOutButton{
+    margin-top: 0px;
+    margin-left: 320px;
+}
+
+form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.modal-title{
+    text-align: center;
+    font: Regular Helvetica Neue;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    color: #004270;
+    opacity: 1;
+}
+
+.modal-content,  .modal button {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important; 
+}
 
 #layoutSidenav_content{
     background-color:#F5F9FE;
@@ -265,7 +333,6 @@ hr{
   }
   
   /*Selectores del panel de control con hover*/
-
   .sb-sidenav-dark .sb-sidenav-menu .nav-link:hover{
     font: BOLD Helvetica Neue;
     font-size: 4.5rem;

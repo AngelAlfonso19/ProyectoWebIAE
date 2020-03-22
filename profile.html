@@ -66,7 +66,9 @@
                 <img class="img-circle" id="profile_profilePhoto" src="Sources/AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg">  
               </div>
               <div class="col-xl-4 col-md-6">
-                <img id = "gearOption" src="Sources/gearOption.png" alt="gearOption.png">
+                <a class="gearOption" data-toggle="modal" data-target="#modelId"href="#modelId" data-toggle="modal" data-target="#modelId">
+                  <img id = "gearOption" src="Sources/gearOption.png" alt="gearOption.png">
+                </a>
               </div>
             </div>   
             <div class="row">
@@ -74,10 +76,40 @@
               <p class="profile_profileInformation">José Manuel Navarro</p>
               <p class="profile_profileInformation">is703803@iteso.mx</p>
             </div>
+            <div class="row">
+                <button id="logOutButton" class="button">Salir</button>
+            </div>
           </div>
         </main>
       </div>
     </div>  
+
+    <!-- Modal -->
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Datos del usuario</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <form class="login-form">
+              <input type="text" placeholder="Nombres"> <br>
+              <input type="text" placeholder="Apellidos"> <br>
+              <input type="email" placeholder="Correo"> <br>
+              <input type="password" placeholder="Contraseña"><br>
+            </form>
+            <button type="button" class="modalButton" data-dismiss="modal">Confirmar</button>
+            <button type="button" class="modalButton" data-dismiss="modal">Cancelar</button>
+          </div>    
+        </div>
+      </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
