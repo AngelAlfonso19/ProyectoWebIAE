@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Admin</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<style>
+  div input.button{
+      background-color: #004270;
+      color: white;
+      border: 0;
+      width: 200px;
+      height: 50px;
+      
+  }
+
+  div  h3{
+      padding: 20px;
+  }
+  div form{
+      padding: 20px;
+  }
+
+  #add{
+    width: 60px;
+    height: 60px;
+    color: #004270;
+    background-color: white;
+    border: solid 1px #004270;
+    border-radius: 70%
+  }
+
+</style>
+<body>
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <img src="logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-IAE"></i>
+                            </div>
+                            IAE
+                        </a>
+                        <hr>
+                        <a class="nav-link" href="">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-Usuarios"></i>
+                            </div>
+                            Usuarios
+                        </a>
+                        <hr>
+                        <a class="nav-link" href="">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-Asignaturas"></i>
+                            </div>
+                            Asignaturas
+                        </a>
+                        <hr>
+                        <a class="nav-link" href="">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-"></i>
+                            </div>
+                            Evaluaciones
+                        </a>
+                        <hr>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+
+                </div>
+            </nav>
+        </div>
+
+        <div id="layoutSidenav_content">
+            <main>
+
+                <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-xl-4 col-md-6">
+                      
+                      </div>
+                      <div class="col-xl-4 col-md-6">
+                        <p id="users_profileInformation" class="profileInformation">Administrador</p>
+                        <p id="users_profileInformation" class="profileInformation">Navarro José Manuel</p>
+                      </div> 
+                      <div class="col-xl-4 col-md-6"> 
+                        <a href="profile.html">
+                            <img class="img-circle" id="statusBarProfilePhoto" src="AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg"> 
+                        </a>
+                      </div>           
+                    <div class="row">
+                      
+                    </div>
+                    <div class="row">
+                    
+                    </div>
+                  </div>
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8" style="text-align: center; padding-bottom: 30px;">
+
+                        <select id="listteachers">
+                            <option value="default" selected>Profesor:</option>
+                            <option value="Luis Fernando"> Luis Fernando</option>
+                            <option value="Hugo Ivan Piza"> Hugo Ivan Piza</option>
+                        </select>
+                        <select id="listsubject">
+                            <option value="default" selected>Materia:</option>
+                            <option value="Programacion Orientada a Objetos"> Programacion Orientada a Objetos</option>
+                            <option value="Programacion web"> Programacion web</option>
+                        </select>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4" style="text-align: center;">
+                        <input class="button" type="submit" value="Actualizar" data-toggle="modal" data-target="#modelId">
+                    </div>
+                    <div class="col-4" style="text-align: center;">
+                        <input class="button" type="submit" value="Eliminar">
+                    </div>
+                    <div class="col-4" style="text-align: center;">
+                        <input id="add" class="button" type="submit" value="+" style="width: 60px;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <h3>1. Pregunta 1</h3>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <form name="registrationForm">
+                            <input style="background-color: #004270; size: 1000px; width: 700px;" type="range"
+                                name="ageInputName" id="ageInputId" value="0" min="0" max="5"
+                                oninput="ageOutputId.value = ageInputId.value">
+                            <output name="ageOutputName" id="ageOutputId">0</output>
+                        </form>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <h3>2. Pregunta 2</h3>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <form name="registrationForm">
+                            <input style="background-color: #004270; size: 1000px; width: 700px;" type="range"
+                                name="ageInputName" id="ageInputId" value="0" min="0" max="5"
+                                oninput="ageOutputId.value = ageInputId.value">
+                            <output name="ageOutputName" id="ageOutputId">0</output>
+                        </form>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <h3>3. Pregunta 3</h3>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <form name="registrationForm">
+                            <input style="background-color: #004270; size: 1000px; width: 700px;" type="range"
+                                name="ageInputName" id="ageInputId" value="0" min="0" max="5"
+                                oninput="ageOutputId.value = ageInputId.value">
+                            <output name="ageOutputName" id="ageOutputId">0</output>
+                        </form>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <h3>4. Pregunta 4</h3>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <form name="registrationForm">
+                            <input style="background-color: #004270; size: 1000px; width: 700px;" type="range"
+                                name="ageInputName" id="ageInputId" value="0" min="0" max="5"
+                                oninput="ageOutputId.value = ageInputId.value">
+                            <output name="ageOutputName" id="ageOutputId">0</output>
+                        </form>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <h3>5. Pregunta 5</h3>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <form name="registrationForm">
+                            <input style="background-color: #004270; size: 1000px; width: 700px;" type="range"
+                                name="ageInputName" id="ageInputId" value="0" min="0" max="5"
+                                oninput="ageOutputId.value = ageInputId.value">
+                            <output name="ageOutputName" id="ageOutputId">0</output>
+                        </form>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <h3>6. Pregunta 6</h3>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <form action="">
+                            <textarea name="" id="" cols="80" rows="3"></textarea>
+                        </form>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <h3>7. Pregunta 7</h3>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <form action="">
+                            <textarea name="" id="" cols="80" rows="3"></textarea>
+                        </form>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <h3>8. Pregunta 8</h3>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <form action="">
+                            <textarea name="" id="" cols="80" rows="3"></textarea>
+                        </form>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <h3>9. Pregunta 9</h3>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-8">
+                        <form action="">
+                            <textarea name="" id="" cols="80" rows="3"></textarea>
+                        </form>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+
+        </div>
+
+
+
+
+    </main>
+    </div>
+    </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                                <h5 class="modal-title" style="color: #004270">Registro</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                            </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <form class="login-form">
+                                <input type="text" placeholder="# de pregunta"> <br>
+                                <input type="text" placeholder="Pregunta..."> <br>
+                                <input type="email" placeholder="Tipo..."> <br>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" style="background: #004270; border: 0;">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            $('#modelId').on('show.bs.modal', event => {
+                var button = $(event.relatedTarget);
+                var modal = $(this);
+                // Use above variables to manipulate the DOM
+                
+            });
+        </script>
+    
+        <script>
+            $('.message a').click(function () {
+                $('form').animate({
+                    height: "toggle",
+                    opacity: "toggle"
+                }, "slow");
+            });
+        </script>
+        
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
