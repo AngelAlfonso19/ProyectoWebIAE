@@ -16,26 +16,67 @@ hr{
     opacity: 1;
 }
 
-#Score{
-    margin-top: 90px;
-    margin-left: 150px;
+.Score{
     width: 193px;
     height: 179px;
     text-align: center;
     font: Bold 150px/183px Helvetica Neue;
     letter-spacing: 0;
     color: #004270;
+}
+
+#Score{
+    margin-top: 90px;
+    margin-left: 150px;
     opacity: 1;
 }
 
 #gearOption{
     margin-top: 50px;
-    margin-right: 0px;
+    margin-left: 150px;
     width: 130px;
     height: 130px;
     background: transparent;
     opacity: 1;
 }
+
+.img-circle{
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 2px 4px 6px #00000029;
+    opacity: 1;
+}
+
+#profile_profilePhoto{
+    margin-top: 140px;
+    margin-left: 10px;
+    width: 378px;
+    height: 378px;
+}
+
+/*Profile information design*/
+.profile_profileInformation{
+    width: 600px;
+    height: 93px;
+    /* UI Properties */ 
+    font: Regular Helvetica Neue;
+    font-size: 4rem;
+    letter-spacing: 0;
+    color: #004270;
+    opacity: 1;
+}
+
+
+.profile_profileInformation:first-of-type{
+    margin-top: 35px;
+    margin-left: 380px;
+}
+
+.profile_profileInformation{
+    margin-top: -40px;
+    margin-left: 300px;
+}
+
 
 #layoutSidenav_content{
     background-color:#F5F9FE;
@@ -200,7 +241,6 @@ hr{
     letter-spacing: 0;
     color: #004270;
     opacity: 1;
-    color: #004270;
   }
 
   /*Primer selector del menú del panel de control*/
@@ -227,7 +267,6 @@ hr{
   /*Selectores del panel de control con hover*/
 
   .sb-sidenav-dark .sb-sidenav-menu .nav-link:hover{
-    color:#004270;
     font: BOLD Helvetica Neue;
     font-size: 4.5rem;
   }
