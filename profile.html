@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>AdmiProfile</title>
+    <title>AdminProfile</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,14 +24,14 @@
                 IAE
               </a>
               <hr>
-              <a class="nav-link" href="">
+              <a class="nav-link" href="users.html">
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-Usuarios"></i>
                 </div>
                 Usuarios
               </a>
               <hr>
-              <a class="nav-link" href="">
+              <a class="nav-link" href="assignments.html">
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-Asignaturas"></i>
                 </div>
@@ -59,7 +59,7 @@
             <div class="row">
               <div class="col-xl-4 col-md-6">
                 <a class="Score" href="">
-                  <p id = "Score">A+</p>
+                  <p id="profileView_Score">A+</p>
                 </a>
               </div>
               <div class="col-xl-4 col-md-6">
@@ -72,9 +72,9 @@
               </div>
             </div>   
             <div class="row">
-              <p class="profile_profileInformation">Administrador</p>
-              <p class="profile_profileInformation">José Manuel Navarro</p>
-              <p class="profile_profileInformation">is703803@iteso.mx</p>
+              <p id = "profile_profileInformation" class="profileInformation">Administrador</p>
+              <p id = "profile_profileInformation" class="profileInformation">José Manuel Navarro</p>
+              <p id = "profile_profileInformation" class="profileInformation">is703803@iteso.mx</p>
             </div>
             <div class="row">
                 <button id="logOutButton" class="button">Salir</button>
@@ -83,9 +83,6 @@
         </main>
       </div>
     </div>  
-
-    <!-- Modal -->
-    <!-- Button trigger modal -->
 
     <!-- Modal -->
     <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -99,10 +96,10 @@
           </div>
           <div class="modal-body">
             <form class="login-form">
-              <input type="text" placeholder="Nombres"> <br>
-              <input type="text" placeholder="Apellidos"> <br>
-              <input type="email" placeholder="Correo"> <br>
-              <input type="password" placeholder="Contraseña"><br>
+              <input type="text" placeholder="Nombres..."> <br>
+              <input type="text" placeholder="Apellidos..."> <br>
+              <input type="email" placeholder="Correo..."> <br>
+              <input type="password" placeholder="Contraseña..."><br>
             </form>
             <button type="button" class="modalButton" data-dismiss="modal">Confirmar</button>
             <button type="button" class="modalButton" data-dismiss="modal">Cancelar</button>
