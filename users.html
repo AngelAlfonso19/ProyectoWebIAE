@@ -9,6 +9,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+    <style>
+    .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(2){
+        font: BOLD Helvetica Neue;
+        font-size: 4.5rem;
+        margin-left: 45px;
+    }
+    </style>
   </head>
   <body>
     <div id="layoutSidenav">
@@ -56,28 +65,102 @@
       <div id="layoutSidenav_content">
         <main>
           <div class="container-fluid">
-            <div class="row">
-              <div class="col-xl-4 col-md-6">
-                <a data-toggle="modal" data-target="#modelId"href="#modelId" data-toggle="modal" data-target="#modelId">
-                    <img id="statusBarAddUserButton" src="Sources/addButton.png" alt="AddButton.jpg"> 
-                </a>
-              </div>
-              <div class="col-xl-4 col-md-6">
-                <p id="users_profileInformation" class="profileInformation">Administrador</p>
-                <p id="users_profileInformation" class="profileInformation">Navarro José Manuel</p>
-              </div> 
-              <div class="col-xl-4 col-md-6"> 
-                <a href="profile.html">
-                    <img class="img-circle" id="statusBarProfilePhoto" src="Sources/AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg"> 
-                </a>
+              <div class="row">
+                  <div class="col-xl-4 col-md-6">
+                    <a data-toggle="modal" data-target="#modelId"href="#modelId" data-toggle="modal" data-target="#modelId">
+                        <img id="statusBarAddUserButton" src="Sources/addButton.png" alt="AddButton.jpg"> 
+                    </a>
+                  </div>
+                  <div class="col-xl-4 col-md-6">
+                    <p id="statusBarRol_profileInformation" class="statusBar_profileInformation">Administrador:</p>
+                    <p id="statusBarName_profileInformation" class="statusBar_profileInformation">Navarro José Manuel</p>
+                  </div> 
+                  <div class="col-xl-4 col-md-6"> 
+                    <a href="profile.html">
+                        <img class="img-circle" id="statusBarProfilePhoto" src="Sources/AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg"> 
+                    </a>
+                  </div>  
               </div>           
-            <div class="row">
-              
-            </div>
-            <div class="row">
-            
-            </div>
-          </div>
+              <div class="row">
+                  <div class="col-xl-12 col-md-6"> 
+                      <a href="">
+                          <p class="UsersSubtitle">Alumnos:</p>
+                      </a>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-10 col-md-6">
+                    <div id="usersTable" class="card mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Usuario</th>
+                                            <th>Correo</th>
+                                            <th>Departamento</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>DESI</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Garrett Winters</td>
+                                            <td>Accountant</td>
+                                            <td>DESI</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ashton Cox</td>
+                                            <td>Junior Technical Author</td>
+                                            <td>DESI</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cedric Kelly</td>
+                                            <td>Senior Javascript Developer</td>
+                                            <td>DESI</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Airi Satou</td>
+                                            <td>Accountant</td>
+                                            <td>DESI</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Brielle Williamson</td>
+                                            <td>Integration Specialist</td>
+                                            <td>DESI</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Herrod Chandler</td>
+                                            <td>Sales Assistant</td>
+                                            <td>DESI</td>
+        
+                                        </tr>
+                                        <tr>
+                                            <td>Rhona Davidson</td>
+                                            <td>Integration Specialist</td>
+                                            <td>DESI</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Colleen Hurst</td>
+                                            <td>Javascript Developer</td>
+                                            <td>DESI</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sonya Frost</td>
+                                            <td>Software Engineer</td>
+                                            <td>DESI</td>
+                                        </tr>        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div> 
         </main>
       </div>
     </div>  
@@ -113,5 +196,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="Assets/usersTables.js"></script>
   </body>
 </html>
