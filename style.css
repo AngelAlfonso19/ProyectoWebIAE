@@ -447,6 +447,24 @@ form input {
 }
 
 #dataTable{
+  border:0px;
   border-radius: 10px;
   background-color: #F5F5F5;
+}
+
+#tableProfilePhoto{
+  margin-top: 0px;
+  margin-left: 2px;
+  width: 45px;
+  height: 45px;
+}
+
+tr, th{
+  background:#F5F5F5;
+  color:#004270;
+  text-align: center;
+}
+
+th{
+  font-size: 1.5rem;
 }
