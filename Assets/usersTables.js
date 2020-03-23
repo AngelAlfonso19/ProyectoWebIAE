@@ -8,4 +8,4 @@ $('#dataTable').DataTable( {
     "ordering": false,
     "info": false,
     "paging":false
-} );
+} )
