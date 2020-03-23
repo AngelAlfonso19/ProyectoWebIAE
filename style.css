@@ -17,25 +17,18 @@ hr{
   color: #004270;
 }
 
-#profileView_Score{
-  margin-top: 90px;
-  margin-left: 150px;
-  opacity: 1;
-}
-
-#gearOption{
-  margin-top: 50px;
-  margin-left: 150px;
-  width: 130px;
-  height: 130px;
-  background: transparent;
-  opacity: 1;
-}
-
 .img-circle{
   border-radius: 50%;
   background: transparent;
   box-shadow: 2px 4px 6px #00000029;
+  opacity: 1;
+}
+
+/*------------------------------Profile view design------------------------------*/
+
+#profileView_Score{
+  margin-top: 90px;
+  margin-left: 150px;
   opacity: 1;
 }
 
@@ -70,6 +63,15 @@ hr{
 }
 
 /*------------------------------StatusBar design------------------------------*/
+
+#gearOption{
+  margin-top: 50px;
+  margin-left: 150px;
+  width: 130px;
+  height: 130px;
+  background: transparent;
+  opacity: 1;
+}
 
 #statusBarAddUserButton{
   margin-top: 50px;
@@ -197,6 +199,103 @@ form input {
   margin-left: 320px;
 }
 
+/*------------------------------Control panel design------------------------------*/
+
+/*Control panel logo design*/
+#controlPanelLogo{
+  margin-top: 0px;
+  margin-left: 0px;
+  width: 400px;
+  background: transparent 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+/*Control panel content design*/
+#layoutSidenav_content{
+  background-color:#F5F9FE;
+}
+
+
+/*Control panel footer text color*/
+.sb-sidenav-dark {
+  background-color:#F5F5F5;
+  color:#F5F5F5;
+}
+
+/*Control panel footer background*/
+.sb-sidenav-dark .sb-sidenav-footer {
+  background-color: #F5F5F5;
+}
+
+/*Control panel selectors design*/
+.sb-sidenav-dark .sb-sidenav-menu .nav-link{
+  margin-top: 60px;
+  width: 236px;
+  height: 70px;
+  font: Regular Helvetica Neue;
+  font-size: 3.5rem;
+  letter-spacing: 0;
+  color: #004270;
+  opacity: 1;
+}
+
+/*First selector control panel*/
+.sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type{
+  margin-top: 80px;
+  margin-left: 148px;
+}
+
+/*Second selector of control panel*/
+.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(2){
+  margin-left: 75px;
+}
+
+/*Third selector of control panel*/
+.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(3){
+  margin-left: 40px;
+}
+
+/*Fourth selector del menú del panel de control*/
+.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(4){
+  margin-left: 23px;
+}
+
+/*Control panel hovered selectors design*/
+.sb-sidenav-dark .sb-sidenav-menu .nav-link:hover{
+  font: BOLD Helvetica Neue;
+  font-size: 4.5rem;
+}
+
+/*First control panel hovered selector design*/
+.sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type:hover{
+  margin-left: 134px;
+  font-size: 5rem;
+}
+
+/*Second control panel hovered selector design*/
+.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(2):hover{
+  margin-left: 45px;
+}
+
+/*Third control panel hovered selector design*/
+.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(3):hover{
+  margin-left: 8px;
+}
+
+/*Fourth control panel hovered selector design*/
+.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(4):hover{
+  margin-left: 5px;
+  font-size: 4rem;
+}
+
+/*Control panel active selector*/
+.sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type.active {
+  margin-left: 300px;
+  color:#004270;
+  font: BOLD Helvetica Neue;
+  font-size: 4.5rem;
+}
+
 .fixed-top, .sb-nav-fixed #layoutSidenav #layoutSidenav_nav, .sb-nav-fixed .sb-topnav {
   position: fixed;
   top: 0;
@@ -319,7 +418,6 @@ form input {
   position: relative;
 }
 
-
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-sidenav-collapse-arrow {
   display: inline-block;
   margin-left: auto;
@@ -338,103 +436,6 @@ form input {
 .sb-sidenav .sb-sidenav-footer {
   padding: 0.75rem;
   flex-shrink: 0;
-}
-
-/*------------------------------Control panel design------------------------------*/
-
-/*Control panel logo design*/
-#controlPanelLogo{
-  margin-top: 0px;
-  margin-left: 0px;
-  width: 400px;
-  background: transparent 0% 0% no-repeat padding-box;
-  opacity: 1;
-}
-
-/*Control panel content design*/
-#layoutSidenav_content{
-  background-color:#F5F9FE;
-}
-
-
-/*Control panel footer text color*/
-.sb-sidenav-dark {
-  background-color:#F5F5F5;
-  color:#F5F5F5;
-}
-
-/*Control panel footer background*/
-.sb-sidenav-dark .sb-sidenav-footer {
-  background-color: #F5F5F5;
-}
-
-/*Control panel selectors design*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link{
-  margin-top: 60px;
-  width: 236px;
-  height: 70px;
-  font: Regular Helvetica Neue;
-  font-size: 3.5rem;
-  letter-spacing: 0;
-  color: #004270;
-  opacity: 1;
-}
-
-/*First selector control panel*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type{
-  margin-top: 80px;
-  margin-left: 148px;
-}
-
-/*Second selector of control panel*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(2){
-  margin-left: 75px;
-}
-
-/*Third selector of control panel*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(3){
-  margin-left: 40px;
-}
-
-/*Fourth selector del menú del panel de control*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(4){
-  margin-left: 23px;
-}
-
-/*Control panel hovered selectors design*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:hover{
-  font: BOLD Helvetica Neue;
-  font-size: 4.5rem;
-}
-
-/*First control panel hovered selector design*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type:hover{
-  margin-left: 134px;
-  font-size: 5rem;
-}
-
-/*Second control panel hovered selector design*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(2):hover{
-  margin-left: 45px;
-}
-
-/*Third control panel hovered selector design*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(3):hover{
-  margin-left: 8px;
-}
-
-/*Fourth control panel hovered selector design*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(4):hover{
-  margin-left: 5px;
-  font-size: 4rem;
-}
-
-/*Control panel active selector*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type.active {
-  margin-left: 300px;
-  color:#004270;
-  font: BOLD Helvetica Neue;
-  font-size: 4.5rem;
 }
 
 /*------------------------------Users table design------------------------------*/
