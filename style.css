@@ -1,3 +1,4 @@
+/*------------------------------General utilities design------------------------------*/
 hr{
   margin-top: 8px;
   margin-left: 30px;
@@ -127,7 +128,36 @@ hr{
   opacity: 1;
 }
 
-/*------------------------------Modal design------------------------------*/
+.assignmentsSubtitle{
+  margin-top: 50px;
+  margin-left: 110px;
+  width: 252px;
+  height: 70px;
+  /* UI Properties */
+  text-align: center;
+  font: Regular Helvetica Neue;
+  font-size: 3rem;
+  letter-spacing: 0;
+  color: #004270;
+  opacity: 1;
+}
+
+#professors_usersSubtitle{
+  margin-left: 95px;
+}
+
+#coordinators_usersSubtitle{
+  margin-left: 108px;
+}
+
+#academicUnitCoordinators_usersSubtitle{
+  width: 470px;
+  height: 150px;
+  margin-left: 108px;
+  text-align: start;
+}
+
+/*------------------------------Modal view design------------------------------*/
 
 /*Modal design*/
 .modal-content{
@@ -438,13 +468,7 @@ form input {
   flex-shrink: 0;
 }
 
-/*------------------------------Users table design------------------------------*/
-
-/*Users table design*/
-#usersTable{
-  margin-left: 110px;
-  background-color: #F5F5F5;
-}
+/*------------------------------General table design------------------------------*/
 
 #dataTable{
   border:0px;
@@ -465,29 +489,37 @@ td{
   font-size: 1rem;
 }
 
-td:first-of-type{
-  text-align: start;
-}
-
 #tableProfilePhoto{
   margin-top: 0px;
-  margin-left: 0px;
+  margin-left: 20px;
   margin-right: 10px;
   width: 45px;
   height: 45px;
 }
 
-#professors_usersSubtitle{
-  margin-left: 95px;
+/*------------------------------Users table design------------------------------*/
+
+/*Users table design*/
+#usersTable{
+  margin-left: 110px;
+  background-color: #F5F5F5;
 }
 
-#coordinators_usersSubtitle{
-  margin-left: 108px;
+td:first-of-type{
+  text-align: start;
 }
 
-#academicUnitCoordinators_usersSubtitle{
-  width: 470px;
-  height: 150px;
-  margin-left: 108px;
+/*------------------------------Assignments table design------------------------------*/
+
+#assignmentsTable{
+  margin-left: 110px;
+  background-color: #F5F5F5;
+}
+
+#assignmentsTable td:first-of-type{
+  text-align: center;
+}
+
+#assignmentsTable td:nth-of-type(2){
   text-align: start;
 }
