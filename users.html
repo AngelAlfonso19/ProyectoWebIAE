@@ -95,7 +95,7 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr>
+                                        <tr id="tableHeader">
                                             <th>Usuario</th>
                                             <th>Correo</th>
                                             <th>Departamento</th>
@@ -103,54 +103,54 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td> <img class="img-circle" id="tableProfilePhoto" src="Sources/AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg"> Tiger Nixon</td>
-                                            <td>System Architect</td>
+                                            <td> <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg"> Tiger Nixon</td>
+                                            <td>is704602@iteso.mx</td>
                                             <td>DESI</td>
                                         </tr>
                                         <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
+                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/2.jpg" alt="userProfilePhoto.jpg">Garrett Winters</td>
+                                            <td>is706609@iteso.mx</td>
                                             <td>DESI</td>
                                         </tr>
                                         <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
+                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/1.jpg" alt="userProfilePhoto.jpg">Ashton Cox</td>
+                                            <td>is750650@iteso.mx</td>
                                             <td>DESI</td>
                                         </tr>
                                         <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
+                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/3.jpg" alt="userProfilePhoto.jpg">Cedric Kelly</td>
+                                            <td>is706803@iteso.mx</td>
                                             <td>DESI</td>
                                         </tr>
                                         <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
+                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/3.jpg" alt="userProfilePhoto.jpg">Airi Satou</td>
+                                            <td>is605715@iteso.mx</td>
                                             <td>DESI</td>
                                         </tr>
                                         <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
+                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/4.jpg" alt="userProfilePhoto.jpg">Brielle Williamson</td>
+                                            <td>is780660@iteso.mx</td>
                                             <td>DESI</td>
                                         </tr>
                                         <tr>
-                                            <td>Herrod Chandler</td>
-                                            <td>Sales Assistant</td>
+                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/4.jpg" alt="userProfilePhoto.jpg">Herrod Chandler</td>
+                                            <td>is707805@iteso.mx</td>
                                             <td>DESI</td>
         
                                         </tr>
                                         <tr>
-                                            <td>Rhona Davidson</td>
-                                            <td>Integration Specialist</td>
+                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/5.jpg" alt="userProfilePhoto.jpg">Rhona Davidson</td>
+                                            <td>is603702@iteso.mx</td>
                                             <td>DESI</td>
                                         </tr>
                                         <tr>
-                                            <td>Colleen Hurst</td>
-                                            <td>Javascript Developer</td>
+                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/6.jpg" alt="userProfilePhoto.jpg">Colleen Hurst</td>
+                                            <td>is704705@iteso.mx</td>
                                             <td>DESI</td>
                                         </tr>
                                         <tr>
-                                            <td>Sonya Frost</td>
-                                            <td>Software Engineer</td>
+                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/7.jpg" alt="userProfilePhoto.jpg">Sonya Frost</td>
+                                            <td>is803603@iteso.mx</td>
                                             <td>DESI</td>
                                         </tr>        
                                     </tbody>
@@ -160,7 +160,146 @@
                     </div>
                 </div>
               </div>
-            </div> 
+              <div class="row">
+                <div class="col-xl-12 col-md-6"> 
+                    <a href="">
+                        <p id="professors_usersSubtitle" class="UsersSubtitle">Profesores:</p>
+                    </a>
+                </div>
+                </div>
+            <div class="row">
+                <div class="col-xl-10 col-md-6">
+                  <div id="usersTable" class="card mb-4">
+                      <div class="card-body">
+                          <div class="table-responsive">
+                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                  <thead>
+                                      <tr id="tableHeader">
+                                          <th>Usuario</th>
+                                          <th>Correo</th>
+                                          <th>Departamento</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td> <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg"> Tiger Nixon</td>
+                                          <td>is704602@iteso.mx</td>
+                                          <td>DESI</td>
+                                      </tr>
+                                      <tr>
+                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/2.jpg" alt="userProfilePhoto.jpg">Garrett Winters</td>
+                                          <td>is706609@iteso.mx</td>
+                                          <td>DESI</td>
+                                      </tr>
+                                      <tr>
+                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/1.jpg" alt="userProfilePhoto.jpg">Ashton Cox</td>
+                                          <td>is750650@iteso.mx</td>
+                                          <td>DESI</td>
+                                      </tr>
+                                      <tr>
+                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/3.jpg" alt="userProfilePhoto.jpg">Cedric Kelly</td>
+                                          <td>is706803@iteso.mx</td>
+                                          <td>DESI</td>
+                                      </tr>
+                                      <tr>
+                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/3.jpg" alt="userProfilePhoto.jpg">Airi Satou</td>
+                                          <td>is605715@iteso.mx</td>
+                                          <td>DESI</td>
+                                      </tr>          
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12 col-md-6"> 
+                    <a href="">
+                        <p id="coordinators_usersSubtitle" class="UsersSubtitle">Coordinadores:</p>
+                    </a>
+                </div>
+                </div>
+            <div class="row">
+                <div class="col-xl-10 col-md-6">
+                  <div id="usersTable" class="card mb-4">
+                      <div class="card-body">
+                          <div class="table-responsive">
+                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                  <thead>
+                                      <tr id="tableHeader">
+                                          <th>Usuario</th>
+                                          <th>Correo</th>
+                                          <th>Departamento</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td> <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg"> Tiger Nixon</td>
+                                          <td>is704602@iteso.mx</td>
+                                          <td>DESI</td>
+                                      </tr>
+                                      <tr>
+                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/2.jpg" alt="userProfilePhoto.jpg">Garrett Winters</td>
+                                          <td>is706609@iteso.mx</td>
+                                          <td>DESI</td>
+                                      </tr>
+                                      <tr>
+                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/1.jpg" alt="userProfilePhoto.jpg">Ashton Cox</td>
+                                          <td>is750650@iteso.mx</td>
+                                          <td>DESI</td>
+                                      </tr>       
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12 col-md-6"> 
+                    <a href="">
+                        <p id="academicUnitCoordinators_usersSubtitle" class="UsersSubtitle">Coordinadores De Unidad Académica:</p>
+                    </a>
+                </div>
+                </div>
+            <div class="row">
+                <div class="col-xl-10 col-md-6">
+                  <div id="usersTable" class="card mb-4">
+                      <div class="card-body">
+                          <div class="table-responsive">
+                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                  <thead>
+                                      <tr id="tableHeader">
+                                          <th>Usuario</th>
+                                          <th>Correo</th>
+                                          <th>Departamento</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td> <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg"> Tiger Nixon</td>
+                                          <td>is704602@iteso.mx</td>
+                                          <td>DESI</td>
+                                      </tr>
+                                      <tr>
+                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/2.jpg" alt="userProfilePhoto.jpg">Garrett Winters</td>
+                                          <td>is706609@iteso.mx</td>
+                                          <td>DESI</td>
+                                      </tr>
+                                      <tr>
+                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/1.jpg" alt="userProfilePhoto.jpg">Ashton Cox</td>
+                                          <td>is750650@iteso.mx</td>
+                                          <td>DESI</td>
+                                      </tr>       
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+         </div> 
         </main>
       </div>
     </div>  
@@ -177,10 +316,11 @@
           </div>
           <div class="modal-body">
             <form class="login-form">
-              <input type="text" placeholder="Nombres"> <br>
-              <input type="text" placeholder="Apellidos"> <br>
-              <input type="email" placeholder="Correo"> <br>
-              <input type="password" placeholder="Contraseña"><br>
+              <input type="text" placeholder="Nombres..."> <br>
+              <input type="text" placeholder="Apellidos..."> <br>
+              <input type="text" placeholder="Rol..."> <br>
+              <input type="email" placeholder="Correo..."> <br>
+              <input type="password" placeholder="Contraseña..."><br>
             </form>
             <button type="button" class="modalButton" data-dismiss="modal">Confirmar</button>
             <button type="button" class="modalButton" data-dismiss="modal">Cancelar</button>
