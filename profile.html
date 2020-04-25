@@ -16,7 +16,7 @@
       <div class="row">
         <!-- Sidenav -->
         <div class="col-3 p-0 sidenav">
-          <div class="container-fluid">
+          <div class="container-fluid sticky-top">
             <div class="row">
               <div class="col-12 d-flex justify-content-center">
                 <img src="./Sources/logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
@@ -60,54 +60,52 @@
 
         <!-- Main -->
         <div class="col-9 p-0">
-          <div id="layoutSidenav_content">
-            <main>
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-2 offset-9 mt-5 d-flex justify-content-center">
-                    <a class="gearOption" data-toggle="modal" data-target="#modelId"href="#modelId" data-toggle="modal" data-target="#modelId">
-                      <img id = "gearOption" src="Sources/gearOption.png" alt="gearOption.png">
-                    </a>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-2 offset-1 p-0 d-flex justify-content-center">
-                      <a class="Score m-0" href="EvaluacionesGraphs.html">
-                        <p id="profileView_Score">A+</p>
-                      </a> 
-                  </div>
-                  <div class="col-6 p-0 d-flex justify-content-center">
-                    <img class="img-circle" id="profile_profilePhoto" src="Sources/AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg">  
-                  </div>
-                </div>   
-                <div class="row">
-                  <div class="col-12 m-0 d-flex justify-content-center">
-                    <form>
-                      <div class="form-row">
-                        <div class="form-group col-12 m-0 d-flex justify-content-center">
-                          <p id = "profile_profileInformation" class="profileInformation">Administrador</p>
-                        </div>
-                      </div>
-                      <div class="form-row">
-                        <div class="form-group col-12 m-0 d-flex justify-content-center">
-                          <p id = "profile_profileInformation" class="profileInformation">José Manuel Navarro</p>
-                        </div>
-                      </div>
-                      <div class="form-row">
-                        <div class="form-group col-12 m-0 d-flex justify-content-center">
-                          <p id = "profile_profileInformation" class="profileInformation">is703803@iteso.mx</p>
-                        </div>
-                      </div>
-                      <div class="form-row">
-                        <div class="form-group col-12 m-0 d-flex justify-content-center">
-                            <button id="logOutButton" class="button">Salir</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+          <div id="layoutSidenav_content">            
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-2 offset-9 mt-5 d-flex justify-content-center">
+                  <a class="gearOption" data-toggle="modal" data-target="#modelId"href="#modelId" data-toggle="modal" data-target="#modelId">
+                    <img id = "gearOption" src="Sources/gearOption.png" alt="gearOption.png">
+                  </a>
                 </div>
               </div>
-            </main>
+              <div class="row">
+                <div class="col-2 offset-1 p-0 d-flex justify-content-center">
+                    <a class="Score m-0" href="EvaluacionesGraphs.html">
+                      <p id="profileView_Score">A+</p>
+                    </a> 
+                </div>
+                <div class="col-6 p-0 d-flex justify-content-center">
+                  <img class="img-circle" id="profile_profilePhoto" src="Sources/AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg">  
+                </div>
+              </div>   
+              <div class="row">
+                <div class="col-12 m-0 d-flex justify-content-center">
+                  <form>
+                    <div class="form-row">
+                      <div class="form-group col-12 m-0 d-flex justify-content-center">
+                        <p id = "profile_profileInformation" class="profileInformation">Administrador</p>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-12 m-0 d-flex justify-content-center">
+                        <p id = "profile_profileInformation" class="profileInformation">José Manuel Navarro</p>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-12 m-0 d-flex justify-content-center">
+                        <p id = "profile_profileInformation" class="profileInformation">is703803@iteso.mx</p>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-12 m-0 d-flex justify-content-center">
+                          <button id="logOutButton" class="button">Salir</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>            
           </div>
         </div>
         <!--/Main -->
