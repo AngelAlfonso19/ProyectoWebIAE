@@ -11,298 +11,1081 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-    <style>
-    .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(2){
-        font: BOLD Helvetica Neue;
-        font-size: 4.5rem;
-        margin-left: 45px;
-    }
-    </style>
   </head>
   <body>
-    <div id="layoutSidenav">
-      <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-          <div class="sb-sidenav-menu">
-            <div class="nav">
-              <img src="./Sources/logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
-              <a class="nav-link" href="IAE.html">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-IAE"></i>
+    <!-- View -->
+    <div class="container-fluid" id="layoutSidenav">
+        <div class="row">
+            <!-- Sidenav -->
+            <div class="col-3 p-0 sidenav">
+            <div class="container-fluid sticky-top">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                <img src="./Sources/logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
                 </div>
-                IAE
-              </a>
-              <hr>
-              <a class="nav-link" href="users.html">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-Usuarios"></i>
-                </div>
-                Usuarios
-              </a>
-              <hr>
-              <a class="nav-link" href="assignments.html">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-Asignaturas"></i>
-                </div>
-                Asignaturas
-              </a>
-              <hr>
-              <a class="nav-link" href="EvaluacionesGraphs.html">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-"></i>
-                </div>
-                Evaluaciones
-              </a>
-              <hr>
             </div>
-          </div>
-          <div class="sb-sidenav-footer">
-         
-          </div>
-        </nav>
-      </div>
+            <div class="row">
+                <div class="col-12 mt-5 d-flex justify-content-center">
+                <a class="nav-link d-flex justify-content-center" href="IAE.html">IAE</a>
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+                <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-4 d-flex justify-content-center">
+                <a class="nav-link d-flex justify-content-center" href="users.html">Usuarios</a>
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+                <hr>
+                </div>        
+            </div>
+            <div class="row">
+                <div class="col-12 mt-4 d-flex justify-content-center">
+                <a class="nav-link d-flex justify-content-center" href="assignments.html">Asignaturas</a>
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+                <hr>
+                </div>        
+            </div>
+            <div class="row">
+                <div class="col-12 mt-4 d-flex justify-content-center">
+                <a class="nav-link d-flex justify-content-center" href="EvaluacionesGraphs.html">Evaluaciones</a>
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+                <hr>
+                </div>        
+            </div>
+            </div>
+            </div>
+            <!-- /Sidenav -->
 
-      <div id="layoutSidenav_content">
-        <main>
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-xl-4 col-md-6">
-                    <a data-toggle="modal" data-target="#modelId"href="#modelId" data-toggle="modal" data-target="#modelId">
-                        <img id="statusBarAddUserButton" src="Sources/addButton.png" alt="AddButton.jpg"> 
-                    </a>
-                  </div>
-                  <div class="col-xl-4 col-md-6">
-                    <p id="statusBarRol_profileInformation" class="statusBar_profileInformation">Administrador:</p>
-                    <p id="statusBarName_profileInformation" class="statusBar_profileInformation">Navarro José Manuel</p>
-                  </div> 
-                  <div class="col-xl-4 col-md-6"> 
-                    <a href="profile.html">
-                        <img class="img-circle" id="statusBarProfilePhoto" src="Sources/AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg"> 
-                    </a>
-                  </div>  
-              </div>           
-              <div class="row">
-                  <div class="col-xl-12 col-md-6"> 
-                      <a href="">
-                          <p class="UsersSubtitle">Alumnos:</p>
-                      </a>
-                  </div>
-              </div>
-              <div class="row">
-                <div class="col-xl-10 col-md-6">
-                    <div id="usersTable" class="card mb-4">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr id="tableHeader">
-                                            <th>Usuario</th>
-                                            <th>Correo</th>
-                                            <th>Departamento</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td> <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg"> Tiger Nixon</td>
-                                            <td>is704602@iteso.mx</td>
-                                            <td>DESI</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/2.jpg" alt="userProfilePhoto.jpg">Garrett Winters</td>
-                                            <td>is706609@iteso.mx</td>
-                                            <td>DESI</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/1.jpg" alt="userProfilePhoto.jpg">Ashton Cox</td>
-                                            <td>is750650@iteso.mx</td>
-                                            <td>DESI</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/3.jpg" alt="userProfilePhoto.jpg">Cedric Kelly</td>
-                                            <td>is706803@iteso.mx</td>
-                                            <td>DESI</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/3.jpg" alt="userProfilePhoto.jpg">Airi Satou</td>
-                                            <td>is605715@iteso.mx</td>
-                                            <td>DESI</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/4.jpg" alt="userProfilePhoto.jpg">Brielle Williamson</td>
-                                            <td>is780660@iteso.mx</td>
-                                            <td>DESI</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/4.jpg" alt="userProfilePhoto.jpg">Herrod Chandler</td>
-                                            <td>is707805@iteso.mx</td>
-                                            <td>DESI</td>
-        
-                                        </tr>
-                                        <tr>
-                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/5.jpg" alt="userProfilePhoto.jpg">Rhona Davidson</td>
-                                            <td>is603702@iteso.mx</td>
-                                            <td>DESI</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/6.jpg" alt="userProfilePhoto.jpg">Colleen Hurst</td>
-                                            <td>is704705@iteso.mx</td>
-                                            <td>DESI</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/7.jpg" alt="userProfilePhoto.jpg">Sonya Frost</td>
-                                            <td>is803603@iteso.mx</td>
-                                            <td>DESI</td>
-                                        </tr>        
-                                    </tbody>
-                                </table>
+            <!-- SidenavContent -->
+            <div class="col-9 p-0">
+                <div id="layoutSidenav_content">              
+                    <div class="container-fluid">
+                        <!-- StatusBar -->
+                        <div class="row">
+                            <div class="col-2 mt-4 p-0 offset-1 d-flex justify-content-center">
+                                <a data-toggle="modal" data-target="#modelId"href="#modelId" data-toggle="modal" data-target="#modelId">
+                                    <img id="statusBarAddUserButton" src="Sources/addButton.png" alt="AddButton.jpg"> 
+                                </a>                        
+                            </div>
+                            <div class="col-4 offset-1 mt-2">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <p class="statusBar_profileInformation">Administrador:</p>                                                                                             
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <p class="statusBar_profileInformation text-center">Navarro José Manuel</p>
+                                        </div>
+                                    </div>   
+                                </div>
+                            </div>
+                            <div class="col-2 offset-1 mt-2 p-0 d-flex justify-content-center"> 
+                                <a href="profile.html">
+                                    <img class="img-circle" id="statusBarProfilePhoto" src="AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg"> 
+                                </a>
+                            </div>           
+                        </div>                   
+                        <!-- /StatusBar -->
+                        <!-- UsersTables -->
+
+                        <!-- StudentsTableSubtitle -->
+                        <div class="row">
+                            <div class="col-11 offset-1 mt-4"> 
+                                <a href="">
+                                    <p class="UsersSubtitle">Alumnos:</p>
+                                </a>
                             </div>
                         </div>
-                    </div>
+                        <!-- /StudentsTableSubtitle -->
+
+                        <!-- StudentsTable -->
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <div id="usersTable" class="card mb-4 col-10 d-flex justify-content-center">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <!-- /TableHeader  -->
+                                                <thead>
+                                                    <tr id="tableHeader">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                            <div class="col">
+                                                                <th>Usuario</th>
+                                                            </div>
+                                                            <div class="col">
+                                                                <th>Correo</th>
+                                                            </div>
+                                                            <div class="col">
+                                                                <th>Departamento</th>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </tr>
+                                                </thead>
+                                                <!-- /TableHeader -->
+                                                <!-- TableBody -->
+                                                <tbody>
+                                                    <!-- Row1 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Tiger Nixon</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is704602@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row1 -->
+                                                    <!-- Row2 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/2.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Garrett Winters</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is706609@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row2 -->
+                                                    <!-- Row3 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/1.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Ashton Cox</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is750650@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row3 -->
+                                                    <!-- Row4 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/3.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Cedric Kelly</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is706803@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row4 -->
+                                                    <!-- Row5 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/3.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Airi Satou</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is605715@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row5 -->
+                                                    <!-- Row6 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/4.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Brielle William</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is707805@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row6 -->
+                                                    <!-- Row7 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/5.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Rhona Davidson</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is603702@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row7 -->
+                                                    <!-- Row8 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/6.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Colleen Hurst</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is704705@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row8 -->
+                                                    <!-- Row9 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/7.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Sonya Frost</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is803603@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row9 -->                                                                                                                           
+                                                </tbody>
+                                                <!-- /TableBody -->
+                                            </table>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <!-- /StudentsTable -->
+
+                        <!-- TeachersTableSubtitle -->
+                        <div class="row">
+                            <div class="col-11 offset-1 mt-4"> 
+                                <a href="">
+                                    <p class="UsersSubtitle">Profesores:</p>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- /TeachersTableSubtitle -->
+
+                        <!-- TeachersTable -->
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <div id="usersTable" class="card mb-4 col-10 d-flex justify-content-center">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <!-- /TableHeader  -->
+                                                <thead>
+                                                    <tr id="tableHeader">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                            <div class="col">
+                                                                <th>Usuario</th>
+                                                            </div>
+                                                            <div class="col">
+                                                                <th>Correo</th>
+                                                            </div>
+                                                            <div class="col">
+                                                                <th>Departamento</th>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </tr>
+                                                </thead>
+                                                <!-- /TableHeader -->
+                                                <!-- TableBody -->
+                                                <tbody>
+                                                    <!-- Row1 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Tiger Nixon</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is704602@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row1 -->
+                                                    <!-- Row2 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/2.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Garrett Winters</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is706609@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row2 -->
+                                                    <!-- Row3 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/1.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Ashton Cox</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is750650@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row3 -->
+                                                    <!-- Row4 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/3.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Cedric Kelly</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is706803@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row4 -->
+                                                    <!-- Row5 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/3.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Airi Satou</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is605715@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row5 -->
+                                                    <!-- Row6 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/4.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Brielle William</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is707805@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row6 -->                                                                                                                                                                            
+                                                </tbody>
+                                                <!-- /TableBody -->
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /TeachersTable -->
+
+                        <!-- CoordinatorsTableSubtitle -->
+                        <div class="row">
+                            <div class="col-11 offset-1 mt-4"> 
+                                <a href="">
+                                    <p class="UsersSubtitle">Coordinadores:</p>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- /CoordinatorsTableSubtitle -->
+
+                        <!-- CoordinatorsTable -->
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <div id="usersTable" class="card mb-4 col-10 d-flex justify-content-center">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <!-- /TableHeader  -->
+                                                <thead>
+                                                    <tr id="tableHeader">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                            <div class="col">
+                                                                <th>Usuario</th>
+                                                            </div>
+                                                            <div class="col">
+                                                                <th>Correo</th>
+                                                            </div>
+                                                            <div class="col">
+                                                                <th>Departamento</th>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </tr>
+                                                </thead>
+                                                <!-- /TableHeader -->
+                                                <!-- TableBody -->
+                                                <tbody>
+                                                    <!-- Row1 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Tiger Nixon</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is704602@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row1 -->
+                                                    <!-- Row2 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/2.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Garrett Winters</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is706609@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row2 -->
+                                                    <!-- Row3 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/1.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Ashton Cox</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is750650@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row3 -->
+                                                    <!-- Row4 -->
+                                                    <tr>
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/3.jpg" alt="userProfilePhoto.jpg">
+                                                                    </div>
+                                                                    <div class="col-6 d-flex justify-content-center">
+                                                                        <p class="userName">Cedric Kelly</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                            
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">is706803@iteso.mx</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                
+                                                        </td>
+
+                                                        <td> 
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                        <p class="userName">DESI</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                     
+                                                        </td>                        
+                                                    </tr>
+                                                    <!-- /Row4 -->                                                                                                                                                                                                                                                                                                            
+                                                </tbody>
+                                                <!-- /TableBody -->
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /CoordinatorsTable -->
+
+                        <!-- AcademicUnitCoordinatorsTableSubtitle -->
+                        <div class="row">
+                            <div class="col-11 offset-1 mt-4"> 
+                                <a href="">
+                                    <p class="UsersSubtitle">Coordinadores de unidad:</p>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- /AcademicUnitCoordinatorsTableSubtitle -->
+
+                        <!-- CoordinatorsTable -->
+                        <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <div id="usersTable" class="card mb-4 col-10 d-flex justify-content-center">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <!-- /TableHeader  -->
+                                            <thead>
+                                                <tr id="tableHeader">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                        <div class="col">
+                                                            <th>Usuario</th>
+                                                        </div>
+                                                        <div class="col">
+                                                            <th>Correo</th>
+                                                        </div>
+                                                        <div class="col">
+                                                            <th>Departamento</th>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </tr>
+                                            </thead>
+                                            <!-- /TableHeader -->
+                                            <!-- TableBody -->
+                                            <tbody>
+                                                <!-- Row1 -->
+                                                <tr>
+                                                    <td> 
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-6 d-flex justify-content-center">
+                                                                    <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg">
+                                                                </div>
+                                                                <div class="col-6 d-flex justify-content-center">
+                                                                    <p class="userName">Tiger Nixon</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>                                            
+                                                    </td>
+
+                                                    <td> 
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                    <p class="userName">is704602@iteso.mx</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>                                
+                                                    </td>
+
+                                                    <td> 
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                    <p class="userName">DESI</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>                     
+                                                    </td>                        
+                                                </tr>
+                                                <!-- /Row1 -->
+                                                <!-- Row2 -->
+                                                <tr>
+                                                    <td> 
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-6 d-flex justify-content-center">
+                                                                    <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/2.jpg" alt="userProfilePhoto.jpg">
+                                                                </div>
+                                                                <div class="col-6 d-flex justify-content-center">
+                                                                    <p class="userName">Garrett Winters</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>                                            
+                                                    </td>
+
+                                                    <td> 
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                    <p class="userName">is706609@iteso.mx</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>                                
+                                                    </td>
+
+                                                    <td> 
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                    <p class="userName">DESI</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>                     
+                                                    </td>                        
+                                                </tr>
+                                                <!-- /Row2 -->
+                                                <!-- Row3 -->
+                                                <tr>
+                                                    <td> 
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-6 d-flex justify-content-center">
+                                                                    <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/1.jpg" alt="userProfilePhoto.jpg">
+                                                                </div>
+                                                                <div class="col-6 d-flex justify-content-center">
+                                                                    <p class="userName">Ashton Cox</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>                                            
+                                                    </td>
+
+                                                    <td> 
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                    <p class="userName">is750650@iteso.mx</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>                                
+                                                    </td>
+
+                                                    <td> 
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-12 mt-3 d-flex justify-content-center">
+                                                                    <p class="userName">DESI</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>                     
+                                                    </td>                        
+                                                </tr>
+                                                <!-- /Row3 -->                                                                                                                                                                                                                                                                                                                                                 
+                                            </tbody>
+                                            <!-- /TableBody -->
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <!-- /CoordinatorsTable -->
+
+                        <!-- /UsersTables -->
+                    </div>               
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-xl-12 col-md-6"> 
-                    <a href="">
-                        <p id="professors_usersSubtitle" class="UsersSubtitle">Profesores:</p>
-                    </a>
-                </div>
-                </div>
-            <div class="row">
-                <div class="col-xl-10 col-md-6">
-                  <div id="usersTable" class="card mb-4">
-                      <div class="card-body">
-                          <div class="table-responsive">
-                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                  <thead>
-                                      <tr id="tableHeader">
-                                          <th>Usuario</th>
-                                          <th>Correo</th>
-                                          <th>Departamento</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <td> <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg"> Tiger Nixon</td>
-                                          <td>is704602@iteso.mx</td>
-                                          <td>DESI</td>
-                                      </tr>
-                                      <tr>
-                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/2.jpg" alt="userProfilePhoto.jpg">Garrett Winters</td>
-                                          <td>is706609@iteso.mx</td>
-                                          <td>DESI</td>
-                                      </tr>
-                                      <tr>
-                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/1.jpg" alt="userProfilePhoto.jpg">Ashton Cox</td>
-                                          <td>is750650@iteso.mx</td>
-                                          <td>DESI</td>
-                                      </tr>
-                                      <tr>
-                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/3.jpg" alt="userProfilePhoto.jpg">Cedric Kelly</td>
-                                          <td>is706803@iteso.mx</td>
-                                          <td>DESI</td>
-                                      </tr>
-                                      <tr>
-                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/3.jpg" alt="userProfilePhoto.jpg">Airi Satou</td>
-                                          <td>is605715@iteso.mx</td>
-                                          <td>DESI</td>
-                                      </tr>          
-                                  </tbody>
-                              </table>
-                          </div>
-                      </div>
-                  </div>
-              </div>
             </div>
-            <div class="row">
-                <div class="col-xl-12 col-md-6"> 
-                    <a href="">
-                        <p id="coordinators_usersSubtitle" class="UsersSubtitle">Coordinadores:</p>
-                    </a>
-                </div>
-                </div>
-            <div class="row">
-                <div class="col-xl-10 col-md-6">
-                  <div id="usersTable" class="card mb-4">
-                      <div class="card-body">
-                          <div class="table-responsive">
-                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                  <thead>
-                                      <tr id="tableHeader">
-                                          <th>Usuario</th>
-                                          <th>Correo</th>
-                                          <th>Departamento</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <td> <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg"> Tiger Nixon</td>
-                                          <td>is704602@iteso.mx</td>
-                                          <td>DESI</td>
-                                      </tr>
-                                      <tr>
-                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/2.jpg" alt="userProfilePhoto.jpg">Garrett Winters</td>
-                                          <td>is706609@iteso.mx</td>
-                                          <td>DESI</td>
-                                      </tr>
-                                      <tr>
-                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/1.jpg" alt="userProfilePhoto.jpg">Ashton Cox</td>
-                                          <td>is750650@iteso.mx</td>
-                                          <td>DESI</td>
-                                      </tr>       
-                                  </tbody>
-                              </table>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-12 col-md-6"> 
-                    <a href="">
-                        <p id="academicUnitCoordinators_usersSubtitle" class="UsersSubtitle">Coordinadores De Unidad Académica:</p>
-                    </a>
-                </div>
-                </div>
-            <div class="row">
-                <div class="col-xl-10 col-md-6">
-                  <div id="usersTable" class="card mb-4">
-                      <div class="card-body">
-                          <div class="table-responsive">
-                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                  <thead>
-                                      <tr id="tableHeader">
-                                          <th>Usuario</th>
-                                          <th>Correo</th>
-                                          <th>Departamento</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <td> <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg"> Tiger Nixon</td>
-                                          <td>is704602@iteso.mx</td>
-                                          <td>DESI</td>
-                                      </tr>
-                                      <tr>
-                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/2.jpg" alt="userProfilePhoto.jpg">Garrett Winters</td>
-                                          <td>is706609@iteso.mx</td>
-                                          <td>DESI</td>
-                                      </tr>
-                                      <tr>
-                                          <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/1.jpg" alt="userProfilePhoto.jpg">Ashton Cox</td>
-                                          <td>is750650@iteso.mx</td>
-                                          <td>DESI</td>
-                                      </tr>       
-                                  </tbody>
-                              </table>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
-         </div> 
-        </main>
-      </div>
-    </div>  
+            <!--/SidenavContent -->
+        </div>
+    </div>
+    <!-- /View -->
 
     <!-- Modal -->
     <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -328,6 +1111,8 @@
         </div>
       </div>
     </div>
+
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -99,10 +99,12 @@ hr{
 /*------------------------------Subtitles design------------------------------*/
 
 .UsersSubtitle{
-  margin-top: 50px;
-  margin-left: 80px;
-  width: 252px;
-  height: 70px;
+  /* margin-top: 50px;
+  margin-left: 80px; */
+  display: flex;
+  align-items: flex-start;
+  width: inherit;
+  height: inherit;
   /* UI Properties */
   text-align: center;
   font: Regular Helvetica Neue;
@@ -478,18 +480,24 @@ td{
 }
 
 #tableProfilePhoto{
-  margin-top: 0px;
+  /* margin-top: 0px;
   margin-left: 20px;
-  margin-right: 10px;
-  width: 45px;
-  height: 45px;
+  margin-right: 10px; */
+  height: 70px;
+  width: 70px;
+  /* height: 45px; */
+}
+
+.userName{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
 }
 
 /*------------------------------Users table design------------------------------*/
 
 /*Users table design*/
 #usersTable{
-  margin-left: 110px;
   background-color: #F5F5F5;
 }
 
