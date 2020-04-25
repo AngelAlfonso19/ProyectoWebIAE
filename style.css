@@ -1,9 +1,8 @@
 /*------------------------------General utilities design------------------------------*/
 hr{
-  margin-top: 8px;
-  margin-left: 30px;
-  width: 325px;
-  height: 100px;
+  margin-top: 0;
+  width: 400px;
+  height: 10px;
   /* UI Properties */
   background: #004270;
   opacity: 1;
@@ -13,7 +12,7 @@ hr{
   width: 193px;
   height: 179px;
   text-align: center;
-  font: Bold 150px/183px Helvetica Neue;
+  font: Bold 150px Helvetica Neue;
   letter-spacing: 0;
   color: #004270;
 }
@@ -28,23 +27,25 @@ hr{
 /*------------------------------Profile view design------------------------------*/
 
 #profileView_Score{
-  margin-top: 90px;
-  margin-left: 150px;
+  /* margin-top: 90px;
+  margin-left: 150px; */
+  position: absolute;
   opacity: 1;
 }
 
 #profile_profilePhoto{
-  margin-top: 140px;
-  margin-left: 10px;
+  /* margin-top: 140px;
+  margin-left: 10px; */
   width: 378px;
   height: 378px;
 }
 
 /*Profile information design*/
 .profileInformation{
-  width: 600px;
-  height: 93px;
+  /* width: 600px;
+  height: 93px; */
   /* UI Properties */ 
+  margin-bottom: 0;
   font: Regular Helvetica Neue;
   font-size: 4rem;
   letter-spacing: 0;
@@ -52,24 +53,23 @@ hr{
   opacity: 1;
 }
 
-#profile_profileInformation:first-of-type{
+/* #profile_profileInformation:first-of-type{
   margin-top: 35px;
   margin-left: 380px;
 }
-
+*/
+/* 
 #profile_profileInformation{
-  margin-top: -40px;
-  margin-left: 270px;
-  border-radius: 10px;
-}
+  text-align: center;
+} */
 
 /*------------------------------StatusBar design------------------------------*/
 
 #gearOption{
-  margin-top: 50px;
-  margin-left: 150px;
-  width: 130px;
-  height: 130px;
+  /* margin-top: 50px;
+  margin-left: 150px; */
+  align-self: center;
+  width: 110px;
   background: transparent;
   opacity: 1;
 }
@@ -161,9 +161,9 @@ hr{
 
 /*Modal design*/
 .modal-content{
-  margin-top: 100px;
-  width: 400px;
-  margin-left: 200px;
+  margin-top: 110px;
+  /* width: 400px;
+  margin-left: 200px; */
   background-color:#F5F5F5;
   border-color: transparent;
   border-radius: 5px !important;
@@ -224,117 +224,121 @@ form input {
 }
 
 /*LogOut button design*/
-#logOutButton{
+/* #logOutButton{
   margin-top: 0px;
   margin-left: 320px;
-}
+} */
 
 /*------------------------------Control panel design------------------------------*/
+
+.sidenav{
+  background-color:#F5F5F5;
+}
 
 /*Control panel logo design*/
 #controlPanelLogo{
   margin-top: 0px;
   margin-left: 0px;
-  width: 400px;
+  width: inherit;
   background: transparent 0% 0% no-repeat padding-box;
   opacity: 1;
 }
 
 /*Control panel content design*/
-#layoutSidenav_content{
+/* #layoutSidenav_content{
   background-color:#F5F9FE;
-}
+} */
 
 
 /*Control panel footer text color*/
-.sb-sidenav-dark {
+/* .sb-sidenav-dark {
   background-color:#F5F5F5;
   color:#F5F5F5;
-}
+} */
 
 /*Control panel footer background*/
-.sb-sidenav-dark .sb-sidenav-footer {
+/* .sb-sidenav-dark .sb-sidenav-footer {
   background-color: #F5F5F5;
-}
+} */
 
 /*Control panel selectors design*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link{
-  margin-top: 60px;
+.nav-link{
+  /* margin-top: 60px; */
   width: 236px;
   height: 70px;
   font: Regular Helvetica Neue;
-  font-size: 3.5rem;
+  font-size: 2.7rem;
   letter-spacing: 0;
   color: #004270;
   opacity: 1;
 }
 
 /*First selector control panel*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type{
+/* .sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type{
   margin-top: 80px;
   margin-left: 148px;
-}
+} */
 
 /*Second selector of control panel*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(2){
+/* .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(2){
   margin-left: 75px;
-}
+} */
 
 /*Third selector of control panel*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(3){
+/* .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(3){
   margin-left: 40px;
-}
+} */
 
 /*Fourth selector del menú del panel de control*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(4){
+/* .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(4){
   margin-left: 23px;
-}
+} */
 
 /*Control panel hovered selectors design*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:hover{
+/* .sb-sidenav-dark .sb-sidenav-menu .nav-link:hover{
   font: BOLD Helvetica Neue;
   font-size: 4.5rem;
-}
+} */
 
-/*First control panel hovered selector design*/
+/* First control panel hovered selector design
 .sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type:hover{
   margin-left: 134px;
   font-size: 5rem;
-}
+} */
 
-/*Second control panel hovered selector design*/
+/* Second control panel hovered selector design
 .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(2):hover{
   margin-left: 45px;
-}
+} */
 
 /*Third control panel hovered selector design*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(3):hover{
+/* .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(3):hover{
   margin-left: 8px;
-}
+} */
 
-/*Fourth control panel hovered selector design*/
+/* Fourth control panel hovered selector design
 .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(4):hover{
   margin-left: 5px;
   font-size: 4rem;
-}
-
+} */
+/* 
 /*Control panel active selector*/
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type.active {
+/* .sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type.active {
   margin-left: 300px;
   color:#004270;
   font: BOLD Helvetica Neue;
   font-size: 4.5rem;
-}
+} */
 
-.fixed-top, .sb-nav-fixed #layoutSidenav #layoutSidenav_nav, .sb-nav-fixed .sb-topnav {
+/* .fixed-top, .sb-nav-fixed #layoutSidenav #layoutSidenav_nav, .sb-nav-fixed .sb-topnav {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 1030;
-}
+} */
 
-#layoutSidenav {
+/* #layoutSidenav {
   display: flex;
 }
 
@@ -344,9 +348,9 @@ form input {
   transition: transform 0.15s ease-in-out;
   z-index: 1038;
   transform: translateX(-225px);
-}
+} */
 
-#layoutSidenav #layoutSidenav_content {
+/* #layoutSidenav #layoutSidenav_content {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -359,9 +363,9 @@ form input {
 
 .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
   transform: translateX(0);
-}
+} */
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   #layoutSidenav #layoutSidenav_nav {
     transform: translateX(0);
   }
@@ -375,8 +379,8 @@ form input {
   }
   .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content {
     margin-left: -225px;
-  }
-  .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
+  } */
+  /* .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
     display: none;
   }
 }
@@ -387,86 +391,86 @@ form input {
   width: 225px;
   height: 100vh;
   z-index: 1038;
-}
-.sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
+} */
+/* .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
   padding-top: 56px;
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
-  overflow-y: auto;
-}
+  overflow-y: auto; */
+/* }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_content {
   padding-left: 225px;
   top: 56px;
-}
+} */
 
-#layoutError {
+/* #layoutError {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
+} */
 
-#layoutError #layoutError_content {
+/* #layoutError #layoutError_content {
   min-width: 0;
   flex-grow: 1;
-}
-
+} */
+/* 
 #layoutError #layoutError_footer {
   min-width: 0;
-}
+} */
 
-.img-error {
+/* .img-error {
   max-width: 20rem;
-}
+} */
 
-.sb-topnav {
+/* .sb-topnav {
   padding-left: 0;
   height: 56px;
   z-index: 1039;
-}
+} */
 
-.sb-sidenav {
+/* .sb-sidenav {
   display: flex;
   flex-direction: column;
   height: 100%;
   flex-wrap: nowrap;
-}
+} */
 
-.sb-sidenav .sb-sidenav-menu {
+/* .sb-sidenav .sb-sidenav-menu {
   flex-grow: 1;
-}
+} */
 
-.sb-sidenav .sb-sidenav-menu .nav {
+/* .sb-sidenav .sb-sidenav-menu .nav {
   flex-direction: column;
   flex-wrap: nowrap;
-}
-
+} */
+/* 
 .sb-sidenav .sb-sidenav-menu .nav .nav-link {
   display: flex;
   align-items: center;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   position: relative;
-}
+} */
 
-.sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-sidenav-collapse-arrow {
+/* .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-sidenav-collapse-arrow {
   display: inline-block;
   margin-left: auto;
   transition: transform 0.15s ease;
-}
+} */
 
-.sb-sidenav .sb-sidenav-menu .nav .nav-link.collapsed .sb-sidenav-collapse-arrow {
+/* .sb-sidenav .sb-sidenav-menu .nav .nav-link.collapsed .sb-sidenav-collapse-arrow {
   transform: rotate(-90deg);
-}
+} */
 
-.sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-nested {
+/* .sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-nested {
   margin-left: 1.5rem;
   flex-direction: column;
-}
+} */
 
-.sb-sidenav .sb-sidenav-footer {
+/* .sb-sidenav .sb-sidenav-footer {
   padding: 0.75rem;
   flex-shrink: 0;
-}
+} */
 
 /*------------------------------General table design------------------------------*/
 
