@@ -9,7 +9,7 @@ hr{
 }
 
 .inputText{
-  height: 200px;
+  height: 150px;
 }
 
 .Score{
@@ -87,8 +87,7 @@ hr{
 
 .statusBar_profileInformation{
   display:flex;
-  /* UI Properties */ 
-  align-items:flex-end;
+  align-items: center;
   font: Regular Helvetica Neue;
   font-size: 2rem;
   margin-bottom: 0;
