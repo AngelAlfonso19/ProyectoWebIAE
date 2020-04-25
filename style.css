@@ -8,6 +8,10 @@ hr{
   opacity: 1;
 }
 
+.inputText{
+  height: 200px;
+}
+
 .Score{
   width: 193px;
   height: 179px;
@@ -47,21 +51,14 @@ hr{
   /* UI Properties */ 
   margin-bottom: 0;
   font: Regular Helvetica Neue;
-  font-size: 4rem;
   letter-spacing: 0;
   color: #004270;
   opacity: 1;
 }
 
-/* #profile_profileInformation:first-of-type{
-  margin-top: 35px;
-  margin-left: 380px;
-}
-*/
-/* 
 #profile_profileInformation{
-  text-align: center;
-} */
+  font-size: 4rem;
+}
 
 /*------------------------------StatusBar design------------------------------*/
 
@@ -75,41 +72,29 @@ hr{
 }
 
 #statusBarAddUserButton{
-  margin-top: 50px;
-  margin-left: 110px;
+  /* margin-top: 50px;
+  margin-left: 110px; */
   width: 70px;
   height: 70px;
 }
 
 #statusBarProfilePhoto{
-  margin-top: 20px;
-  margin-left: 60px;
+  /* margin-top: 20px;
+  margin-left: 60px; */
   width: 100px;
   height: 100px;
 }
 
 .statusBar_profileInformation{
-  width: 600px;
-  height: 93px;
+  display:flex;
   /* UI Properties */ 
+  align-items:flex-end;
   font: Regular Helvetica Neue;
+  font-size: 2rem;
+  margin-bottom: 0;
   letter-spacing: 0;
   color: #004270;
   opacity: 1;
-}
-
-.statusBar_profileInformation{
-  margin-top: -25px;
-  margin-left: -40px;
-  font-size: 2rem;
-}
-
-.statusBar_profileInformation:first-of-type{
-  width: 600px;
-  height: 40px;
-  margin-top: 20px;
-  margin-left: 15px;
-  font-size: 2rem;
 }
 
 /*------------------------------Subtitles design------------------------------*/
@@ -161,7 +146,7 @@ hr{
 
 /*Modal design*/
 .modal-content{
-  margin-top: 110px;
+  margin-top: 100px;
   /* width: 400px;
   margin-left: 200px; */
   background-color:#F5F5F5;
@@ -197,7 +182,7 @@ form input {
 /*General button design*/
 .button{
   width: 498px;
-  height: 60px;
+  /* height: 60px; */
   /* UI Properties */
   background: #004270 0% 0% no-repeat padding-box;
   color: #FFFFFF;
@@ -235,6 +220,18 @@ form input {
   background-color:#F5F5F5;
 }
 
+/*Control panel selectors design*/
+.nav-link{
+  /* margin-top: 60px; */
+  width: 236px;
+  height: 70px;
+  font: Regular Helvetica Neue;
+  font-size: 2.7rem;
+  letter-spacing: 0;
+  color: #004270;
+  opacity: 1;
+}
+
 /*Control panel logo design*/
 #controlPanelLogo{
   margin-top: 0px;
@@ -245,9 +242,9 @@ form input {
 }
 
 /*Control panel content design*/
-/* #layoutSidenav_content{
+#layoutSidenav_content{
   background-color:#F5F9FE;
-} */
+}
 
 
 /*Control panel footer text color*/
@@ -260,18 +257,6 @@ form input {
 /* .sb-sidenav-dark .sb-sidenav-footer {
   background-color: #F5F5F5;
 } */
-
-/*Control panel selectors design*/
-.nav-link{
-  /* margin-top: 60px; */
-  width: 236px;
-  height: 70px;
-  font: Regular Helvetica Neue;
-  font-size: 2.7rem;
-  letter-spacing: 0;
-  color: #004270;
-  opacity: 1;
-}
 
 /*First selector control panel*/
 /* .sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type{
