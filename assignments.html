@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>AdminAssignments</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+    <style>
+    .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(3){
+        font: BOLD Helvetica Neue;
+        font-size: 4.5rem;
+       margin-left: 8px;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="layoutSidenav">
+      <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+          <div class="sb-sidenav-menu">
+            <div class="nav">
+              <img src="./Sources/logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
+              <a class="nav-link" href="IAE.html">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-IAE"></i>
+                </div>
+                IAE
+              </a>
+              <hr>
+              <a class="nav-link" href="users.html">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-Usuarios"></i>
+                </div>
+                Usuarios
+              </a>
+              <hr>
+              <a class="nav-link" href="assignments.html">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-Asignaturas"></i>
+                </div>
+                Asignaturas
+              </a>
+              <hr>
+              <a class="nav-link" href="EvaluacionesGraphs.html">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-"></i>
+                </div>
+                Evaluaciones
+              </a>
+              <hr>
+            </div>
+          </div>
+          <div class="sb-sidenav-footer">
+         
+          </div>
+        </nav>
+      </div>
+
+      <div id="layoutSidenav_content">
+        <main>
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-xl-4 col-md-6">
+                    <a data-toggle="modal" data-target="#modelId"href="#modelId" data-toggle="modal" data-target="#modelId">
+                        <img id="statusBarAddUserButton" src="Sources/addButton.png" alt="AddButton.jpg"> 
+                    </a>
+                  </div>
+                  <div class="col-xl-4 col-md-6">
+                    <p id="statusBarRol_profileInformation" class="statusBar_profileInformation">Administrador:</p>
+                    <p id="statusBarName_profileInformation" class="statusBar_profileInformation">Navarro José Manuel</p>
+                  </div> 
+                  <div class="col-xl-4 col-md-6"> 
+                    <a href="profile.html">
+                        <img class="img-circle" id="statusBarProfilePhoto" src="Sources/AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg"> 
+                    </a>
+                  </div>  
+              </div>           
+              <div class="row">
+                  <div class="col-xl-12 col-md-6"> 
+                      <a href="">
+                          <p class="assignmentsSubtitle">Asignaturas:</p>
+                      </a>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-10 col-md-6">
+                    <div id="assignmentsTable" class="card mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr id="tableHeader">
+                                            <th>Asignatura</th>
+                                            <th>Profesor</th>
+                                            <th>Periodo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Javascript</td>
+                                            <td> <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg"> Tiger Nixon</td>
+                                            <td>20/01/2020</td>
+                                        </tr>
+                                        <tr>
+                                            
+                                            <td>Bases de datos</td>
+                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/2.jpg" alt="userProfilePhoto.jpg">Garrett Winters</td>
+                                            <td>20/01/2020</td>
+                                        </tr>
+                                        <tr>
+                                            
+                                            <td>PHP</td>
+                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/1.jpg" alt="userProfilePhoto.jpg">Ashton Cox</td>
+                                            <td>20/01/2019</td>
+                                        </tr>
+                                        <tr>
+                                            
+                                            <td>Android</td>
+                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/3.jpg" alt="userProfilePhoto.jpg">Cedric Kelly</td>
+                                            <td>20/01/2019</td>
+                                        </tr>
+                                        <tr>
+                                            
+                                            <td>Estructura de datos</td>
+                                            <td><img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/3.jpg" alt="userProfilePhoto.jpg">Airi Satou</td>
+                                            <td>20/01/2018</td>
+                                        </tr>     
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div> 
+        </main>
+      </div>
+    </div>  
+
+    <!-- Modal -->
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Datos de asignatura nueva</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <form class="login-form">
+              <input type="text" placeholder="Nombre de asignatura..."> <br>
+              <input type="text" placeholder="Profesor..."> <br>
+              <input type="text" placeholder="Carrera..."> <br>
+              <input type="email" placeholder="Periodo..."> <br>
+              <input type="password" placeholder="Créditos..."><br>
+            </form>
+            <button type="button" class="modalButton" data-dismiss="modal">Confirmar</button>
+            <button type="button" class="modalButton" data-dismiss="modal">Cancelar</button>
+          </div>    
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="Assets/usersTables.js"></script>
+  </body>
+</html>
