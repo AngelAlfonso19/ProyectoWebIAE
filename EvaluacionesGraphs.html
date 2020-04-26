@@ -1,721 +1,880 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <title>Admin</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-    <title>Admin</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+    </head>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
-<style>
-    div input.button {
-        background-color: #004270;
-        color: white;
-        border: 0;
-        width: 200px;
-        height: 50px;
-
-    }
-
-    div h3 {
-        padding-top: 100px;
-    }
-
-    div form {
-        padding: 20px;
-    }
-
-    #add {
-        width: 60px;
-        height: 60px;
-        color: #004270;
-        background-color: white;
-        border: solid 1px #004270;
-        border-radius: 70%
-    }
-
-
-
-    .graph {
-        margin-bottom: 1em;
-        font: normal 100%/150% arial, helvetica, sans-serif;
-    }
-
-    .graph caption {
-        font: bold 150%/120% arial, helvetica, sans-serif;
-        padding-bottom: 0.33em;
-    }
-
-    .graph tbody th {
-        text-align: right;
-    }
-
-    @supports (display:grid) {
-
-        @media (min-width:32em) {
-
-            .graph {
-                display: block;
-                width: 600px;
-                height: 300px;
-            }
-
-            .graph caption {
-                display: block;
-            }
-
-            .graph thead {
-                display: none;
-            }
-
-            .graph tbody {
-                position: relative;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(2em, 1fr));
-                column-gap: 2.5%;
-                align-items: end;
-                height: 100%;
-                margin: 3em 0 1em 2.8em;
-                padding: 0 1em;
-                border-bottom: 2px solid rgba(0, 0, 0, 0.5);
-                background: repeating-linear-gradient(180deg,
-                        rgba(170, 170, 170, 0.7) 0,
-                        rgba(170, 170, 170, 0.7) 1px,
-                        transparent 1px,
-                        transparent 20%);
-            }
-
-            .graph tbody:before,
-            .graph tbody:after {
-                position: absolute;
-                left: -3.2em;
-                width: 2.8em;
-                text-align: right;
-                font: bold 80%/120% arial, helvetica, sans-serif;
-            }
-
-            .graph tbody:before {
-                content: "100%";
-                top: -0.6em;
-            }
-
-            .graph tbody:after {
-                content: "0%";
-                bottom: -0.6em;
-            }
-
-            .graph tr {
-                position: relative;
-                display: block;
-            }
-
-            .graph tr:hover {
-                z-index: 999;
-            }
-
-            .graph th,
-            .graph td {
-                display: block;
-                text-align: center;
-            }
-
-            .graph tbody th {
-                position: absolute;
-                top: -3em;
-                left: 0;
-                width: 100%;
-                font-weight: normal;
-                text-align: center;
-                white-space: nowrap;
-                text-indent: 0;
-                transform: rotate(-45deg);
-            }
-
-            .graph tbody th:after {
-                content: "";
-            }
-
-            .graph td {
-                width: 100%;
-                height: 100%;
-                background: #F63;
-                border-radius: 0.5em 0.5em 0 0;
-                transition: background 0.5s;
-            }
-
-            .graph tr:hover td {
-                opacity: 0.7;
-            }
-
-            .graph td span {
-                overflow: hidden;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                width: 0;
-                padding: 0.5em 0;
-                margin: -1em 0 0;
-                font: normal 85%/120% arial, helvetica, sans-serif;
-                /* 			background:white; */
-                /* 			box-shadow:0 0 0.25em rgba(0,0,0,0.6); */
-                font-weight: bold;
-                opacity: 0;
-                transition: opacity 0.5s;
-                color: white;
-            }
-
-            .toggleGraph:checked+table td span,
-            .graph tr:hover td span {
-                width: 4em;
-                margin-left: -2em;
-                /* 1/2 the declared width */
-                opacity: 1;
-            }
-
-
-
-
-
+    <style>
+        /* div input.button {
+            background-color: #004270;
+            color: white;
+            border: 0;
+            width: 200px;
+            height: 50px;
 
         }
 
-        /* min-width:32em */
+        div h3 {
+            padding-top: 100px;
+        }
 
-    }
+        div form {
+            padding: 20px;
+        }
 
-    .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(4){
-        font: BOLD Helvetica Neue;
-        margin-left: 5px;
-        font-size: 4rem;
-    }
+        #add {
+            width: 60px;
+            height: 60px;
+            color: #004270;
+            background-color: white;
+            border: solid 1px #004270;
+            border-radius: 70%
+        } */
+        .graph {
+            margin-bottom: 1em;
+            font: normal 100%/150% arial, helvetica, sans-serif;
+        }
 
-    /* grid only */
-</style>
+        .graph caption {
+            font: bold 150%/120% arial, helvetica, sans-serif;
+            padding-bottom: 0.33em;
+        }
 
-<body>
+        .graph tbody th {
+            text-align: right;
+        }
 
-    <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        <img src="Sources/logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
-                        <a class="nav-link" href="IAE.html">
-                            <div class="sb-nav-link-icon">
-                                <i class="fas fa-IAE"></i>
+        @supports (display:grid) {
+
+            @media (min-width:32em) {
+
+                .graph {
+                    display: block;
+                    width: 600px;
+                    height: 300px;
+                }
+
+                .graph caption {
+                    display: block;
+                }
+
+                .graph thead {
+                    display: none;
+                }
+
+                .graph tbody {
+                    position: relative;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(2em, 1fr));
+                    column-gap: 2.5%;
+                    align-items: end;
+                    height: 100%;
+                    margin: 3em 0 1em 2.8em;
+                    padding: 0 1em;
+                    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+                    background: repeating-linear-gradient(180deg,
+                            rgba(170, 170, 170, 0.7) 0,
+                            rgba(170, 170, 170, 0.7) 1px,
+                            transparent 1px,
+                            transparent 20%);
+                }
+
+                .graph tbody:before,
+                .graph tbody:after {
+                    position: absolute;
+                    left: -3.2em;
+                    width: 2.8em;
+                    text-align: right;
+                    font: bold 80%/120% arial, helvetica, sans-serif;
+                }
+
+                .graph tbody:before {
+                    content: "100%";
+                    top: -0.6em;
+                }
+
+                .graph tbody:after {
+                    content: "0%";
+                    bottom: -0.6em;
+                }
+
+                .graph tr {
+                    position: relative;
+                    display: block;
+                }
+
+                .graph tr:hover {
+                    z-index: 999;
+                }
+
+                .graph th,
+                .graph td {
+                    display: block;
+                    text-align: center;
+                }
+
+                .graph tbody th {
+                    position: absolute;
+                    top: -3em;
+                    left: 0;
+                    width: 100%;
+                    font-weight: normal;
+                    text-align: center;
+                    white-space: nowrap;
+                    text-indent: 0;
+                    transform: rotate(-45deg);
+                }
+
+                .graph tbody th:after {
+                    content: "";
+                }
+
+                .graph td {
+                    width: 100%;
+                    height: 100%;
+                    background: #F63;
+                    border-radius: 0.5em 0.5em 0 0;
+                    transition: background 0.5s;
+                }
+
+                .graph tr:hover td {
+                    opacity: 0.7;
+                }
+
+                .graph td span {
+                    overflow: hidden;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    width: 0;
+                    padding: 0.5em 0;
+                    margin: -1em 0 0;
+                    font: normal 85%/120% arial, helvetica, sans-serif;
+                    /* 			background:white; */
+                    /* 			box-shadow:0 0 0.25em rgba(0,0,0,0.6); */
+                    font-weight: bold;
+                    opacity: 0;
+                    transition: opacity 0.5s;
+                    color: white;
+                }
+
+                .toggleGraph:checked+table td span,
+                .graph tr:hover td span {
+                    width: 4em;
+                    margin-left: -2em;
+                    /* 1/2 the declared width */
+                    opacity: 1;
+                }
+
+
+
+
+
+
+            }
+
+            /* min-width:32em */
+
+        }
+
+        .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(4){
+            font: BOLD Helvetica Neue;
+            margin-left: 5px;
+            font-size: 4rem;
+        }
+
+        /* grid only */
+    </style>
+    <body>
+        <!-- View -->
+        <div class="container-fluid" id="layoutSidenav">
+            <div class="row">
+                <!-- Sidenav -->
+                <div class="col-3 p-0 sidenav">
+                    <div class="container-fluid sticky-top">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <img src="./Sources/logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
                             </div>
-                            IAE
-                        </a>
-                        <hr>
-                        <a class="nav-link" href="users.html">
-                            <div class="sb-nav-link-icon">
-                                <i class="fas fa-Usuarios"></i>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mt-5 d-flex justify-content-center">
+                                <a class="nav-link d-flex justify-content-center" href="IAE.html">IAE</a>
                             </div>
-                            Usuarios
-                        </a>
-                        <hr>
-                        <a class="nav-link" href="assignments.html">
-                            <div class="sb-nav-link-icon">
-                                <i class="fas fa-Asignaturas"></i>
+                            <div class="col-12 d-flex justify-content-center">
+                                <hr>
                             </div>
-                            Asignaturas
-                        </a>
-                        <hr>
-                        <a class="nav-link" href="EvaluacionesGraphs.html">
-                            <div class="sb-nav-link-icon">
-                                <i class="fas fa-"></i>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mt-4 d-flex justify-content-center">
+                                <a class="nav-link d-flex justify-content-center" href="users.html">Usuarios</a>
                             </div>
-                            Evaluaciones
-                        </a>
-                        <hr>
+                            <div class="col-12 d-flex justify-content-center">
+                                <hr>
+                            </div>        
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mt-4 d-flex justify-content-center">
+                                <a class="nav-link d-flex justify-content-center" href="assignments.html">Asignaturas</a>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center">
+                                <hr>
+                            </div>        
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mt-4 d-flex justify-content-center">
+                                <a class="nav-link d-flex justify-content-center" href="EvaluacionesGraphs.html">Evaluaciones</a>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center">
+                                <hr>
+                            </div>        
+                        </div>
                     </div>
                 </div>
-                <div class="sb-sidenav-footer">
-
+                <!-- /Sidenav -->
+                <!-- SidenavContent -->
+                <div class="col-9 p-0">
+                    <div id="layoutSidenav_content">              
+                        <div class="container-fluid">
+                            <!-- StatusBar -->
+                            <div class="row">
+                                <div class="col-4 offset-4 mt-2">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-12 d-flex justify-content-center">
+                                                <p class="statusBar_profileInformation">Administrador:</p>                                                                                             
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 d-flex justify-content-center">
+                                                <p class="statusBar_profileInformation text-center">Navarro José Manuel</p>
+                                            </div>
+                                        </div>   
+                                    </div>
+                                </div>
+                                <div class="col-2 offset-1 mt-2 p-0 d-flex justify-content-center"> 
+                                    <a href="profile.html">
+                                        <img class="img-circle" id="statusBarProfilePhoto" src="AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg"> 
+                                    </a>
+                                </div>           
+                            </div>                   
+                            <div class="row">
+                                <div class="col-12 d-flex justify-content-center">
+                                    <p class="statusBar_profileInformation">Profesor:</p>      
+                                    <select id="listTeachers">
+                                        <option value="default" selected></option>
+                                        <option value="Luis Fernando"> Luis Fernando</option>
+                                        <option value="Hugo Ivan Piza"> Hugo Ivan Piza</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 mt-2 d-flex justify-content-center">
+                                    <p class="statusBar_profileInformation">Materia:</p>
+                                    <select id="listSubject">                        
+                                        <option value="default" selected></option>
+                                        <option value="Programacion Orientada a Objetos"> Programacion Orientada a Objetos</option>
+                                        <option value="Programacion web"> Programacion web</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- /StatusBar -->
+                            <!-- ProfessorInformation-->
+                            <div class="row">
+                                <div class="col-12 mt-4 d-flex justify-content-center"></div>
+                                    <!-- ProfessorProfilePhoto -->
+                                    <div class="col-3 p-0 d-flex justify-content-center"> 
+                                        <div class="container-fluid">
+                                            <div class="row justify-content-center">
+                                                <div class="col d-flex justify-content-center">
+                                                    <a href="">
+                                                        <img class="img-circle evaluation_professorPhoto" src="./Sources/ProfilePhotoProfessor.jpg" alt="profilePhotoProfessor.jpg">
+                                                    </a>                                            
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <!-- /ProfessorProfilePhoto -->
+                                    <!-- ProfessorDataEvaluation -->
+                                    <div class="col-5 p-0 mt-3 d-flex justify-content-center">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-4 p-0">
+                                                    <p class="evaluation_professorInformation">Promedio:</p>
+                                                </div>
+                                                <div class="col-1 d-flex justify-content-center p-0">
+                                                    <p class="evaluation_professorInformation">A</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6 p-0">
+                                                    <p class="evaluation_professorInformation">Promedio clase:</p>
+                                                </div>
+                                                <div class="col-2 d-flex justify-content-center p-0">
+                                                    <p class="evaluation_professorInformation">A+</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6 p-0">
+                                                    <div class="form">
+                                                        <input type="text" id="form1" class="form-control">
+                                                        <label for="form1">Fecha</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2">
+                                                    <input class="button" type="submit" value="Eliminar">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /ProfessorDataEvaluation -->
+                                </div>
+                            </div>
+                            <!-- ProfessorName -->
+                            <div class="row">
+                                <div class="col-5 offset-1 p-0 d-flex justify-content-center">
+                                    <a href="">
+                                        <p class="evaluation_professorInformation text-center" id="evaluation_professorName">Montoya Ángel</p>
+                                    </a>
+                                </div>
+                            </div>
+                             <!-- /ProfessorName  -->
+                            <!-- /ProfessorInformation  -->
+                            <div class="row">
+                                <div class="col-xl-4 col-md-6">
+    
+                                </div>
+                                <div class="col-xl-4 col-md-6">
+                                    <table class="graph">
+                                        <caption>Bar Chart HTML From HTML Table</caption>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Item</th>
+                                                <th scope="col">Percent</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="height:85%">
+                                                <th scope="row">0</th>
+                                                <td><span>85%</span></td>
+                                            </tr>
+                                            <tr style="height:23%">
+                                                <th scope="row">1</th>
+                                                <td><span>23%</span></td>
+                                            </tr>
+                                            <tr style="height:7%">
+                                                <th scope="row">2</th>
+                                                <td><span>7%</span></td>
+                                            </tr>
+                                            <tr style="height:38%">
+                                                <th scope="row">3</th>
+                                                <td><span>38%</span></td>
+                                            </tr>
+                                            <tr style="height:35%">
+                                                <th scope="row">4</th>
+                                                <td><span>35%</span></td>
+                                            </tr>
+                                            <tr style="height:35%">
+                                                <th scope="row">5</th>
+                                                <td><span>50%</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+    
+                                </div>
+                                <div class="col-xl-4 col-md-6">
+    
+                                </div>
+                            </div>
+                        </div>               
+                    </div>
                 </div>
-            </nav>
+                <!--/SidenavContent -->
+            </div>
         </div>
+        <!-- /View -->
 
-        <div id="layoutSidenav_content">
-            <main>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_content">
+                <main>
 
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <p id="users_profileInformation" class="profileInformation">Administrador</p>
+                                <p id="users_profileInformation" class="profileInformation">Navarro José Manuel</p>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <a href="profile.html">
+                                    <img class="img-circle" id="statusBarProfilePhoto" src="AdminProfilePhoto.jpg"
+                                        alt="AdminProfilePhoto.jpg">
+                                </a>
+                            </div>
+                            <div class="row">
+
+                            </div>
+                            <div class="row">
+
+                            </div>
                         </div>
-                        <div class="col-xl-4 col-md-6">
-                            <p id="users_profileInformation" class="profileInformation">Administrador</p>
-                            <p id="users_profileInformation" class="profileInformation">Navarro José Manuel</p>
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
+
+                            </div>
+                            <div class="col-xl-4 col-md-6" style="text-align: center; padding-bottom: 30px;">
+
+                                <select id="listteachers">
+                                    <option value="default" selected>Profesor:</option>
+                                    <option value="Luis Fernando"> Luis Fernando</option>
+                                    <option value="Hugo Ivan Piza"> Hugo Ivan Piza</option>
+                                </select>
+                                <select id="listsubject">
+                                    <option value="default" selected>Materia:</option>
+                                    <option value="Programacion Orientada a Objetos"> Programacion Orientada a Objetos
+                                    </option>
+                                    <option value="Programacion web"> Programacion web</option>
+                                </select>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+
+                            </div>
                         </div>
-                        <div class="col-xl-4 col-md-6">
-                            <a href="profile.html">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6" style="text-align: center;">
                                 <img class="img-circle" id="statusBarProfilePhoto" src="AdminProfilePhoto.jpg"
                                     alt="AdminProfilePhoto.jpg">
-                            </a>
+                                <p id="users_profileInformation" class="profileInformation">Profesor: Jose Manuel Navarro</p>
+                            </div>
+                            <div class="col-xl-4 col-md-6" style="text-align: center">
+                                <p id="users_profileInformation" class="profileInformation">Promedio: A</p> 
+                                <p id="users_profileInformation" class="profileInformation">Promedio clase: A+</p> 
+                                <p id="users_profileInformation" class="profileInformation">Fecha: 20/03/2020</p>
+                            </div>
+                            <div class="col-xl-4 col-md-6" style="text-align: center;">
+                                <input class="button" type="submit" value="Eliminar">
+                            </div>
                         </div>
                         <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <h3>1. Pregunta 1</h3>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+
+                            </div>
                         </div>
                         <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <table class="graph">
+                                    <caption>Bar Chart HTML From HTML Table</caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Item</th>
+                                            <th scope="col">Percent</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="height:85%">
+                                            <th scope="row">0</th>
+                                            <td><span>85%</span></td>
+                                        </tr>
+                                        <tr style="height:23%">
+                                            <th scope="row">1</th>
+                                            <td><span>23%</span></td>
+                                        </tr>
+                                        <tr style="height:7%">
+                                            <th scope="row">2</th>
+                                            <td><span>7%</span></td>
+                                        </tr>
+                                        <tr style="height:38%">
+                                            <th scope="row">3</th>
+                                            <td><span>38%</span></td>
+                                        </tr>
+                                        <tr style="height:35%">
+                                            <th scope="row">4</th>
+                                            <td><span>35%</span></td>
+                                        </tr>
+                                        <tr style="height:35%">
+                                            <th scope="row">5</th>
+                                            <td><span>50%</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                        </div>
-                        <div class="col-xl-4 col-md-6" style="text-align: center; padding-bottom: 30px;">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
-                            <select id="listteachers">
-                                <option value="default" selected>Profesor:</option>
-                                <option value="Luis Fernando"> Luis Fernando</option>
-                                <option value="Hugo Ivan Piza"> Hugo Ivan Piza</option>
-                            </select>
-                            <select id="listsubject">
-                                <option value="default" selected>Materia:</option>
-                                <option value="Programacion Orientada a Objetos"> Programacion Orientada a Objetos
-                                </option>
-                                <option value="Programacion web"> Programacion web</option>
-                            </select>
+                            </div>
                         </div>
-                        <div class="col-xl-4 col-md-6">
 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6" style="text-align: center;">
-                            <img class="img-circle" id="statusBarProfilePhoto" src="AdminProfilePhoto.jpg"
-                                alt="AdminProfilePhoto.jpg">
-                            <p id="users_profileInformation" class="profileInformation">Profesor: Jose Manuel Navarro</p>
-                        </div>
-                        <div class="col-xl-4 col-md-6" style="text-align: center">
-                            <p id="users_profileInformation" class="profileInformation">Promedio: A</p> 
-                            <p id="users_profileInformation" class="profileInformation">Promedio clase: A+</p> 
-                            <p id="users_profileInformation" class="profileInformation">Fecha: 20/03/2020</p>
-                        </div>
-                        <div class="col-xl-4 col-md-6" style="text-align: center;">
-                            <input class="button" type="submit" value="Eliminar">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <h3>1. Pregunta 1</h3>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <h3>2. Pregunta 2</h3>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <table class="graph">
-                                <caption>Bar Chart HTML From HTML Table</caption>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Item</th>
-                                        <th scope="col">Percent</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height:85%">
-                                        <th scope="row">0</th>
-                                        <td><span>85%</span></td>
-                                    </tr>
-                                    <tr style="height:23%">
-                                        <th scope="row">1</th>
-                                        <td><span>23%</span></td>
-                                    </tr>
-                                    <tr style="height:7%">
-                                        <th scope="row">2</th>
-                                        <td><span>7%</span></td>
-                                    </tr>
-                                    <tr style="height:38%">
-                                        <th scope="row">3</th>
-                                        <td><span>38%</span></td>
-                                    </tr>
-                                    <tr style="height:35%">
-                                        <th scope="row">4</th>
-                                        <td><span>35%</span></td>
-                                    </tr>
-                                    <tr style="height:35%">
-                                        <th scope="row">5</th>
-                                        <td><span>50%</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <table class="graph">
+                                    <caption>Bar Chart HTML From HTML Table</caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Item</th>
+                                            <th scope="col">Percent</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="height:85%">
+                                            <th scope="row">0</th>
+                                            <td><span>85%</span></td>
+                                        </tr>
+                                        <tr style="height:23%">
+                                            <th scope="row">1</th>
+                                            <td><span>23%</span></td>
+                                        </tr>
+                                        <tr style="height:7%">
+                                            <th scope="row">2</th>
+                                            <td><span>7%</span></td>
+                                        </tr>
+                                        <tr style="height:38%">
+                                            <th scope="row">3</th>
+                                            <td><span>38%</span></td>
+                                        </tr>
+                                        <tr style="height:35%">
+                                            <th scope="row">4</th>
+                                            <td><span>35%</span></td>
+                                        </tr>
+                                        <tr style="height:35%">
+                                            <th scope="row">5</th>
+                                            <td><span>50%</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <h3>2. Pregunta 2</h3>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <h3>3. Pregunta 3</h3>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <table class="graph">
-                                <caption>Bar Chart HTML From HTML Table</caption>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Item</th>
-                                        <th scope="col">Percent</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height:85%">
-                                        <th scope="row">0</th>
-                                        <td><span>85%</span></td>
-                                    </tr>
-                                    <tr style="height:23%">
-                                        <th scope="row">1</th>
-                                        <td><span>23%</span></td>
-                                    </tr>
-                                    <tr style="height:7%">
-                                        <th scope="row">2</th>
-                                        <td><span>7%</span></td>
-                                    </tr>
-                                    <tr style="height:38%">
-                                        <th scope="row">3</th>
-                                        <td><span>38%</span></td>
-                                    </tr>
-                                    <tr style="height:35%">
-                                        <th scope="row">4</th>
-                                        <td><span>35%</span></td>
-                                    </tr>
-                                    <tr style="height:35%">
-                                        <th scope="row">5</th>
-                                        <td><span>50%</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <table class="graph">
+                                    <caption>Bar Chart HTML From HTML Table</caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Item</th>
+                                            <th scope="col">Percent</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="height:85%">
+                                            <th scope="row">0</th>
+                                            <td><span>85%</span></td>
+                                        </tr>
+                                        <tr style="height:23%">
+                                            <th scope="row">1</th>
+                                            <td><span>23%</span></td>
+                                        </tr>
+                                        <tr style="height:7%">
+                                            <th scope="row">2</th>
+                                            <td><span>7%</span></td>
+                                        </tr>
+                                        <tr style="height:38%">
+                                            <th scope="row">3</th>
+                                            <td><span>38%</span></td>
+                                        </tr>
+                                        <tr style="height:35%">
+                                            <th scope="row">4</th>
+                                            <td><span>35%</span></td>
+                                        </tr>
+                                        <tr style="height:35%">
+                                            <th scope="row">5</th>
+                                            <td><span>50%</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <h3>3. Pregunta 3</h3>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <h3>4. Pregunta 4</h3>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <table class="graph">
-                                <caption>Bar Chart HTML From HTML Table</caption>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Item</th>
-                                        <th scope="col">Percent</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height:85%">
-                                        <th scope="row">0</th>
-                                        <td><span>85%</span></td>
-                                    </tr>
-                                    <tr style="height:23%">
-                                        <th scope="row">1</th>
-                                        <td><span>23%</span></td>
-                                    </tr>
-                                    <tr style="height:7%">
-                                        <th scope="row">2</th>
-                                        <td><span>7%</span></td>
-                                    </tr>
-                                    <tr style="height:38%">
-                                        <th scope="row">3</th>
-                                        <td><span>38%</span></td>
-                                    </tr>
-                                    <tr style="height:35%">
-                                        <th scope="row">4</th>
-                                        <td><span>35%</span></td>
-                                    </tr>
-                                    <tr style="height:35%">
-                                        <th scope="row">5</th>
-                                        <td><span>50%</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <table class="graph">
+                                    <caption>Bar Chart HTML From HTML Table</caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Item</th>
+                                            <th scope="col">Percent</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="height:85%">
+                                            <th scope="row">0</th>
+                                            <td><span>85%</span></td>
+                                        </tr>
+                                        <tr style="height:23%">
+                                            <th scope="row">1</th>
+                                            <td><span>23%</span></td>
+                                        </tr>
+                                        <tr style="height:7%">
+                                            <th scope="row">2</th>
+                                            <td><span>7%</span></td>
+                                        </tr>
+                                        <tr style="height:38%">
+                                            <th scope="row">3</th>
+                                            <td><span>38%</span></td>
+                                        </tr>
+                                        <tr style="height:35%">
+                                            <th scope="row">4</th>
+                                            <td><span>35%</span></td>
+                                        </tr>
+                                        <tr style="height:35%">
+                                            <th scope="row">5</th>
+                                            <td><span>50%</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <h3>4. Pregunta 4</h3>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <h3>5. Pregunta 5</h3>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <table class="graph">
-                                <caption>Bar Chart HTML From HTML Table</caption>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Item</th>
-                                        <th scope="col">Percent</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height:85%">
-                                        <th scope="row">0</th>
-                                        <td><span>85%</span></td>
-                                    </tr>
-                                    <tr style="height:23%">
-                                        <th scope="row">1</th>
-                                        <td><span>23%</span></td>
-                                    </tr>
-                                    <tr style="height:7%">
-                                        <th scope="row">2</th>
-                                        <td><span>7%</span></td>
-                                    </tr>
-                                    <tr style="height:38%">
-                                        <th scope="row">3</th>
-                                        <td><span>38%</span></td>
-                                    </tr>
-                                    <tr style="height:35%">
-                                        <th scope="row">4</th>
-                                        <td><span>35%</span></td>
-                                    </tr>
-                                    <tr style="height:35%">
-                                        <th scope="row">5</th>
-                                        <td><span>50%</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <table class="graph">
+                                    <caption>Bar Chart HTML From HTML Table</caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Item</th>
+                                            <th scope="col">Percent</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="height:85%">
+                                            <th scope="row">0</th>
+                                            <td><span>85%</span></td>
+                                        </tr>
+                                        <tr style="height:23%">
+                                            <th scope="row">1</th>
+                                            <td><span>23%</span></td>
+                                        </tr>
+                                        <tr style="height:7%">
+                                            <th scope="row">2</th>
+                                            <td><span>7%</span></td>
+                                        </tr>
+                                        <tr style="height:38%">
+                                            <th scope="row">3</th>
+                                            <td><span>38%</span></td>
+                                        </tr>
+                                        <tr style="height:35%">
+                                            <th scope="row">4</th>
+                                            <td><span>35%</span></td>
+                                        </tr>
+                                        <tr style="height:35%">
+                                            <th scope="row">5</th>
+                                            <td><span>50%</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
-
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <h3>5. Pregunta 5</h3>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
-
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <table class="graph">
-                                <caption>Bar Chart HTML From HTML Table</caption>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Item</th>
-                                        <th scope="col">Percent</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="height:85%">
-                                        <th scope="row">0</th>
-                                        <td><span>85%</span></td>
-                                    </tr>
-                                    <tr style="height:23%">
-                                        <th scope="row">1</th>
-                                        <td><span>23%</span></td>
-                                    </tr>
-                                    <tr style="height:7%">
-                                        <th scope="row">2</th>
-                                        <td><span>7%</span></td>
-                                    </tr>
-                                    <tr style="height:38%">
-                                        <th scope="row">3</th>
-                                        <td><span>38%</span></td>
-                                    </tr>
-                                    <tr style="height:35%">
-                                        <th scope="row">4</th>
-                                        <td><span>35%</span></td>
-                                    </tr>
-                                    <tr style="height:35%">
-                                        <th scope="row">5</th>
-                                        <td><span>50%</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-
-                        </div>
-                    </div>
 
 
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <h3>6. Pregunta 6</h3>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <h3>6. Pregunta 6</h3>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <form action="">
-                                <textarea name="" id="" cols="80" rows="3"></textarea>
-                            </form>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <form action="">
+                                    <textarea name="" id="" cols="80" rows="3"></textarea>
+                                </form>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <h3>7. Pregunta 7</h3>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <h3>7. Pregunta 7</h3>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <form action="">
-                                <textarea name="" id="" cols="80" rows="3"></textarea>
-                            </form>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <form action="">
+                                    <textarea name="" id="" cols="80" rows="3"></textarea>
+                                </form>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <h3>8. Pregunta 8</h3>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <h3>8. Pregunta 8</h3>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
 
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <form action="">
-                                <textarea name="" id="" cols="80" rows="3"></textarea>
-                            </form>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <form action="">
+                                    <textarea name="" id="" cols="80" rows="3"></textarea>
+                                </form>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
 
+                            </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
+
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <h3>9. Pregunta 9</h3>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
+
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <form action="">
+                                    <textarea name="" id="" cols="80" rows="3"></textarea>
+                                </form>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
-
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <h3>9. Pregunta 9</h3>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
-
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <form action="">
-                                <textarea name="" id="" cols="80" rows="3"></textarea>
-                            </form>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-
-                        </div>
-                    </div>
-
-                </div>
 
 
 
-
-            </main>
+                </main>
+            </div>
         </div>
-    </div>
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
-</body>
-
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+    </body>
 </html>

@@ -31,23 +31,17 @@ hr{
 /*------------------------------Profile view design------------------------------*/
 
 #profileView_Score{
-  /* margin-top: 90px;
-  margin-left: 150px; */
   position: absolute;
   opacity: 1;
 }
 
 #profile_profilePhoto{
-  /* margin-top: 140px;
-  margin-left: 10px; */
   width: 378px;
   height: 378px;
 }
 
 /*Profile information design*/
 .profileInformation{
-  /* width: 600px;
-  height: 93px; */
   /* UI Properties */ 
   margin-bottom: 0;
   font: Regular Helvetica Neue;
@@ -58,6 +52,26 @@ hr{
 
 #profile_profileInformation{
   font-size: 4rem;
+}
+
+/*------------------------------EvaluationsDetail view design------------------------------*/
+
+.evaluation_professorInformation{
+  margin-bottom: 0;
+  font: Regular Helvetica Neue;
+  letter-spacing: 0;
+  color: #004270;
+  opacity: 1;
+  font-size: 2rem;
+}
+
+#evaluation_professorName{
+  font-size: 2.5rem;
+}
+
+.evaluation_professorPhoto{
+  width: 200px;
+  height: 200px;
 }
 
 /*------------------------------StatusBar design------------------------------*/
@@ -72,15 +86,12 @@ hr{
 }
 
 #statusBarAddUserButton{
-  /* margin-top: 50px;
-  margin-left: 110px; */
+  margin-left: 110px;
   width: 70px;
   height: 70px;
 }
 
 #statusBarProfilePhoto{
-  /* margin-top: 20px;
-  margin-left: 60px; */
   width: 100px;
   height: 100px;
 }
@@ -114,12 +125,11 @@ hr{
   opacity: 1;
 }
 
-.assignmentsSubtitle{
+/* .assignmentsSubtitle{
   margin-top: 50px;
   margin-left: 110px;
   width: 252px;
   height: 70px;
-  /* UI Properties */
   text-align: center;
   font: Regular Helvetica Neue;
   font-size: 3rem;
@@ -141,7 +151,7 @@ hr{
   height: 150px;
   margin-left: 108px;
   text-align: start;
-}
+} */
 
 /*------------------------------Modal view design------------------------------*/
 
@@ -182,7 +192,7 @@ form input {
 
 /*General button design*/
 .button{
-  width: 498px;
+  width: inherit;
   /* height: 60px; */
   /* UI Properties */
   background: #004270 0% 0% no-repeat padding-box;
@@ -247,217 +257,6 @@ form input {
   background-color:#F5F9FE;
 }
 
-
-/*Control panel footer text color*/
-/* .sb-sidenav-dark {
-  background-color:#F5F5F5;
-  color:#F5F5F5;
-} */
-
-/*Control panel footer background*/
-/* .sb-sidenav-dark .sb-sidenav-footer {
-  background-color: #F5F5F5;
-} */
-
-/*First selector control panel*/
-/* .sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type{
-  margin-top: 80px;
-  margin-left: 148px;
-} */
-
-/*Second selector of control panel*/
-/* .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(2){
-  margin-left: 75px;
-} */
-
-/*Third selector of control panel*/
-/* .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(3){
-  margin-left: 40px;
-} */
-
-/*Fourth selector del menú del panel de control*/
-/* .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(4){
-  margin-left: 23px;
-} */
-
-/*Control panel hovered selectors design*/
-/* .sb-sidenav-dark .sb-sidenav-menu .nav-link:hover{
-  font: BOLD Helvetica Neue;
-  font-size: 4.5rem;
-} */
-
-/* First control panel hovered selector design
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type:hover{
-  margin-left: 134px;
-  font-size: 5rem;
-} */
-
-/* Second control panel hovered selector design
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(2):hover{
-  margin-left: 45px;
-} */
-
-/*Third control panel hovered selector design*/
-/* .sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(3):hover{
-  margin-left: 8px;
-} */
-
-/* Fourth control panel hovered selector design
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:nth-of-type(4):hover{
-  margin-left: 5px;
-  font-size: 4rem;
-} */
-/* 
-/*Control panel active selector*/
-/* .sb-sidenav-dark .sb-sidenav-menu .nav-link:first-of-type.active {
-  margin-left: 300px;
-  color:#004270;
-  font: BOLD Helvetica Neue;
-  font-size: 4.5rem;
-} */
-
-/* .fixed-top, .sb-nav-fixed #layoutSidenav #layoutSidenav_nav, .sb-nav-fixed .sb-topnav {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-} */
-
-/* #layoutSidenav {
-  display: flex;
-}
-
-#layoutSidenav #layoutSidenav_nav {
-  flex-basis: 225px;
-  flex-shrink: 0;
-  transition: transform 0.15s ease-in-out;
-  z-index: 1038;
-  transform: translateX(-225px);
-} */
-
-/* #layoutSidenav #layoutSidenav_content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: 0;
-  flex-grow: 1;
-  min-height: calc(100vh - 56px);
-  margin-left: -225px;
-}
-
-.sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
-  transform: translateX(0);
-} */
-
-/* @media (min-width: 992px) {
-  #layoutSidenav #layoutSidenav_nav {
-    transform: translateX(0);
-  }
-  #layoutSidenav #layoutSidenav_content {
-    margin-left: 0;
-    transition: margin 0.15s ease-in-out;
-  }
-
-  .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
-    transform: translateX(-225px);
-  }
-  .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content {
-    margin-left: -225px;
-  } */
-  /* .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
-    display: none;
-  }
-}
-.sb-nav-fixed .sb-topnav {
-  z-index: 1039;
-}
-.sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
-  width: 225px;
-  height: 100vh;
-  z-index: 1038;
-} */
-/* .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
-  padding-top: 56px;
-}
-.sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
-  overflow-y: auto; */
-/* }
-.sb-nav-fixed #layoutSidenav #layoutSidenav_content {
-  padding-left: 225px;
-  top: 56px;
-} */
-
-/* #layoutError {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-} */
-
-/* #layoutError #layoutError_content {
-  min-width: 0;
-  flex-grow: 1;
-} */
-/* 
-#layoutError #layoutError_footer {
-  min-width: 0;
-} */
-
-/* .img-error {
-  max-width: 20rem;
-} */
-
-/* .sb-topnav {
-  padding-left: 0;
-  height: 56px;
-  z-index: 1039;
-} */
-
-/* .sb-sidenav {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  flex-wrap: nowrap;
-} */
-
-/* .sb-sidenav .sb-sidenav-menu {
-  flex-grow: 1;
-} */
-
-/* .sb-sidenav .sb-sidenav-menu .nav {
-  flex-direction: column;
-  flex-wrap: nowrap;
-} */
-/* 
-.sb-sidenav .sb-sidenav-menu .nav .nav-link {
-  display: flex;
-  align-items: center;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  position: relative;
-} */
-
-/* .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-sidenav-collapse-arrow {
-  display: inline-block;
-  margin-left: auto;
-  transition: transform 0.15s ease;
-} */
-
-/* .sb-sidenav .sb-sidenav-menu .nav .nav-link.collapsed .sb-sidenav-collapse-arrow {
-  transform: rotate(-90deg);
-} */
-
-/* .sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-nested {
-  margin-left: 1.5rem;
-  flex-direction: column;
-} */
-
-/* .sb-sidenav .sb-sidenav-footer {
-  padding: 0.75rem;
-  flex-shrink: 0;
-} */
-
 /*------------------------------General table design------------------------------*/
 
 #dataTable{
@@ -480,12 +279,8 @@ td{
 }
 
 #tableProfilePhoto{
-  /* margin-top: 0px;
-  margin-left: 20px;
-  margin-right: 10px; */
   height: 70px;
   width: 70px;
-  /* height: 45px; */
 }
 
 .userName{
@@ -509,13 +304,13 @@ td{
   background-color: #F5F5F5;
 }
 
-td:first-of-type{
+/* td:first-of-type{
   text-align: start;
-}
+} */
 
 /*------------------------------Assignments table design------------------------------*/
 
-#assignmentsTable{
+/* #assignmentsTable{
   margin-left: 110px;
   background-color: #F5F5F5;
 }
@@ -526,4 +321,4 @@ td:first-of-type{
 
 #assignmentsTable td:nth-of-type(2){
   text-align: start;
-}
+} */
