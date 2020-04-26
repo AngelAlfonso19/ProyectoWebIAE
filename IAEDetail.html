@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Admin</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+    </head>
+    
+    <body>
+        <!-- View -->
+        <div class="container-fluid" id="layoutSidenav">
+            <div class="row">
+            <!-- Sidenav -->
+            <div class="col-3 p-0 sidenav">
+                <div class="container-fluid sticky-top">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                    <img src="./Sources/logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-5 d-flex justify-content-center">
+                    <a class="nav-link d-flex justify-content-center" href="IAE.html">IAE</a>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                    <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-4 d-flex justify-content-center">
+                    <a class="nav-link d-flex justify-content-center" href="users.html">Usuarios</a>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                    <hr>
+                    </div>        
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-4 d-flex justify-content-center">
+                    <a class="nav-link d-flex justify-content-center" href="assignments.html">Asignaturas</a>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                    <hr>
+                    </div>        
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-4 d-flex justify-content-center">
+                    <a class="nav-link d-flex justify-content-center" href="EvaluacionesGraphs.html">Evaluaciones</a>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                    <hr>
+                    </div>        
+                </div>
+                </div>
+            </div>
+            <!-- /Sidenav -->
+    
+            <!-- SidenavContent -->
+            <div class="col-9 p-0">
+                <div id="layoutSidenav_content">              
+                    <div class="container-fluid">
+                        <!-- StatusBar -->
+                        <div class="row">
+                            <div class="col-4 offset-4 mt-2">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <p class="statusBar_profileInformation">Administrador:</p>                                                                                             
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <p class="statusBar_profileInformation text-center">Navarro José Manuel</p>
+                                        </div>
+                                    </div>   
+                                </div>
+                            </div>
+                            <div class="col-2 offset-1 mt-2 p-0 d-flex justify-content-center"> 
+                                <a href="profile.html">
+                                    <img class="img-circle" id="statusBarProfilePhoto" src="AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg"> 
+                                </a>
+                            </div>           
+                        </div>                   
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <p class="statusBar_profileInformation">Profesor:</p>      
+                                <select id="listTeachers">
+                                    <option value="default" selected></option>
+                                    <option value="Luis Fernando"> Luis Fernando</option>
+                                    <option value="Hugo Ivan Piza"> Hugo Ivan Piza</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mt-2 d-flex justify-content-center">
+                                <p class="statusBar_profileInformation">Materia:</p>
+                                <select id="listSubject">                        
+                                    <option value="default" selected></option>
+                                    <option value="Programacion Orientada a Objetos"> Programacion Orientada a Objetos</option>
+                                    <option value="Programacion web"> Programacion web</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-4 mb-4 d-flex justify-content-center">                        
+                            <div class="col-3 mt-2 d-flex justify-content-center">
+                                <input class="button" type="submit" value="Actualizar">
+                            </div>
+                            <div class="col-3 mt-2 d-flex justify-content-center">
+                                <input class="button" type="submit" value="Eliminar">
+                            </div>
+                            <div class="col-2 p-0 d-flex justify-content-center">
+                                <a data-toggle="modal" data-target="#modelId"href="#modelId" data-toggle="modal" data-target="#modelId">
+                                    <img id="statusBarAddUserButton" src="Sources/addButton.png" alt="AddButton.jpg"> 
+                                </a>                        
+                            </div>
+                        </div>
+                        <!-- /StatusBar -->
+                        <!-- Questions -->
+                        <div class="row">
+                            <div class="col-11 offset-1">
+                                <h3>1. Pregunta 1</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <form class="col-10" name="registrationForm">
+                                    <input style="background-color: #004270;" type="range"
+                                        name="ageInputName" id="ageInputId" value="0" min="0" max="5"
+                                        oninput="ageOutputId.value = ageInputId.value">
+                                    <output name="ageOutputName" id="ageOutputId">0</output>
+                                </form>
+                            </div>              
+                        </div>
+
+                        <div class="row">
+                            <div class="col-11 mt-4 offset-1">
+                                <h3>2. Pregunta 2</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <form class="col-10" name="registrationForm">
+                                    <input style="background-color: #004270;" type="range"
+                                        name="ageInputName" id="ageInputId" value="0" min="0" max="5"
+                                        oninput="ageOutputId.value = ageInputId.value">
+                                    <output name="ageOutputName" id="ageOutputId">0</output>
+                                </form>
+                            </div>              
+                        </div>
+
+                        <div class="row">
+                            <div class="col-11 mt-4 offset-1">
+                                <h3>3. Pregunta 3</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <form class="col-10" name="registrationForm">
+                                    <input style="background-color: #004270;" type="range"
+                                        name="ageInputName" id="ageInputId" value="0" min="0" max="5"
+                                        oninput="ageOutputId.value = ageInputId.value">
+                                    <output name="ageOutputName" id="ageOutputId">0</output>
+                                </form>
+                            </div>              
+                        </div>
+                    
+                        <div class="row">
+                            <div class="col-11 mt-4 offset-1">
+                                <h3>4. Pregunta 4</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <form class="col-10" name="registrationForm">
+                                    <input style="background-color: #004270;" type="range"
+                                        name="ageInputName" id="ageInputId" value="0" min="0" max="5"
+                                        oninput="ageOutputId.value = ageInputId.value">
+                                    <output name="ageOutputName" id="ageOutputId">0</output>
+                                </form>
+                            </div>              
+                        </div>
+
+                        <div class="row">
+                            <div class="col-11 mt-4 offset-1">
+                                <h3>5. Pregunta 5</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <form class="col-10" name="registrationForm">
+                                    <input style="background-color: #004270;" type="range"
+                                        name="ageInputName" id="ageInputId" value="0" min="0" max="5"
+                                        oninput="ageOutputId.value = ageInputId.value">
+                                    <output name="ageOutputName" id="ageOutputId">0</output>
+                                </form>
+                            </div>              
+                        </div>
+
+                        <div class="row">
+                            <div class="col-11 mt-4 offset-1">
+                                <h3>6. Pregunta 6</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-10 offset-1 d-flex justify-content-center">
+                                <form class="col-12" name="registrationForm">                               
+                                    <textarea class="col-12 inputText"></textarea>            
+                                </form>
+                            </div>              
+                        </div>
+
+                        <div class="row">
+                            <div class="col-11 mt-4 offset-1">
+                                <h3>7. Pregunta 7</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-10 offset-1 d-flex justify-content-center">
+                                <form class="col-12" name="registrationForm">                               
+                                    <textarea class="col-12 inputText"></textarea>            
+                                </form>
+                            </div>              
+                        </div>
+
+                        <div class="row">
+                            <div class="col-11 mt-4 offset-1">
+                                <h3>8. Pregunta 8</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-10 offset-1 d-flex justify-content-center">
+                                <form class="col-12" name="registrationForm">                               
+                                    <textarea class="col-12 inputText"></textarea>            
+                                </form>
+                            </div>              
+                        </div>
+                        <!-- /Questions -->
+                    </div>               
+                </div>
+            </div>
+            <!--/SidenavContent -->
+            </div>
+        </div>
+        <!-- /View -->
+
+        <!-- Modal -->
+        <div class="container-fluid">
+            <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" style="color: #004270">Registro</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <form class="login-form">
+                                    <input type="text" placeholder="# de pregunta"> <br>
+                                    <input type="text" placeholder="Pregunta..."> <br>
+                                    <input type="email" placeholder="Tipo..."> <br>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" style="background: #004270; border: 0;">Confirmar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Modal -->
+            
+        <script>
+            $('#modelId').on('show.bs.modal', event => {
+                var button = $(event.relatedTarget);
+                var modal = $(this);
+                // Use above variables to manipulate the DOM
+            });
+        </script>
+
+        <script>
+            $('.message a').click(function () {
+                $('form').animate({
+                    height: "toggle",
+                    opacity: "toggle"
+                }, "slow");
+            });
+        </script>
+            
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+    </body>
+</html>

@@ -494,6 +494,14 @@ td{
   margin-bottom: 0;
 }
 
+.assignmentsLink{
+  color:#004270;
+}
+
+.assignmentsLink:hover{
+  text-decoration: none;
+}
+
 /*------------------------------Users table design------------------------------*/
 
 /*Users table design*/
