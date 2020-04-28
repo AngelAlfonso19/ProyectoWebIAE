@@ -53,9 +53,9 @@
         background: #004270;
         width: 100%;
         font-size: 14px;
+        color: #FFFFFF;
         /* border: 0;
         padding: 15px;
-        color: #FFFFFF;
         -webkit-transition: all 0.3 ease;
         transition: all 0.3 ease;
         cursor: pointer; */
@@ -142,10 +142,10 @@
         <div class="form">
             <form class="login-form">
                 <img id="logo" src="https://www.iteso.mx/documents/27014/202031/Logo-ITESO-MinimoV.png" alt="">
-                <input type="text" placeholder="username" />
-                <input type="password" placeholder="password" />
-                <input type="button" onclick= "window.location.href = './profile.html';">
-                <a href="./profile.html" class="button logInButton">Login</a>
+                <input id="usuarioLogIn" type="text" placeholder="username" />
+                <input id="usuarioPass" type="password" placeholder="password" />
+                <!-- <input type="button" class="logInButton" onclick= "window.location.href = './profile.html';" value="Login"> -->
+                <input type="button" class="logInButton" value="Login">
                 <p class="message">No estás registrado? <a href="#modelId" data-toggle="modal" data-target="#modelId">Crea una cuenta</a></p>
             </form>
         </div>
@@ -208,6 +208,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script src="./Authentication.js"></script>
 </body>
 
 </html>

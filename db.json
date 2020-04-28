@@ -1,0 +1,92 @@
+{
+  "asignaturas": [
+    {
+      "id": 1,
+      "title": "Desarrollo web",
+      "teacher": "Luis Fernando",
+      "period": "Otoño 2020",
+      "email": "luis@iteso.mx",
+      "creditos": "8"
+    },
+    {
+      "id": 2,
+      "title": "PAE",
+      "teacher": "Francisco Cota",
+      "period": "Otoño 2020",
+      "email": "luis@iteso.mx",
+      "creditos": "8"
+    },
+    {
+      "id": 3,
+      "title": "Cloud",
+      "teacher": "Alvaro Ivan Parres Peredo",
+      "period": "Otoño 2020",
+      "email": "luis@iteso.mx",
+      "creditos": "8"
+    },
+    {
+      "title": "Web",
+      "teacher": "Jose Fernando",
+      "email": "fernando@iteso.mx",
+      "period": "fdsf",
+      "creditos": "10",
+      "id": 4
+    }
+  ],
+  "usuarios": [
+    {
+      "nombre": "Alexis",
+      "apellido": "Bellon",
+      "email": "is707777@iteso.mx",
+      "password": "iteso123",
+      "rol": "alumno",
+      "token": "",
+      "id": 0
+    },
+    {
+      "nombre": "Jose",
+      "apellido": "WEB",
+      "email": "si888888@iteso.mx",
+      "password": "iteso4321",
+      "rol": "profesor",
+      "token": "",
+      "id": 1
+    },
+    {
+      "nombre": "john",
+      "apellido": "doe",
+      "email": "johndoe@iteso.mx",
+      "password": "locoloco",
+      "rol": "alumno",
+      "token":"",
+      "id": 2
+    }
+  ],
+  "IAE": [
+    {
+      "question": "Como estas?",
+      "typequestion": "n",
+      "id": 1
+    },
+    {
+      "question": "Como estas?",
+      "typequestion": "t",
+      "id": 2
+    },
+    {
+      "question": "Como estas?",
+      "typequestion": "t",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
