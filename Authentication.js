@@ -1,6 +1,6 @@
 const btn = document.querySelector('input[value="Login"]');
 const forma = document.getElementById('Registro');
-const now = new Date(0);
+const now = new Date();
 const but = document.getElementById('guardarRegistro');
 let skel = {nombre: "", apellido: "",email: "",password: "",rol:"",token:"",id: Number};
 
@@ -16,7 +16,7 @@ let skel = {nombre: "", apellido: "",email: "",password: "",rol:"",token:"",id: 
 
 
 
-btn.addEventListener("click",(e) =>{
+btn.addEventListener("click",() =>{
     auth();
 })
 
