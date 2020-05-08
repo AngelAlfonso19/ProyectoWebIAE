@@ -98,7 +98,7 @@ let xhr2 = new XMLHttpRequest();
 xhr2.open('GET', 'http://localhost:3000/asignaturas')
 xhr2.setRequestHeader("Content-Type", "application/json");
 xhr2.send();
-xhr2.onload = () =>{
+xhr2.onload = () =>{ 
     if(xhr2.status != 200){
         alert(`${xhr2.status} Fallo registro de obtener`)
     }
@@ -111,8 +111,9 @@ xhr2.onload = () =>{
 function calificacion(data){
     let teacher = document.getElementById('listTeachers').value
     let course = document.getElementById('listSubject').value
-    console.log(data);
-    data.forEach(ele, () =>{
+    console.log(data.IAE);
+    /*
+    data.IAE.forEach(ele, () =>{
         console.log(ele);
         if(ele.teacher == teacher && ele.title == course){
             let answers = data.IAE
@@ -122,6 +123,7 @@ function calificacion(data){
             })
         }
     })
+    */
     
 }
 
