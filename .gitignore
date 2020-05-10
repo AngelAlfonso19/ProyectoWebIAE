@@ -177,7 +177,8 @@ $RECYCLE.BIN/
 *.lnk
 
 #packages
-./package-lock.json
+package.json
+package-lock.json
 
 #mongodb-connect file
 db/mongodb-connect.js
