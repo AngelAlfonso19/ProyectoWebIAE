@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "ProyectoWebIAE",
   "version": "1.0.0",
   "description": "",
@@ -9,6 +10,17 @@
   "devDependencies": {},
   "scripts": {
     "server": "json-server --watch ./db/db.json"
+=======
+  "name": "proyectowebiae",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "json-server --watch ./db.json",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+>>>>>>> master
   },
   "repository": {
     "type": "git",
@@ -20,5 +32,16 @@
   "bugs": {
     "url": "https://github.com/AngelAlfonso19/ProyectoWebIAE/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/AngelAlfonso19/ProyectoWebIAE#readme"
+=======
+  "homepage": "https://github.com/AngelAlfonso19/ProyectoWebIAE#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "json-server": "^0.16.1",
+    "nodemon": "^2.0.3"
+  },
+  "devDependencies": {}
+>>>>>>> master
 }
