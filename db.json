@@ -35,31 +35,93 @@
   ],
   "usuarios": [
     {
-      "nombre": "Alexis",
-      "apellido": "Bellon",
-      "email": "is707777@iteso.mx",
-      "password": "iteso123",
+      "nombre": "johny",
+      "apellido": "Brillo",
+      "email": "al@re.com",
+      "password": "itasdfaesoites",
       "rol": "alumno",
-      "token": "",
+      "token": "ijEeEVl9Cz6RAEvrUJ",
+      "fecha": "1970-01-01T00:00:00.000Z",
       "id": 0
     },
     {
-      "nombre": "Jose",
-      "apellido": "WEB",
-      "email": "si888888@iteso.mx",
-      "password": "iteso4321",
-      "rol": "profesor",
-      "token": "",
+      "nombre": "jimena",
+      "apellido": "Robles",
+      "email": "jime@outlook.com",
+      "password": "MegustanlasFLORES25625",
+      "rol": "alumno",
+      "token": "RThsl8a3coSuzVluEE",
+      "fecha": "1970-01-01T00:00:00.000Z",
       "id": 1
     },
     {
-      "nombre": "john",
-      "apellido": "doe",
-      "email": "johndoe@iteso.mx",
-      "password": "locoloco",
-      "rol": "alumno",
-      "token":"",
+      "nombre": "jimena",
+      "apellido": "ortiz",
+      "email": "jimadfa@gggglook.com",
+      "password": "ads;fapo45",
+      "token": "ijEeEVl9Cz6RAEvrUJ",
+      "fecha": "1970-01-01T00:00:00.000Z",
       "id": 2
+    },
+    {
+      "nombre": "alex",
+      "apellido": "Brillo",
+      "email": "ale@rere.com",
+      "password": "itesoites",
+      "rol": "alumno",
+      "token": "Da5UkvZrWoPmOxSBJp",
+      "fecha": "1970-01-01T00:00:00.000Z",
+      "id": 3
+    },
+    {
+      "nombre": "alex",
+      "apellido": "bell",
+      "email": "ale@ab.com",
+      "password": "iteso123",
+      "rol": "alumno",
+      "token": "iUdyiABWcjZAOh69kL",
+      "fecha": "1970-01-01T00:00:00.000Z",
+      "id": 4
+    },
+    {
+      "nombre": "Guille",
+      "apellido": "foo",
+      "email": "is708155@iteso.mx",
+      "password": "iteso123",
+      "rol": "alumno",
+      "token": "TycdGB9usrUWfk9Zmp",
+      "fecha": "2020-04-28T05:26:47.661Z",
+      "id": 5
+    },
+    {
+      "nombre": "foo",
+      "apellido": "barbar",
+      "email": "foo@iteso.mx",
+      "password": "asdfg",
+      "rol": "alumno",
+      "token": "6FeHvTAa9Mel7O4Vq0",
+      "fecha": "2020-04-28T05:51:18.664Z",
+      "id": 6
+    },
+    {
+      "nombre": "Jose",
+      "apellido": "And",
+      "email": "bar@iteso.mx",
+      "password": "itesi12345",
+      "rol": "alumno",
+      "token": "EMZnT5J02SY0Nq9tgA",
+      "fecha": "2020-04-28T05:52:45.903Z",
+      "id": 7
+    },
+    {
+      "nombre": "ultimo",
+      "apellido": "jimenez",
+      "email": "is999999@iteso.mx",
+      "password": "iteso1234567",
+      "rol": "alumno",
+      "token": "w3ZASnWcd3uJDj8UAY",
+      "fecha": "2020-04-28T06:07:35.481Z",
+      "id": 8
     }
   ],
   "IAE": [
