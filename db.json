@@ -6,7 +6,42 @@
       "teacher": "Luis Fernando",
       "period": "Otoño 2020",
       "email": "luis@iteso.mx",
+<<<<<<< HEAD
       "creditos": "8"
+=======
+      "creditos": "8",
+      "alumnos": "15",
+      "IAE": [
+        [
+          {
+            "question": "Como estas?",
+            "typequestion": "n",
+            "id": 1,
+            "answer": "4"
+          },
+          {
+            "question": "Como estas?",
+            "typequestion": "t",
+            "id": 2,
+            "answer": "Muy bien"
+          }
+        ],
+        [
+          {
+            "question": "Como estas?",
+            "typequestion": "n",
+            "id": 1,
+            "answer": "5"
+          },
+          {
+            "question": "Como estas?",
+            "typequestion": "t",
+            "id": 2,
+            "answer": "Dos y tres"
+          }
+        ]
+      ]
+>>>>>>> master
     },
     {
       "id": 2,
@@ -17,6 +52,7 @@
       "creditos": "8"
     },
     {
+<<<<<<< HEAD
       "id": 3,
       "title": "Cloud",
       "teacher": "Alvaro Ivan Parres Peredo",
@@ -122,23 +158,63 @@
       "token": "w3ZASnWcd3uJDj8UAY",
       "fecha": "2020-04-28T06:07:35.481Z",
       "id": 8
+=======
+      "title": "gfgfd",
+      "teacher": "eeswrfwefr",
+      "email": "A@Q",
+      "period": "frdfdfsd",
+      "creditos": "8",
+      "alumnos": "",
+      "IAE": "",
+      "id": 3
+    },
+    {
+      "title": "gfgfd",
+      "teacher": "eeswrfwefr",
+      "email": "A@Q",
+      "period": "frdfdfsd",
+      "creditos": "8",
+      "alumnos": "",
+      "IAE": "",
+      "id": 4
+    },
+    {
+      "title": "sdasda",
+      "teacher": "asdas",
+      "email": "sad@sda",
+      "period": "dad",
+      "creditos": "sadad",
+      "alumnos": "",
+      "IAE": "",
+      "id": 5
+>>>>>>> master
     }
   ],
   "IAE": [
     {
       "question": "Como estas?",
       "typequestion": "n",
+<<<<<<< HEAD
       "id": 1
     },
     {
       "question": "Como estas?",
       "typequestion": "t",
       "id": 2
+=======
+      "id": 1,
+      "answer": ""
+>>>>>>> master
     },
     {
       "question": "Como estas?",
       "typequestion": "t",
+<<<<<<< HEAD
       "id": 3
+=======
+      "id": 2,
+      "answer": ""
+>>>>>>> master
     }
   ],
   "comments": [
