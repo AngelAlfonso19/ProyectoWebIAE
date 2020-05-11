@@ -51,7 +51,6 @@ async function getUsersAsync(){
     return docs;
 }
 
-
 function createUser(user){
     let userMongo = User(user);
     
@@ -60,8 +59,7 @@ function createUser(user){
     .catch((err)=> console.log("Ocurrió un error", err))    
 }
 
-let newUser = {name:"Test", lastName:"Rmz", email:"is703804@iteso.mx", password:"1234", role:"Professor", collegeMajor:"Ing. en sistemas"}
-
+//let newUser = {name:"Test", lastName:"Rmz", email:"is703804@iteso.mx", password:"1234", role:"Professor", collegeMajor:"Ing. en sistemas"}
 // crearUsuario(newUser);
 
 User.createUser = createUser;
