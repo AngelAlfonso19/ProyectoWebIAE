@@ -1,0 +1,22 @@
+
+       
+POST  http://localhost:3000/usuarios/
+Content-Type: application/json
+
+{
+      "nombre": "Jose",
+      "apellido": "WEB",
+      "email": "si888888@iteso.mx",
+      "password": "iteso4321",
+      "rol": "profesor"
+}
+
+
+### 
+GET http://localhost:3000/usuarios
+Content-Type: application/json
+
+
+###
+
+}
