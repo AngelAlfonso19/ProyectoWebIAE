@@ -8,7 +8,7 @@ xhr.onload = () =>{
         alert(`${xhr.status} Fallo registro de obtener`)
     }
     else{
-        console.log(JSON.parse(xhr.responseText));
+        userListToHTML(JSON.parse(xhr.responseText));
     }
 }
 
