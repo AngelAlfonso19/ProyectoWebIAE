@@ -1,5 +1,6 @@
-const router = require("express").Router();
-const User = require('../db/User')
+const router = require("express").Router()
+const User = require("../db/User")
+
 
 router.get('/', async (req, res)=> {
     console.log("Entra a get /api/users");

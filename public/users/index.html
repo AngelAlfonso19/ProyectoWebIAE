@@ -7,10 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="../../style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+        <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css"> -->
+        <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script> -->
     </head>
     <body>
         <!-- View -->
@@ -21,7 +21,7 @@
                     <div class="container-fluid sticky-top">
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
-                        <img src="./Sources/logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
+                        <img src="../../Sources/logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
                         </div>
                     </div>
                     <div class="row">
@@ -67,7 +67,7 @@
                             <div class="row">
                                 <div class="col-2 mt-4 p-0 offset-1 d-flex justify-content-center">
                                     <a data-toggle="modal" data-target="#modelId"href="#modelId" data-toggle="modal" data-target="#modelId">
-                                        <img id="statusBarAddUserButton" src="Sources/addButton.png" alt="AddButton.jpg"> 
+                                        <img id="statusBarAddUserButton" src="../../Sources/addButton.png" alt="AddButton.jpg"> 
                                     </a>                        
                                 </div>
                                 <div class="col-4 offset-1 mt-2">
@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="col-2 offset-1 mt-2 p-0 d-flex justify-content-center"> 
                                     <a href="profile.html">
-                                        <img class="img-circle" id="statusBarProfilePhoto" src="AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg"> 
+                                        <img class="img-circle" id="statusBarProfilePhoto" src="../../Sources/AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg"> 
                                     </a>
                                 </div>           
                             </div>                   
@@ -130,7 +130,7 @@
                                                     </thead>
                                                     <!-- /TableHeader -->
                                                     <!-- TableBody -->
-                                                    <tbody>
+                                                    <tbody id="studentsTable">
                                                         <!-- Row1 -->
                                                         <tr>
                                                             <td> 
@@ -1076,6 +1076,7 @@
                             </div>
                             </div>
                             <!-- /CoordinatorsTable -->
+
                             <!-- /UsersTables -->
                         </div>               
                     </div>
@@ -1119,6 +1120,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="Assets/usersTables.js"></script>
+        <script type="text/javascript" src="./users.js"></script>
+        <!-- <script src="Assets/usersTables.js"></script> -->
     </body>
 </html>

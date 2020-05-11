@@ -6,6 +6,8 @@ const port = 3000;
 
 app.use(express.json());
 app.use('/api/users', usersRouter);
+app.use("/",express.static(__dirname+"/public/home"))
+app.use("/users",express.static(__dirname+"/public/users"))
 
 app.listen(port, function(){
     console.log(`Listening http://localhost:${port}`);

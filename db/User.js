@@ -1,7 +1,15 @@
 const mongoose = require('./mongodb-connect'); 
 
 let userSchema = mongoose.Schema({
-   name:{
+    userID:{
+        type: Number,
+        required: true
+    },
+    username:{
+        type: String,
+        required: true
+    },
+    name:{
         type: String,
         required: true
    },
@@ -18,11 +26,27 @@ let userSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    role:{
+    collegeMajor:{
         type: String,
         required: true,
     },
-    collegeMajor:{
+    department:{
+        type: String,
+        required: true,
+    },
+    registerDate:{
+        type: Date,
+        required: true,
+    },
+    type:{
+        type: Number,
+        required: true,
+    },
+    allowLessons:{
+        type: Boolean,
+        required: true,
+    },
+    token:{
         type: String,
         required: true,
     }
