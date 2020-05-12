@@ -25,31 +25,33 @@ function auth(){
     skel.email = document.getElementById('usuarioLogIn').value;
     skel.password = document.getElementById('usuarioPass').value
     let corr = skel.email
-    xhr.open('GET',`http://localhost:3000/api/users/`)
+    console.log(corr);
+    // xhr.open('GET',`http://localhost:3000/api/users/:email`)
+    xhr.open('GET',`http://localhost:3000/api/users/${corr}`)
     xhr.setRequestHeader("Content-Type","application/json")
     // xhr.setRequestHeader("charset","utf-8")
     xhr.send(JSON.stringify(skel));
-     xhr.onload = ()=>{
-         if(xhr.status != 200){
-             alert(`${xhr.status} Error:  ${xhr.statusText}`);
-         }else{
-             console.log('El request fue exitoso');
-           const jsn = JSON.parse(xhr.responseText);
-           let jsn2 = jsn[0];
-           for(let i in jsn){
-               if(`${jsn[i].email}` == skel.email){
-                   jsn2 = jsn[i];
-               }
-           }
-           if (jsn2.email == corr  && jsn2.password == skel.password){
-               console.log(`Este es BD: ${jsn2.email}\n Este es Ingreso: ${corr}`)
-               window.location.href = './profile.html';
-           }else{
-               console.log(`Contraseñas: ${jsn2.password} y ${skel.password}`);;
-               alert('ERROR! Usuario o contraseña incorrectos')
-           }
-       }
-    }
+    //  xhr.onload = ()=>{
+    //      if(xhr.status != 200){
+    //          alert(`${xhr.status} Error:  ${xhr.statusText}`);
+    //      }else{
+    //          console.log('El request fue exitoso');
+    //        const jsn = JSON.parse(xhr.responseText);
+    //        let jsn2 = jsn[0];
+    //        for(let i in jsn){
+    //            if(`${jsn[i].email}` == skel.email){
+    //                jsn2 = jsn[i];
+    //            }
+    //        }
+    //        if (jsn2.email == corr  && jsn2.password == skel.password){
+    //            console.log(`Este es BD: ${jsn2.email}\n Este es Ingreso: ${corr}`)
+    //            window.location.href = './profile.html';
+    //        }else{
+    //            console.log(`Contraseñas: ${jsn2.password} y ${skel.password}`);;
+    //            alert('ERROR! Usuario o contraseña incorrectos')
+    //        }
+    //    }
+    // }
 
 
 }

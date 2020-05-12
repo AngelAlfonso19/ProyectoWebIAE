@@ -1,19 +1,29 @@
 const router = require("express").Router()
 const User = require("../db/User")
-
+let lg = {}
 
 router.get('/', async (req, res)=> {
+
     console.log("Entra a get /api/users");
-    let docs = await User.getUsuariosSAFE()
-    let tute = await User.getUsersAsync();
-    console.log(tute);
-    res.json(docs);
+    try{
+        let docs = await User.getUsuariosSAFE();
+        res.send(docs);
+        lg = docs
+    }catch(err){
+        res.send({err})
+    }
+    // let tute = await User.getUsersAsync();
+    // console.log(tute);
 })
 
-router.get('/:email', async (req,res) =>{
-    let doc = await User.SearchbyeMail(req.params.email)
-    res.send(doc);
+router.get('/:email', validar_lg, async (req,res) =>{
+    console.log('searchUser');
+    try{
+        let doc = await User.SearchbyeMail(req.params.email)
+        res.send(doc);
+    }catch(err){err};
 })
+
 
 
 router.post('/', validar, async(req,res)=>{
@@ -41,5 +51,18 @@ function validar(req,res,next) {
     }
     res.status(400).send({error: "Falta información"});
 }
+
+function validar_lg(req,res,next) {
+    if(req.body){
+        console.log(req.body);
+        next()
+        return;
+    }else{
+    res.status(400).send({error: "Falta info"});
+    }
+}
+
+router.validar = validar;
+router.validar_lg = validar_lg;
 
 module.exports = router;
