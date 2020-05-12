@@ -1,5 +1,6 @@
 const mongoose = require('./mongodb-connect'); 
 
+
 let userSchema = mongoose.Schema({
     userID:{
         type: Number,
@@ -36,23 +37,28 @@ let userSchema = mongoose.Schema({
     },
     collegeMajor:{
         type: String,
-        required: true,
-        enum: ['ISI', 'ISC','isi','isc']
+        required: function () {
+            return this.typo > 3;
+        },
+        enum: ['ISI', 'ISC']
     },
     department:{
         type: String,
         required: true,
-        enum: ['DESI']
+        enum: ['DESI'],
+        default: 'DESI'
     },
     registerDate:{
         type: Date,
         required: true,
         default: Date.now
     },
-    type:{
+    typo:{
         type: Number,
         required: true,
-        default: 4
+        default: 4,
+        min: 0,
+        max: 4
     },
     allowLessons:{
         type: Boolean,
@@ -67,6 +73,20 @@ let userSchema = mongoose.Schema({
     }
 })
 
+userSchema.statics.getUsuariosSAFE = () => {
+    return User.find({},{_id:0, username: 1, name: 1,lastName: 1, email: 1,collegeMajor: 1})
+}
+
+userSchema.statics.SearchbyeMail = (email) =>{
+    return User.findOne({email},{_id:0, username: 1, name: 1,lastName: 1, email: 1,collegeMajor: 1})
+}
+
+userSchema.statics.createUser = (userData) =>{
+    console.log(userData);
+    let newUser = User(userData);
+    return newUser.save()
+}
+
 let User = mongoose.model('users', userSchema);
 
 // User.find({}, (err, docs)=>{
@@ -79,10 +99,10 @@ let User = mongoose.model('users', userSchema);
 //     }
 // })
 
-async function getUsersAsync(){
+async function getUsersAsync(filtro){
     let docs = [];
     try{
-        docs = await User.find({});
+        docs = await User.find({filtro});
         console.log(docs); 
     }catch(error){
         console.log("error", error)
@@ -98,13 +118,15 @@ function createUser(user){
     .catch((err)=> console.log("Ocurrió un error", err))    
 }
 
-let newUser = {userID: 4, username: "angelel_21", name:"Angel", lastName:"Alfonso", email:"is701211@iteso.mx", password:"12348ii75", collegeMajor:"ISI", department: "DESI"}
+
+
+// let newUser = {userID: 4, username: "angelel_21", name:"Angel", lastName:"Alfonso", email:"is701211@iteso.mx", password:"12348ii75", collegeMajor:"ISI", department: "DESI"}
 // crearUsuario(newUser);
 
 User.createUser = createUser;
 User.getUsersAsync = getUsersAsync;
 
 // getUsersAsync();
-createUser(newUser);
+// createUser(newUser);
 
 module.exports = User;
