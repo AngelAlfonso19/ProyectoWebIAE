@@ -21,7 +21,7 @@
           <div class="container-fluid sticky-top">
             <div class="row">
               <div class="col-12 d-flex justify-content-center">
-                <img src="./Sources/logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
+                <img src="logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
               </div>
             </div>
             <div class="row">
@@ -68,7 +68,7 @@
               <div class="row">
                   <div class="col-2 mt-4 p-0 offset-1 d-flex justify-content-center">
                       <a data-toggle="modal" data-target="#modelId"href="#modelId" data-toggle="modal" data-target="#modelId">
-                          <img id="statusBarAddUserButton" src="Sources/addButton.png" alt="AddButton.jpg"> 
+                          <img id="statusBarAddUserButton" src="addButton.png" alt="AddButton.jpg"> 
                       </a>                        
                   </div>
                   <div class="col-4 offset-1 mt-2">
@@ -350,12 +350,11 @@
                 </button>
             </div>
             <div class="modal-body">
-              <form id = "asignatura" class="login-form">
-                <input type="text" placeholder="Nombre de asignatura..." required> <br>
-                <input type="text" placeholder="Profesor..." required> <br>
-                <input type="email" placeholder="Correo..." required> <br>
-                <input type="text" placeholder="Periodo..." required> <br>
-                <input type="text" placeholder="Créditos..." required><br>
+              <form id = "asignatura" class="login-form" enctype="multipart/form-data">
+                <input type="text" name="SubjectName" placeholder="Nombre de asignatura..." required> <br>
+                <input type="text" name="AvailableTime" placeholder="Periodo..." required> <br>
+                <label for="profesor">Selecciona a profesor</label>
+                <select name="profesor" type="select" placeholder="Profesor..." required> </select> <br> 
               </form>
               <button id = "CrearAsignatura" type="button" class="modalButton" data-dismiss="modal">Confirmar</button>
               <button type="button" class="modalButton" data-dismiss="modal">Cancelar</button>
