@@ -18,6 +18,7 @@ let skel = {username: "", name: "",lastName: "",email: "",password: "",collegeMa
 
 btn.addEventListener("click",() =>{
     auth();
+    
 
 })
 
@@ -30,19 +31,20 @@ function auth(){
     // xhr.open('GET',`http://localhost:3000/api/users/:email`)
     xhr.open('POST',`http://localhost:3000/api/users/login`)
     xhr.setRequestHeader("Content-Type","application/json")
-    // xhr.setRequestHeader("charset","utf-8")
     xhr.send(JSON.stringify(skel));
+    xhr.onload = ()=>{
+           console.log('El request fue exitoso');
+           let jsn = JSON.parse(xhr.responseText);
+           console.log(jsn.token);
+           localStorage.setItem( "token",jsn.token)
+           window.location.replace('../profile')
+         }
+        }
     
-    //  xhr.onload = ()=>{
-    //      if(xhr.status != 200){
-    //          alert(`${xhr.status} Error:  ${xhr.statusText}`);
-    //      }else{
-    //          console.log('El request fue exitoso');
-    //        const jsn = JSON.parse(xhr.responseText);
     //        let jsn2 = jsn[0];
     //        for(let i in jsn){
     //            if(`${jsn[i].email}` == skel.email){
-    //                jsn2 = jsn[i];
+    //                jsn2 = js;
     //            }
     //        }
     //        if (jsn2.email == corr  && jsn2.password == skel.password){
@@ -56,7 +58,11 @@ function auth(){
     // }
 
 
-}
+// }
+
+
+
+
 console.log(forma);
 function makeid(length) {
    var result           = '';
@@ -91,6 +97,7 @@ but.addEventListener("click", () => {
         //return esk;
     }
     sendData(esk);
+    // window.location.reload();
     
     // $('#registro').modal('hide');
     // // alert('Tu usario ha sido agregado correctamente');
@@ -127,6 +134,9 @@ function sendData(jsonResp){
     // xhr.setRequestHeader('x-auth', `${localStorage.token}`);
     
     xhr.send(JSON.stringify(jsonResp));
+    xhr.onload =()=>{
+        window.location.reload();
+    }
 
 }    
 //     xhr.onload = (e) =>{

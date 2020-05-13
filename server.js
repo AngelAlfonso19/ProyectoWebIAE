@@ -3,6 +3,7 @@ const usersRouter = require("./routes/users");
 const assessmentRouter = require("./routes/assessmentDetail")
 const assignmentRouter = require("./routes/assignment")
 const evaluacionRouter = require('./routes/evaluaciones')
+const profileRouter = require('./routes/profile')
 var bodyParser = require('body-parser')
 
 const app = express()
@@ -23,6 +24,8 @@ extended:true
 app.use('/api/users', usersRouter);
 app.use('/api/assessmentDetail', assessmentRouter);
 app.use('/api/assignment', assignmentRouter)
+app.use('/api/profile', profileRouter)
+
 
 //Home
 app.use("/",express.static(__dirname+"/public/home"))
@@ -31,8 +34,6 @@ app.use("/",express.static(__dirname+"/public/home"))
 app.use("/users",express.static(__dirname+"/public/css"))
 app.use("/users",express.static(__dirname+"/public/users"))
 app.use("/login",express.static(__dirname+"/public/login"))
-app.use('/profile',express.static(__dirname+"/public/profile"))
-app.use("/profile",express.static(__dirname+"/public/css"))
 
 //Assessments
 app.use("/assessmentDetail",express.static(__dirname+"/public/css"))
@@ -45,6 +46,9 @@ app.use("/assignment",express.static(__dirname+"/public/assignment"))
 //Evaluaciones window
 app.use('/api/evaluaciones', evaluacionRouter)
 app.use("/evaluaciones",express.static(__dirname+"/public/evaluaciones"))
+
+//profiles
+app.use("/profile",express.static(__dirname+"/public/profile"))
 
 app.listen(port, function(){
     console.log(`Listening http://localhost:${port}`);
