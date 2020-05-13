@@ -1,11 +1,21 @@
 const mongoose = require('./mongodb-connect'); 
-
+const bcrypt = require('bcrypt');
 
 let userSchema = mongoose.Schema({
     userID:{
         type: Number,
         required: true,
-        unique: true
+        unique: true,
+        default: function () 
+        {
+            var result  = '';
+            var characters = '0123456789';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < 8; i++ ) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
+        }
     },
     username:{
         type: String,
@@ -40,7 +50,8 @@ let userSchema = mongoose.Schema({
         required: function () {
             return this.typo > 3;
         },
-        enum: ['ISI', 'ISC']
+        enum: ['ISI', 'ISC'],
+        default: 'ISC'
     },
     department:{
         type: String,
@@ -74,17 +85,27 @@ let userSchema = mongoose.Schema({
 })
 
 userSchema.statics.getUsuariosSAFE = () => {
-    return User.find({},{_id:0, username: 1, name: 1,lastName: 1, email: 1,collegeMajor: 1})
+        return User.find({},{_id:0, userID: 1, username: 1, name: 1,lastName: 1, email: 1,collegeMajor: 1, type:1})
 }
 
 userSchema.statics.SearchbyeMail = (email) =>{
-    return User.findOne({email},{_id:0, username: 1, name: 1,lastName: 1, email: 1,collegeMajor: 1})
+    return User.findOne({email},{_id:0, name:1, email: 1, password:1, token: 1, typo: 1})
 }
 
 userSchema.statics.createUser = (userData) =>{
-    console.log(userData);
+    console.log(userData.password);
+    userData.password = bcrypt.hashSync(userData.password, 8);
+    console.log(userData.password);
     let newUser = User(userData);
     return newUser.save()
+}
+
+userSchema.statics.updateUser = (userData) => {
+    return  User.findOneAndUpdate(
+        {_id:this._id},
+        {$set:datos},
+        {new:true}
+        )
 }
 
 let User = mongoose.model('users', userSchema);
@@ -99,10 +120,10 @@ let User = mongoose.model('users', userSchema);
 //     }
 // })
 
-async function getUsersAsync(filtro){
+async function getUsersAsync(){
     let docs = [];
     try{
-        docs = await User.find({filtro});
+        docs = await User.find({});
         console.log(docs); 
     }catch(error){
         console.log("error", error)
@@ -110,20 +131,20 @@ async function getUsersAsync(filtro){
     return docs;
 }
 
-function createUser(user){
-    let userMongo = User(user);
+// function createUser(user){
+//     let userMongo = User(user);
     
-    userMongo.save()
-    .then((resp)=> console.log(resp))
-    .catch((err)=> console.log("Ocurrió un error", err))    
-}
+//     userMongo.save()
+//     .then((resp)=> console.log(resp))
+//     .catch((err)=> console.log("Ocurrió un error", err))    
+// }
 
 
 
 // let newUser = {userID: 4, username: "angelel_21", name:"Angel", lastName:"Alfonso", email:"is701211@iteso.mx", password:"12348ii75", collegeMajor:"ISI", department: "DESI"}
 // crearUsuario(newUser);
 
-User.createUser = createUser;
+// User.createUser = createUser;
 User.getUsersAsync = getUsersAsync;
 
 // getUsersAsync();

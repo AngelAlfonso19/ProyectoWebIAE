@@ -1,22 +1,30 @@
+@host = http://localhost:3000/api/users
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWxleGlzIiwiZW1haWwiOiJpczcwODEzM0BpdGVzby5teCIsImlhdCI6MTU4OTM0OTUyOSwiZXhwIjoxNTg5MzUzMTI5fQ.uxP_sf5_u_WotvThWBUO6QRdolKBD8EoIaET8g_Bp18
 
-       
-POST  http://localhost:3000/usuarios/
+
+GET {{host}}
+Content-Type: application/json
+x-auth: {{token}} 
+###
+POST {{host}}/login
 Content-Type: application/json
 
 {
-      "nombre": "Jose",
-      "apellido": "WEB",
-      "email": "si888888@iteso.mx",
-      "password": "iteso4321",
-      "rol": "profesor"
+    "email": "is708133@iteso.mx",
+    "password": "alexisbb"
 }
-
-
-### 
-GET http://localhost:3000/usuarios
-Content-Type: application/json
 
 
 ###
+POST  http://localhost:3000/api/users
+Content-Type: application/json
 
+{
+    "username": "bar-user",
+    "name": "bar",
+    "lastName": "bat",
+    "email": "barbat@iteso.mx",
+    "password": "barbat321",
 }
+
+

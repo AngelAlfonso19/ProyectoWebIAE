@@ -1,14 +1,18 @@
 const router = require("express").Router()
+const bcrypt = require('bcrypt')
 const User = require("../db/User")
-let lg = {}
+const key = require('../config_files')
+const midAuth = require('../middlewares/midAuth')
+const jwt = require('jsonwebtoken')
 
-router.get('/', async (req, res)=> {
+router.get('/',midAuth.checkToken, midAuth.validateRol, async (req, res)=> {
 
     console.log("Entra a get /api/users");
+    console.log(req.query);
+    console.log("usuario logueado", req.correo);
     try{
         let docs = await User.getUsuariosSAFE();
         res.send(docs);
-        lg = docs
     }catch(err){
         res.send({err})
     }
@@ -16,45 +20,105 @@ router.get('/', async (req, res)=> {
     // console.log(tute);
 })
 
+router.get('/admin', async (req, res)=> {
+
+    console.log("Entra a get de admins");
+    try{
+        let docs = await User.getUsuariosAsyn();
+        res.send(docs);
+    }catch(err){
+        res.status(400).send({err})
+    }
+    // let tute = await User.getUsersAsync();
+    // console.log(tute);
+})
+
+
 router.get('/:email', validar_lg, async (req,res) =>{
     console.log('searchUser');
     try{
         let doc = await User.SearchbyeMail(req.params.email)
-        res.send(doc);
-    }catch(err){err};
+        console.log(doc);
+    }catch(err){ERROR: err}
+       
 })
 
 
 
-router.post('/', validar, async(req,res)=>{
+router.post('/login', async (req,res)=>{
+    console.log('Login');
+    try{
+        let doc = await User.SearchbyeMail(req.body.email)
+        console.log(doc);
+        let dPass = doc.password
+        let rPass = req.body.password
+        if(bcrypt.compareSync(rPass,dPass)){
+            let token = jwt.sign({email: doc.email},`${key.tokenPass}`,{expiresIn: '1h' })
+            // window.localStorage.token = doc.token;
+            res.send({token})
+            // res.redirect(301,'/profile');
+        }else{
+            res.status(401).send({Error: 'Verifique usuario y contraseña. ErrInfo: ',})
+        }
+    }catch(err){console.log(err)
+    }
+})
+
+
+
+router.post('/', async(req,res)=>{
+    console.log('Will POST');
+    let skip = 0
     let doc = await User.SearchbyeMail(req.body.email)
     if (doc){
         res.status(400).send({error: "Ya existe un usario registrado con ese eMail"})
     }else{
         try{    
-            let usr = await User.createUser(req.body)
-            res.status(201).send(usr)
+            console.log(req.body);
+            let userData = req.body
+            let usr = await User.createUser(userData)
+            console.log(usr);
+            res.status(201).send(usr);
         }catch(err){
+            console.log(req.body);
             res.status(400).send({error: err})
         }
     }
 })
 
-function validar(req,res,next) {
-    let {username, name, lastName, email, password, collegeMajor,typo } = req.body;
-    if(typo < 4 && username&&name&&lastName&&email&&password){
-        next()
-        return;
-    }else if((typo === undefined)&&username&&name&&lastName&&email&&password&&collegeMajor){
-        next()
-        return;
+router.put('/:email',validar, async (req,res) => {
+    if(req.params.email == req.body.email){
+        let doc;
+        try{
+            doc = await User.SearchbyeMail(req.params.email);
+            if(doc){
+                await doc.updateUser(req.body);
+                res.send();
+            }
+        }catch(err){
+            res.status(400).send({error: "No se encontró usuario"})
+        }
+    }else{
+        res.status(400).send({error: "No se puede cambiar el correo"})
     }
-    res.status(400).send({error: "Falta información"});
+})
+
+function validar(req,res,next) {
+    // let {username, name, lastName, email, password, collegeMajor,typo } = req.body;
+    // let skk = {username, name, lastName, email, password, collegeMajor,typo } 
+    let Req = req.body;
+    if(Req.email  ){
+        console.log(req.body);
+        next()
+        return;
+    }else{
+        res.status(400).send({error: "Falta información"});
+    }
 }
 
 function validar_lg(req,res,next) {
-    if(req.body){
-        console.log(req.body);
+    console.log(req.params);
+    if(req.params){
         next()
         return;
     }else{
