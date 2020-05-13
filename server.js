@@ -3,6 +3,7 @@ const usersRouter = require("./routes/users");
 const assessmentRouter = require("./routes/assessmentDetail")
 const assignmentRouter = require("./routes/assignment")
 const evaluacionRouter = require('./routes/evaluaciones')
+const answerstRouter = require('./routes/answers')
 var bodyParser = require('body-parser')
 
 const app = express()
@@ -23,6 +24,7 @@ extended:true
 app.use('/api/users', usersRouter);
 app.use('/api/assessmentDetail', assessmentRouter);
 app.use('/api/assignment', assignmentRouter)
+app.use('/api/answers', answerstRouter)
 
 //Home
 app.use("/",express.static(__dirname+"/public/home"))
