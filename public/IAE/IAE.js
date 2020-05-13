@@ -1,11 +1,11 @@
+
 let form = document.querySelector('#asignatura')
 let invalid = document.querySelectorAll('input:invalid')
 let butreg = document.querySelector('#CrearAsignatura')
-let assignmentid = 0;
 
 
 let xhr = new XMLHttpRequest();
-xhr.open('GET', '/api/assignment')
+xhr.open('GET', '/api/IAE')
 xhr.setRequestHeader("Content-Type", "application/json");
 xhr.send();
 xhr.onload = () =>{
@@ -13,22 +13,13 @@ xhr.onload = () =>{
         alert(`${xhr.status} Fallo registro de obtener`)
     }
     else{
-      showTeacher()
-      showUsers(JSON.parse(xhr.responseText));
-        
+      console.log("Entro");
+      sendTeAssignment(JSON.parse(xhr.responseText));
     }
 }
 
-function showUsers(data){
-    var text = "";
 
-   data.forEach((element) => {
-      text += userToHtml(element)
-   });
-    document.getElementById("lista").innerHTML = text;
-}
-
-function userToHtml(obj) {
+function assignmentToHtml(obj) {
     //console.log(obj);
     if (obj != undefined)
         return `
@@ -102,13 +93,12 @@ function makeid() {
 butreg.addEventListener("click", function(event) {
     event.preventDefault();
     let data = document.querySelectorAll('input')
-
+    let selected = document.getElementById('profesor')
+    let selanswer = selected.options[selected.selectedIndex].value;
     let cdata =   {
-            "SubjectID": makeid(),
-            "TeacherID": 5,
-            "SubjectName": data[0].value,
-            "Score":  0,
-            "AvailableTime": data[1].value
+            "pollID": makeid(),
+            "SubjectID": selanswer,
+            "pollDate": ""
     }
     
     let reguser = JSON.stringify(cdata)
@@ -119,7 +109,7 @@ butreg.addEventListener("click", function(event) {
 
 function sendregister(datos){
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', '/api/assignment')
+    xhr.open('POST', '/api/IAE')
     xhr.setRequestHeader("Content-Type", "application/json")
     //xhr.setRequestHeader("Content-Type", "text/html")
     console.log(datos);
@@ -134,9 +124,9 @@ function sendregister(datos){
     }
 }
 
-function showTeacher(){
+function sendTeAssignment(iaedata){
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', '/api/users')
+  xhr.open('GET', '/api/assignment')
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send();
   xhr.onload = () =>{
@@ -144,45 +134,40 @@ function showTeacher(){
       alert(`${xhr.status} Fallo registro de obtener`)
   }
   else{
-      getTeacher(JSON.parse(xhr.responseText));
+      console.log(iaedata);
+      let assignment = JSON.parse(xhr.responseText);
+      console.log(assignment);
+      getAssignment(assignment)
+      let text = ''
+      iaedata.forEach((iae)=>{
+        if(iae.SubjectID == assignment.SubjectID){
+          //console.log(assignment);
+          text += assignmentToHtml(assignment);
+        }
+      })
+      document.getElementById("lista").innerHTML = text;
   }
   }
 }
 
-function getTeacher(data){
+
+function getAssignment(data){
   var text = "";
    data.forEach(element => {
-     if(element.typo == 3){
       console.log(element);
-      text += userToHtml(element)
-     }
+      text += userprofesorToHtml(element)
+ 
    });
    console.log(text);
     document.getElementById("profesor").innerHTML = text;
 }
 
-function userprofesorToHtml(obj){
+function assignToHtml(obj){
   if(obj != undefined)
-    return `<option value="${obj.name} ${obj.lastName}">${obj.name} ${obj.lastName}</option>`
+    return `<option value="${obj.SubjectName} - ${obj.TeacherID}">${obj.SubjectName} - ${obj.TeacherID}</option>`
   
 }
 
-function deleteassign(identify){
-  let answer = confirm("Deseas eliminar la asignatura?")
-  if(answer == true){
-   let xhr = new XMLHttpRequest();
-   xhr.open('DELETE',  `/api/assignment/${identify[0]}`)
-   xhr.setRequestHeader("Content-Type", "application/json");
-   xhr.send();
-   xhr.onload = () =>{
-       if(xhr.status != 200){
-           alert(`${xhr.status} Fallo registro de obtener`)
-       }
-       else{
-           alert("Asignatura eliminada");
-       }
-   }
-   }   
-}
+
 
 
