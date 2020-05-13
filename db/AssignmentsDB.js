@@ -32,7 +32,11 @@ let assignmentSchema = mongoose.Schema({
     return newAssignment.save()
   }
 
-  let Assignment = mongoose.model('Assignment', assignmentSchema)
+  assignmentSchema.statics.SearchByID = (SubjectID) =>{
+  return Assignment.findOne({SubjectID}/*,{_id:0, SubjectID:1, TeacherID:1, SubjectName: 1, Score:1, AvailableTime: 1}*/)
+  }
+
+  let Assignment = mongoose.model('assignments', assignmentSchema)
 
   function createAssignment(assignment){
     let assignmentMongo = Assignment(assignment);
