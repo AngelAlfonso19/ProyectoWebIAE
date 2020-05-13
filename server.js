@@ -3,11 +3,8 @@ const usersRouter = require("./routes/users");
 const assessmentRouter = require("./routes/assessmentDetail")
 const assignmentRouter = require("./routes/assignment")
 const evaluacionRouter = require('./routes/evaluaciones')
-<<<<<<< HEAD
 const profileRouter = require('./routes/profile')
-=======
 const IAERouter = require('./routes/iae')
->>>>>>> master
 var bodyParser = require('body-parser')
 
 const app = express()
