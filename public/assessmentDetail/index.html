@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Admin</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <!-- View -->
+        <div class="container-fluid" id="layoutSidenav">
+            <div class="row">
+                <!-- Sidenav -->
+                <div class="col-3 p-0 sidenav">
+                    <div class="container-fluid sticky-top">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <img src="logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mt-5 d-flex justify-content-center">
+                                <a class="nav-link d-flex justify-content-center" href="IAE.html">IAE</a>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mt-4 d-flex justify-content-center">
+                                <a class="nav-link d-flex justify-content-center" href="../users/index.html">Usuarios</a>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center">
+                                <hr>
+                            </div>        
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mt-4 d-flex justify-content-center">
+                                <a class="nav-link d-flex justify-content-center" href="../assignment/index.html">Asignaturas</a>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center">
+                                <hr>
+                            </div>        
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mt-4 d-flex justify-content-center">
+                                <a class="nav-link d-flex justify-content-center" href="EvaluacionesGraphs.html">Evaluaciones</a>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center">
+                                <hr>
+                            </div>        
+                        </div>
+                    </div>
+                </div>
+                <!-- /Sidenav -->
+                <!-- SidenavContent -->
+                <div class="col-9 p-0">
+                    <div id="layoutSidenav_content">              
+                        <div class="container-fluid">
+                            <!-- StatusBar -->
+                            <div class="row">
+                                <div class="col-4 offset-4 mt-2">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-12 d-flex justify-content-center">
+                                                <p class="statusBar_profileInformation">Administrador:</p>                                                                                             
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 d-flex justify-content-center">
+                                                <p class="statusBar_profileInformation text-center">Navarro José Manuel</p>
+                                            </div>
+                                        </div>   
+                                    </div>
+                                </div>
+                                <div class="col-2 offset-1 mt-2 p-0 d-flex justify-content-center"> 
+                                    <a href="profile.html">
+                                        <img class="img-circle" id="statusBarProfilePhoto" src="AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg"> 
+                                    </a>
+                                </div>           
+                            </div>                   
+                            <div class="row">
+                                <div class="col-12 d-flex justify-content-center">
+                                    <p class="statusBar_profileInformation">Profesor:</p>      
+                                    <select id="listTeachers">
+                                        <option value="default" selected></option>
+                                        <option value="Luis Fernando"> Luis Fernando</option>
+                                        <option value="Hugo Ivan Piza"> Hugo Ivan Piza</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 mt-2 d-flex justify-content-center">
+                                    <p class="statusBar_profileInformation">Materia:</p>
+                                    <select id="listSubject">                        
+                                        <option value="default" selected></option>
+                                        <option value="Programacion Orientada a Objetos"> Programacion Orientada a Objetos</option>
+                                        <option value="Programacion web"> Programacion web</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- /StatusBar -->
+                            <!-- ProfessorInformation-->
+                            <div class="row">
+                                <div class="col-12 mt-4 d-flex justify-content-center">
+                                    <!-- ProfessorProfilePhoto -->
+                                    <div class="col-3 p-0 d-flex justify-content-center"> 
+                                        <div class="container-fluid">
+                                            <div class="row justify-content-center">
+                                                <div class="col d-flex justify-content-center">
+                                                    <a href="">
+                                                        <img class="img-circle evaluation_professorPhoto" src="ProfilePhotoProfessor.jpg" alt="profilePhotoProfessor.jpg">
+                                                    </a>                                            
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <!-- /ProfessorProfilePhoto -->
+                                    <!-- ProfessorDataEvaluation -->
+                                    <div class="col-5 p-0 mt-3 d-flex justify-content-center">
+                                        <div class="container-fluid p-0">
+                                            <div class="row">
+                                                <div class="col-5 pr-0">
+                                                    <p class="evaluation_professorInformation">Promedio:</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="evaluation_professorInformation">A</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-7">
+                                                    <p class="evaluation_professorInformation">Promedio clase:</p>
+                                                </div>
+                                                <div class="col-2 p-0">
+                                                    <p class="evaluation_professorInformation">A+</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form">
+                                                        <input type="text" id="form1" class="form-control">
+                                                        <label class="mb-0" for="form1">Fecha</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <input class="button" type="submit" value="Eliminar">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /ProfessorDataEvaluation -->
+                                </div>                            
+                            </div>
+                            <!-- ProfessorName -->
+                            <div class="row">
+                                <div class="col-5 offset-1 p-0 d-flex justify-content-center">
+                                    <a href="">
+                                        <p class="evaluation_professorInformation text-center" id="evaluation_professorName">Montoya Ángel</p>
+                                    </a>
+                                </div>
+                            </div>
+                             <!-- /ProfessorName  -->
+                            <!-- /ProfessorInformation  -->
+                            <!-- EvaluationData -->
+                        <div id="questions">
+                            <!-- Answer1 -->
+                            <div class="row">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col mt-5 offset-1">
+                                            <h3>1. Pregunta 1</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col d-flex justify-content-center">
+                                            <table class="graph">                                        
+                                                <caption>Bar Chart HTML From HTML Table</caption>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Item</th>
+                                                        <th scope="col">Percent</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr style="height:85%">
+                                                        <th scope="row">0</th>
+                                                        <td><span>85%</span></td>
+                                                    </tr>
+                                                    <tr style="height:23%">
+                                                        <th scope="row">1</th>
+                                                        <td><span>23%</span></td>
+                                                    </tr>
+                                                    <tr style="height:7%">
+                                                        <th scope="row">2</th>
+                                                        <td><span>7%</span></td>
+                                                    </tr>
+                                                    <tr style="height:38%">
+                                                        <th scope="row">3</th>
+                                                        <td><span>38%</span></td>
+                                                    </tr>
+                                                    <tr style="height:35%">
+                                                        <th scope="row">4</th>
+                                                        <td><span>35%</span></td>
+                                                    </tr>
+                                                    <tr style="height:35%">
+                                                        <th scope="row">5</th>
+                                                        <td><span>50%</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>  
+                                        </div>                             
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Answer1 -->
+                            <!-- Answer2 -->
+                            <div class="row">
+                                <div class="container-fluid">
+                                    <div class="row mt-5">
+                                        <div class="col offset-1 mt-5">
+                                            <h3>2. Pregunta 2</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col d-flex justify-content-center">
+                                            <table class="graph">                                        
+                                                <caption>Bar Chart HTML From HTML Table</caption>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Item</th>
+                                                        <th scope="col">Percent</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr style="height:85%">
+                                                        <th scope="row">0</th>
+                                                        <td><span>85%</span></td>
+                                                    </tr>
+                                                    <tr style="height:23%">
+                                                        <th scope="row">1</th>
+                                                        <td><span>23%</span></td>
+                                                    </tr>
+                                                    <tr style="height:7%">
+                                                        <th scope="row">2</th>
+                                                        <td><span>7%</span></td>
+                                                    </tr>
+                                                    <tr style="height:38%">
+                                                        <th scope="row">3</th>
+                                                        <td><span>38%</span></td>
+                                                    </tr>
+                                                    <tr style="height:35%">
+                                                        <th scope="row">4</th>
+                                                        <td><span>35%</span></td>
+                                                    </tr>
+                                                    <tr style="height:35%">
+                                                        <th scope="row">5</th>
+                                                        <td><span>50%</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>  
+                                        </div>                             
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Answer2 -->
+                            <!-- Answer3 -->
+                            <div class="row">
+                                <div class="container-fluid">
+                                    <div class="row mt-5">
+                                        <div class="col offset-1 mt-5">
+                                            <h3>3. Pregunta 3</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col d-flex justify-content-center">
+                                            <table class="graph">                                        
+                                                <caption>Bar Chart HTML From HTML Table</caption>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Item</th>
+                                                        <th scope="col">Percent</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr style="height:85%">
+                                                        <th scope="row">0</th>
+                                                        <td><span>85%</span></td>
+                                                    </tr>
+                                                    <tr style="height:23%">
+                                                        <th scope="row">1</th>
+                                                        <td><span>23%</span></td>
+                                                    </tr>
+                                                    <tr style="height:7%">
+                                                        <th scope="row">2</th>
+                                                        <td><span>7%</span></td>
+                                                    </tr>
+                                                    <tr style="height:38%">
+                                                        <th scope="row">3</th>
+                                                        <td><span>38%</span></td>
+                                                    </tr>
+                                                    <tr style="height:35%">
+                                                        <th scope="row">4</th>
+                                                        <td><span>35%</span></td>
+                                                    </tr>
+                                                    <tr style="height:35%">
+                                                        <th scope="row">5</th>
+                                                        <td><span>50%</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>  
+                                        </div>                             
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Answer3 -->
+                            <!-- Answer4 -->
+                            
+                            <div class="row">
+                                <div class="container-fluid">
+                                    <div class="row mt-5">
+                                        <div class="col offset-1 mt-5">
+                                            <h3>4. Pregunta 4</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col d-flex justify-content-center">
+                                            <table class="graph">                                        
+                                                <caption>Bar Chart HTML From HTML Table</caption>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Item</th>
+                                                        <th scope="col">Percent</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr style="height:85%">
+                                                        <th scope="row">0</th>
+                                                        <td><span>85%</span></td>
+                                                    </tr>
+                                                    <tr style="height:23%">
+                                                        <th scope="row">1</th>
+                                                        <td><span>23%</span></td>
+                                                    </tr>
+                                                    <tr style="height:7%">
+                                                        <th scope="row">2</th>
+                                                        <td><span>7%</span></td>
+                                                    </tr>
+                                                    <tr style="height:38%">
+                                                        <th scope="row">3</th>
+                                                        <td><span>38%</span></td>
+                                                    </tr>
+                                                    <tr style="height:35%">
+                                                        <th scope="row">4</th>
+                                                        <td><span>35%</span></td>
+                                                    </tr>
+                                                    <tr style="height:35%">
+                                                        <th scope="row">5</th>
+                                                        <td><span>50%</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>  
+                                        </div>                             
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Answer4 -->
+                            <!-- Answer5 -->
+                            <div class="row">
+                                <div class="container-fluid">
+                                    <div class="row mt-5">
+                                        <div class="col offset-1 mt-5">
+                                            <h3>5. Pregunta 5</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col mb-5 d-flex justify-content-center">
+                                            <table class="graph">                                        
+                                                <caption>Bar Chart HTML From HTML Table</caption>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Item</th>
+                                                        <th scope="col">Percent</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr style="height:85%">
+                                                        <th scope="row">0</th>
+                                                        <td><span>85%</span></td>
+                                                    </tr>
+                                                    <tr style="height:23%">
+                                                        <th scope="row">1</th>
+                                                        <td><span>23%</span></td>
+                                                    </tr>
+                                                    <tr style="height:7%">
+                                                        <th scope="row">2</th>
+                                                        <td><span>7%</span></td>
+                                                    </tr>
+                                                    <tr style="height:38%">
+                                                        <th scope="row">3</th>
+                                                        <td><span>38%</span></td>
+                                                    </tr>
+                                                    <tr style="height:35%">
+                                                        <th scope="row">4</th>
+                                                        <td><span>35%</span></td>
+                                                    </tr>
+                                                    <tr style="height:35%">
+                                                        <th scope="row">5</th>
+                                                        <td><span>50%</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>  
+                                        </div>                             
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Answer5 -->
+                            <!-- Answer6 -->
+                            <div class="row">
+                                <div class="col-11 mt-5 offset-1">
+                                    <h3>6. Pregunta 6</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-10 offset-1 d-flex justify-content-center">
+                                    <form class="col-12" name="registrationForm">                               
+                                        <textarea class="col-12 inputText"></textarea>            
+                                    </form>
+                                </div>              
+                            </div>
+                            <!-- /Answer6 -->
+                            <!-- Answer7 -->
+                            <div class="row">
+                                <div class="col-11 mt-5 offset-1">
+                                    <h3>7. Pregunta 7</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-10 offset-1 d-flex justify-content-center">
+                                    <form class="col-12" name="registrationForm">                               
+                                        <textarea class="col-12 inputText"></textarea>            
+                                    </form>
+                                </div>              
+                            </div>
+                            <!-- /Answer7 -->
+                            <!-- Answer8 -->
+                            <div class="row">
+                                <div class="col-11 mt-5 offset-1">
+                                    <h3>8. Pregunta 8</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-10 offset-1 d-flex justify-content-center">
+                                    <form class="col-12" name="registrationForm">                               
+                                        <textarea class="col-12 inputText"></textarea>            
+                                    </form>
+                                </div>              
+                            </div>
+                            <!-- /Answer8 -->
+                            </div>
+                        </div>               
+                    </div>
+                </div>
+                <!--/SidenavContent -->
+            </div>
+        </div>
+        <!-- /View -->
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+        <script type="text/javascript" src="./EvaluacionesGraphs.js"></script>
+    </body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>AdminProfile</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="container-fluid" id="layoutSidenav">
+      <div class="row">
+        <!-- Sidenav -->
+        <div class="col-3 p-0 sidenav">
+          <div class="container-fluid sticky-top">
+            <div class="row">
+              <div class="col-12 d-flex justify-content-center">
+                <img src="./logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 mt-5 d-flex justify-content-center">
+                <a class="nav-link d-flex justify-content-center" href="IAE.html">IAE</a>
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                <hr>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 mt-4 d-flex justify-content-center">
+                <a class="nav-link d-flex justify-content-center" href="users.html">Usuarios</a>
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                <hr>
+              </div>        
+            </div>
+            <div class="row">
+              <div class="col-12 mt-4 d-flex justify-content-center">
+                <a class="nav-link d-flex justify-content-center" href="assignments.html">Asignaturas</a>
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                <hr>
+              </div>        
+            </div>
+            <div class="row">
+              <div class="col-12 mt-4 d-flex justify-content-center">
+                <a class="nav-link d-flex justify-content-center" href="EvaluacionesGraphs.html">Evaluaciones</a>
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                <hr>
+              </div>        
+            </div>
+          </div>
+        </div>
+        <!-- /Sidenav -->
+
+        <!-- Main -->
+        <div class="col-9 p-0">
+          <div id="layoutSidenav_content">            
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-2 offset-9 mt-5 d-flex justify-content-center">
+                  <a class="gearOption" data-toggle="modal" data-target="#modelId"href="#modelId" data-toggle="modal" data-target="#modelId">
+                    <img id = "gearOption" src="./gearOption.png" alt="gearOption.png">
+                  </a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2 offset-1 p-0 d-flex justify-content-center">
+                    <a class="Score m-0" href="EvaluacionesGraphs.html">
+                      <p id="profileView_Score">A+</p>
+                    </a> 
+                </div>
+                <div class="col-6 p-0 d-flex justify-content-center">
+                  <img class="img-circle" id="profile_profilePhoto" src="./AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg">  
+                </div>
+              </div>   
+              <div class="row">
+                <div class="col-12 m-0 d-flex justify-content-center">
+                  <form>
+                    <div class="form-row">
+                      <div class="form-group col-12 m-0 d-flex justify-content-center">
+                        <p id = "profile_profileInformation" class="profileInformation">Administrador</p>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-12 m-0 d-flex justify-content-center">
+                        <p id = "profile_profileInformation" class="profileInformation">José Manuel Navarro</p>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-12 m-0 d-flex justify-content-center">
+                        <p id = "profile_profileInformation" class="profileInformation">is703803@iteso.mx</p>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-12 m-0 d-flex justify-content-center">
+                        <input type="button" class="button" onclick= "window.location.href = './login.html';" value="Salir">
+                        <!-- <button id="logOutButton" class="button" onclick= "window.location.href = './login.html';">Salir</button> -->
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>            
+          </div>
+        </div>
+        <!--/Main -->
+      </div>
+    </div>
+    <!-- Sidenav -->
+
+    <!-- Modal -->
+    <!-- <div class="container">
+      <div class="row"> -->
+        <!-- <div class="col-9 offset-3 d-flex justify-content-center"> -->
+          <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-9 offset-3 d-flex justify-content-center">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Datos del usuario</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                        <form class="login-form">
+                          <input type="text" placeholder="Nombres..."> <br>
+                          <input type="text" placeholder="Apellidos..."> <br>
+                          <input type="email" placeholder="Correo..."> <br>
+                          <input type="password" placeholder="Contraseña..."><br>
+                        </form>
+                        <button type="button" class="modalButton" data-dismiss="modal">Confirmar</button>
+                        <button type="button" class="modalButton" data-dismiss="modal">Cancelar</button>
+                      </div>    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+      <!-- </div>
+    </div> -->
+    <!-- /Modal -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
