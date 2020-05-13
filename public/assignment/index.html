@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>AdminAssignments</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+  </head>
+  <body>
+    <!-- View -->
+    <div class="container-fluid" id="layoutSidenav">
+      <div class="row">
+        <!-- Sidenav -->
+        <div class="col-3 p-0 sidenav">
+          <div class="container-fluid sticky-top">
+            <div class="row">
+              <div class="col-12 d-flex justify-content-center">
+                <img src="logo.png" alt="Control_Panel_logo.png" id="controlPanelLogo">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 mt-5 d-flex justify-content-center">
+                <a class="nav-link d-flex justify-content-center" href="IAE.html">IAE</a>
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                <hr>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 mt-4 d-flex justify-content-center">
+                <a class="nav-link d-flex justify-content-center" href="users.html">Usuarios</a>
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                <hr>
+              </div>        
+            </div>
+            <div class="row">
+              <div class="col-12 mt-4 d-flex justify-content-center">
+                <a class="nav-link d-flex justify-content-center" href="assignments.html">Asignaturas</a>
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                <hr>
+              </div>        
+            </div>
+            <div class="row">
+            <div class="col-12 mt-4 d-flex justify-content-center">
+              <a class="nav-link d-flex justify-content-center" href="EvaluacionesGraphs.html">Evaluaciones</a>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+              <hr>
+            </div>        
+            </div>
+          </div>
+        </div>
+        <!-- /Sidenav -->
+
+        <!-- SidenavContent -->
+        <div class="col-9 p-0">
+          <div id="layoutSidenav_content">              
+            <div class="container-fluid">
+              <!-- StatusBar -->
+              <div class="row">
+                  <div class="col-2 mt-4 p-0 offset-1 d-flex justify-content-center">
+                      <a data-toggle="modal" data-target="#modelId"href="#modelId" data-toggle="modal" data-target="#modelId">
+                          <img id="statusBarAddUserButton" src="addButton.png" alt="AddButton.jpg"> 
+                      </a>                        
+                  </div>
+                  <div class="col-4 offset-1 mt-2">
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="col-12 d-flex justify-content-center">
+                                  <p class="statusBar_profileInformation">Administrador:</p>                                                                                             
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-12 d-flex justify-content-center">
+                                  <p class="statusBar_profileInformation text-center">Navarro José Manuel</p>
+                              </div>
+                          </div>   
+                      </div>
+                  </div>
+                  <div class="col-2 offset-1 mt-2 p-0 d-flex justify-content-center"> 
+                      <a href="profile.html">
+                          <img class="img-circle" id="statusBarProfilePhoto" src="AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg"> 
+                      </a>
+                  </div>           
+              </div>                   
+              <!-- /StatusBar -->
+
+              <!-- AssignmentsTable -->
+              <!-- AssignmentsTableSubtitle -->
+              <div class="row">
+                <div class="col-11 offset-1 mt-4"> 
+                  <a href="">
+                    <p class="UsersSubtitle">Asignaturas:</p>
+                  </a>
+                </div>
+              </div>
+              <!-- /AssignmentsTableSubtitle -->
+
+              <!-- AssignmentsTableContent -->
+              <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                  <div id="usersTable" class="card mb-4 col-10 d-flex justify-content-center">
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                          <!-- /TableHeader  -->
+                          <thead>
+                            <tr id="tableHeader">
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col">
+                                    <th>Asignatura</th>
+                                  </div>
+                                  <div class="col">
+                                    <th>Profesor</th>
+                                  </div>
+                                  <div class="col">
+                                    <th>Periodo</th>
+                                  </div>
+                                </div>
+                              </div>
+                            </tr>
+                          </thead>
+                          <!-- /TableHeader -->
+                          <!-- TableBody -->
+                          <tbody id="lista">
+                            <!-- Row1 -->
+                            <tr>
+                              <!-- Column1 -->
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                      <p class="userName">Javascript</p>
+                                    </div>
+                                  </div>
+                                </div>                                
+                              </td>
+                              <!-- /Column1 -->
+                              <!-- Column2 -->
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-6 d-flex justify-content-center">
+                                      <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg">
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-center">
+                                      <p class="userName">Tiger Nixon</p>
+                                    </div>
+                                  </div>
+                                </div>                                            
+                              </td>
+                              <!-- /Column2 -->
+                              <!-- Column3 -->
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                      <p class="userName">20/01/2020</p>
+                                    </div>
+                                  </div>
+                                </div>                     
+                              </td>
+                              <!-- /Column3  -->
+                            </tr>
+                            <!-- /Row1 -->
+                            <!-- Row2 -->
+                            <tr>                    
+                              <!-- Column1 -->
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                      <p class="userName">Base de datos</p>
+                                    </div>
+                                  </div>
+                                </div>                                
+                              </td>
+                              <!-- /Column1 -->
+                              <!-- Column2 -->
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-6 d-flex justify-content-center">
+                                      <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/2.jpg" alt="userProfilePhoto.jpg">
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-center">
+                                      <p class="userName">Garrett Winters</p>
+                                    </div>
+                                  </div>
+                                </div>                                            
+                              </td>
+                              <!-- /Column2 -->
+                              <!-- Column3 -->
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                      <p class="userName">20/01/20</p>
+                                    </div>
+                                  </div>
+                                </div>                     
+                              </td> 
+                              <!--/Column3  -->
+                            </tr>
+                            <!-- /Row2 -->
+                            <!-- Row3 -->
+                            <tr>
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                      <p class="userName">PHP</p>
+                                    </div>
+                                  </div>
+                                </div>                                
+                              </td>
+
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-6 d-flex justify-content-center">
+                                      <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/1.jpg" alt="userProfilePhoto.jpg">
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-center">
+                                      <p class="userName">Ashton Cox</p>
+                                    </div>
+                                  </div>
+                                </div>                                            
+                              </td>
+
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                      <p class="userName">20/01/2019</p>
+                                    </div>
+                                  </div>
+                                </div>                     
+                              </td>                        
+                            </tr>
+                            <!-- /Row3 -->
+                            <!-- Row4 -->
+                            <tr>
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                      <p class="userName">Android</p>
+                                    </div>
+                                  </div>
+                                </div>                                
+                              </td>
+
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-6 d-flex justify-content-center">
+                                      <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/3.jpg" alt="userProfilePhoto.jpg">
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-center">
+                                      <p class="userName">Cedric Kelly</p>
+                                    </div>
+                                  </div>
+                                </div>                                            
+                              </td>                          
+
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                      <p p class="userName">20/01/2019</p>
+                                    </div>
+                                  </div>
+                                </div>                     
+                              </td>                        
+                            </tr>
+                            <!-- /Row4 -->
+                            <!-- Row5 -->
+                            <tr>
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                      <p class="userName">Estructura de datos</p>
+                                    </div>
+                                  </div>
+                                </div>                                
+                              </td>
+
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-6 d-flex justify-content-center">
+                                      <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/women/3.jpg" alt="userProfilePhoto.jpg">
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-center">
+                                      <p class="userName">Airi Satou</p>
+                                    </div>
+                                  </div>
+                                </div>                                            
+                              </td>
+
+                              <td> 
+                                <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                      <p class="userName">20/01/2018</p>
+                                    </div>
+                                  </div>
+                                </div>                     
+                              </td>                        
+                            </tr>
+                            <!-- /Row5 -->                                                                                                                                                                      
+                          </tbody>
+                          <!-- /TableBody -->
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /AssignmentsTableContent -->
+              <!-- /AssignmentsTable -->
+            </div>               
+          </div>
+        </div>
+        <!--/SidenavContent -->
+      </div>
+    </div>
+    <!-- /View -->
+
+    <!-- Modal -->
+    <div class="container-fluid">
+      <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Datos de asignatura nueva</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+              <form id = "asignatura" class="login-form" enctype="multipart/form-data">
+                <input type="text" name="SubjectName" placeholder="Nombre de asignatura..." required> <br>
+                <input type="text" name="AvailableTime" placeholder="Periodo..." required> <br>
+                <label for="profesor">Selecciona a profesor</label>
+                <select name="profesor" type="select" placeholder="Profesor..." required> </select> <br> 
+              </form>
+              <button id = "CrearAsignatura" type="button" class="modalButton" data-dismiss="modal">Confirmar</button>
+              <button type="button" class="modalButton" data-dismiss="modal">Cancelar</button>
+            </div>    
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="Assets/usersTables.js"></script>
+    <script type="text/javascript" src="assignments.js"></script>
+  </body>
+</html>

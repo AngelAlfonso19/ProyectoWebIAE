@@ -28,3 +28,23 @@ Content-Type: application/json
 }
 
 
+### 
+GET http://localhost:3000/usuarios
+Content-Type: application/json
+
+###
+GET http://localhost:3000/api/assessmentDetail
+Content-Type: application/json
+GET http://localhost:3000/assignment
+
+###
+POST http://localhost:3000/api/assignment
+Content-Type: application/json
+
+{
+      "SubjectID": 8,
+      "TeacherID": 0,
+      "SubjectName": "PAE",
+      "Score":  0,
+      "AvailableTime": "Primavera 2020"
+}
