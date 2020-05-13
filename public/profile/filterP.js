@@ -6,10 +6,31 @@ const Namehtml = document.getElementById('profile_Name')
 const Emailhtml = document.getElementById('profile_Email')
 const Imghtml = document.getElementById('profile_profilePhoto')
 const tipos = ["Administrador","Coordinador","Profesor","Alumno"]
+const IAE = document.getElementById('IAE')
+const Users = document.getElementById('users')
+const assignment = document.getElementById('assignment')
+const assessmentDetail = document.getElementById('assessmentDetail')
 
 CS.addEventListener("click", ()=>{
     cerrarSesion();
 })
+
+IAE.addEventListener("click", ()=>{
+    toView("iae", "IAE");
+})
+
+Users.addEventListener("click", ()=>{
+    toView("users", "users");
+})
+
+assignment.addEventListener("click", ()=>{
+    toView("assignment", "assignment");
+})
+
+assessmentDetail.addEventListener("click", ()=>{
+    toView("assessmentDetail", "assessmentDetail");
+})
+
 
 xhr.open('GET','http://localhost:3000/api/profile')
 let varHTML = forma.children;
@@ -39,6 +60,14 @@ xhr.onload = ()=>{
     // }
 }
 
+
+function toView(link, view){
+    xhr.open('GET', `http://localhost:3000/${link}`)
+    xhr.send()
+    xhr.onload = ()=>{
+        window.location.replace(`../${view}`)
+    }
+}
 
 
 function cerrarSesion(){
