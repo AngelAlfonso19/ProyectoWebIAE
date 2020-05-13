@@ -5,7 +5,6 @@ const User = require('../db/User')
 function checkToken(req,res,next){
     const token = req.get('x-auth');
     if(token){
-        console.log(token);
         jwt.verify(token,`${key.tokenPass}`,function(err, payload){
             if(err){
                 res.status(401).send({error: "token invalido: ", err})
@@ -26,7 +25,6 @@ async function validateRol (req,res,next){
     try{
         // const user =  await User.searchbyeMail(req.params.email)
         const user = await User.SearchbyeMail(req.params.email)
-        console.log(user);
         if(user && (user.typo == 0 )){next()}
     }catch(err){
         res.status(401).send({error: 'No está autorizado'})
