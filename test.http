@@ -1,5 +1,5 @@
-@host = http://localhost:3000/api/users
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWxleGlzIiwiZW1haWwiOiJpczcwODEzM0BpdGVzby5teCIsImlhdCI6MTU4OTM0OTUyOSwiZXhwIjoxNTg5MzUzMTI5fQ.uxP_sf5_u_WotvThWBUO6QRdolKBD8EoIaET8g_Bp18
+@host = http://localhost:3000/api/profile
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlzNzA4MTMzQGl0ZXNvLm14IiwibmFtZSI6ImFsZXhpcyIsImxhc3ROYW1lIjoiYmVsbCIsInR5cG8iOjAsImlhdCI6MTU4OTM3NDU4OCwiZXhwIjoxNTg5Mzc4MTg4fQ.b8aAOhXXEQn6vNmrtQ9Y3G_QQf_yzE2hRY2SAAcXzVE
 
 
 GET {{host}}
@@ -27,6 +27,15 @@ Content-Type: application/json
     "password": "barbat321",
 }
 
+###
+PUT http://localhost:3000/api/users/img
+Content-Type: application/json
+x-auth: {{token}}
+
+{
+    "img": "https://randomuser.me/api/portraits/men/99.jpg"
+}
+
 
 ### 
 GET http://localhost:3000/usuarios
@@ -48,3 +57,6 @@ Content-Type: application/json
       "Score":  0,
       "AvailableTime": "Primavera 2020"
 }
+
+###
+GET http://localhost:3000/IAE

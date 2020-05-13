@@ -76,30 +76,31 @@
                     </a> 
                 </div>
                 <div class="col-6 p-0 d-flex justify-content-center">
-                  <img class="img-circle" id="profile_profilePhoto" src="./AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg">  
+                  <img class="img-circle" id="profile_profilePhoto" alt="AdminProfilePhoto.jpg">  
                 </div>
               </div>   
               <div class="row">
                 <div class="col-12 m-0 d-flex justify-content-center">
-                  <form>
+                  <form id="datosVariables">
                     <div class="form-row">
                       <div class="form-group col-12 m-0 d-flex justify-content-center">
-                        <p id = "profile_profileInformation" class="profileInformation">Administrador</p>
+                        <p id = "profile_ROL" class="profileInformation">Administrador</p>
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-12 m-0 d-flex justify-content-center">
-                        <p id = "profile_profileInformation" class="profileInformation">José Manuel Navarro</p>
+                        <p id = "profile_Name" class="profileInformation">José Manuel Navarro</p>
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-12 m-0 d-flex justify-content-center">
-                        <p id = "profile_profileInformation" class="profileInformation">is703803@iteso.mx</p>
+                        <p id = "profile_Email" class="profileInformation">is703803@iteso.mx</p>
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-12 m-0 d-flex justify-content-center">
-                        <input type="button" class="button" onclick= "window.location.href = './login.html';" value="Salir">
+                        <!-- <input type="button" class="button" onclick= "window.location.href = './login.html';"value="Salir"> -->
+                        <input type="button" id="SALIR" class="button" value="Salir">
                         <!-- <button id="logOutButton" class="button" onclick= "window.location.href = './login.html';">Salir</button> -->
                       </div>
                     </div>
@@ -156,5 +157,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="./filterP.js"></script>
   </body>
 </html>

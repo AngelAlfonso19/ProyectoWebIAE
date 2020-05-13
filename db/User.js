@@ -81,15 +81,22 @@ let userSchema = mongoose.Schema({
         type: String,
         required: true,
         default: "ChangeThis!"
+    },
+    img: {
+        type: String,
+        default: function (){
+            let rand = `https://randomuser.me/api/portraits/men/${this.userID%100}.jpg`
+            return rand;
+        }
     }
 })
 
 userSchema.statics.getUsuariosSAFE = () => {
-        return User.find({},{_id:0, userID: 1, username: 1, name: 1,lastName: 1, email: 1,collegeMajor: 1, type:1})
+        return User.find({},{_id:0, userID: 1, username: 1, name: 1,lastName: 1, email: 1,collegeMajor: 1, typo:1})
 }
 
 userSchema.statics.SearchbyeMail = (email) =>{
-    return User.findOne({email},{_id:0, name:1, email: 1, password:1, token: 1, typo: 1})
+    return User.findOne({email},{_id:0, name:1, email: 1, password:1,lastName:1,token: 1, img:1, typo: 1})
 }
 
 userSchema.statics.createUser = (userData) =>{
