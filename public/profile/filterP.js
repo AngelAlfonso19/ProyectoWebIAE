@@ -39,9 +39,7 @@ xhr.setRequestHeader('x-auth', localStorage.getItem('token'))
 // if(localStorage.getItem('token')
 xhr.send()
 xhr.onload = ()=>{
-    if(xhr.status!=200){
-        xhr.status(xhr.responseType).send(xhr.responseText)
-    }else
+    if(localStorage.getItem('token'))
     {
         let responses = JSON.parse(xhr.responseText);
         console.log(responses.typo);
@@ -52,12 +50,9 @@ xhr.onload = ()=>{
         console.log(responses.img)
         Imghtml.src = responses.img
         console.log(Imghtml.src)
-    }
-
-    // else {
-    //     window.location.replace('../login')
-    // }
-    // }
+    }else {
+         window.location.replace('../login')
+     }
 }
 
 
