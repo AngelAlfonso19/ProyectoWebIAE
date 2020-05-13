@@ -3,7 +3,11 @@ const usersRouter = require("./routes/users");
 const assessmentRouter = require("./routes/assessmentDetail")
 const assignmentRouter = require("./routes/assignment")
 const evaluacionRouter = require('./routes/evaluaciones')
+<<<<<<< HEAD
 const profileRouter = require('./routes/profile')
+=======
+const IAERouter = require('./routes/iae')
+>>>>>>> master
 var bodyParser = require('body-parser')
 
 const app = express()
@@ -40,12 +44,16 @@ app.use("/assessmentDetail",express.static(__dirname+"/public/css"))
 app.use("/assessmentDetail",express.static(__dirname+"/public/assessmentDetail"))
 
 //Assigment part
+app.use('/api/assignment', assignmentRouter)
 app.use("/assignment",express.static(__dirname+"/public/css"))
 app.use("/assignment",express.static(__dirname+"/public/assignment"))
 
 //Evaluaciones window
 app.use('/api/evaluaciones', evaluacionRouter)
 app.use("/evaluaciones",express.static(__dirname+"/public/evaluaciones"))
+//IAE
+app.use('/api/iae', IAERouter)
+app.use("/IAE", express.static(__dirname+"/public/IAE"))
 
 //profiles
 app.use("/profile",express.static(__dirname+"/public/profile"))

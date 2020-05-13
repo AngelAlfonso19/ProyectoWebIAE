@@ -57,3 +57,6 @@ Content-Type: application/json
       "Score":  0,
       "AvailableTime": "Primavera 2020"
 }
+
+###
+GET http://localhost:3000/IAE

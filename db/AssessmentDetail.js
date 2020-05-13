@@ -48,6 +48,17 @@ async function getAssesmentAsync(){
     return docs;
 }
 
+async function getAssesmentAsyncByID(AssessmentID){
+    let docs = [];
+    try{
+        docs = await Assessment.findOne({AssessmentID});
+        console.log(docs); 
+    }catch(error){
+        console.log("error", error)
+    }
+    return docs;
+}
+
 function createAssessment(assessment){
     let assessmentMongo = Assessment(assessment);
     
@@ -63,5 +74,6 @@ let Assessment = mongoose.model('assessments', assessmentSchema);
 
 Assessment.createAssessment = createAssessment;
 Assessment.getAssesmentAsync = getAssesmentAsync;
+Assessment.createAssessment = getAssesmentAsyncByID;
 
 module.exports = Assessment;
