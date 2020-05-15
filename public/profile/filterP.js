@@ -10,6 +10,8 @@ const IAE = document.getElementById('IAE')
 const Users = document.getElementById('users')
 const assignment = document.getElementById('assignment')
 const assessmentDetail = document.getElementById('assessmentDetail')
+const Edit = document.getElementById('emailPUT');
+const PUTform = document.getElementById('PUTform');
 
 CS.addEventListener("click", ()=>{
     cerrarSesion();
@@ -27,16 +29,12 @@ assignment.addEventListener("click", ()=>{
     toView("assignment", "assignment");
 })
 
-assessmentDetail.addEventListener("click", ()=>{
-    toView("assessmentDetail", "assessmentDetail");
-})
-
 
 xhr.open('GET','http://localhost:3000/api/profile')
 let varHTML = forma.children;
 xhr.setRequestHeader('Content-Type', 'application/json');
 xhr.setRequestHeader('x-auth', localStorage.getItem('token'))
-// if(localStorage.getItem('token')
+if(localStorage.getItem('token')=== undefined){window.location.replace('login')}
 xhr.send()
 xhr.onload = ()=>{
     if(localStorage.getItem('token'))
@@ -47,11 +45,12 @@ xhr.onload = ()=>{
         Rolhtml.innerHTML = (responses.typo == 0)?tipos[0]:tipos[responses.typo-1]
         Namehtml.innerHTML = `${responses.name} ${responses.lastName}`
         Emailhtml.innerHTML = `${responses.email}`
+        Edit.setAttribute('value', `${responses.email}`)
         console.log(responses.img)
         Imghtml.src = responses.img
         console.log(Imghtml.src)
     }else {
-         window.location.replace('../login')
+         window.location.replace('login')
      }
 }
 

@@ -5,8 +5,8 @@ const User = require('../db/User')
 function checkToken(req,res,next){
     console.log('VERIFICANDO TOKEN');
     const token = req.get('x-auth');
-    if(token!=""){
-        jwt.verify(token,`${key.tokenPass}`,function(err, payload){
+    if(token!="" || token != undefined || token == "undefined"){
+        jwt.verify(token,`${key.tokenPass}`,function (err, payload){
             if(err){
                 res.status(401).send({error: "token invalido: ", err})
             }else{

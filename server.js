@@ -31,7 +31,7 @@ app.use('/api/profile', profileRouter)
 
 
 //Home
-app.use("/",express.static(__dirname+"/public/home"))
+app.use("/",express.static(__dirname+"/public/profile"))
 
 //Users
 app.use("/users",express.static(__dirname+"/public/css"))
@@ -55,7 +55,7 @@ app.use('/api/iae', IAERouter)
 app.use("/IAE", express.static(__dirname+"/public/IAE"))
 
 //profiles
-app.use("/profile",express.static(__dirname+"/public/profile"))
+// app.use("/profile",express.static(__dirname+"/public/profile"))
 
 app.listen(port, function(){
     console.log(`Listening http://localhost:${port}`);
