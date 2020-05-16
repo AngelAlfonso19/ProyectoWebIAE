@@ -35,20 +35,22 @@ router.get('/:email'/*, validar_lg*/, async (req,res) =>{
 
 router.post('/login', async (req,res)=>{
     console.log('Login');
+    console.log(req.body.email);
     try{
         let doc = await User.SearchbyeMail(req.body.email)
         console.log(doc);
         let dPass = doc.password
         let rPass = req.body.password
         if(bcrypt.compareSync(rPass,dPass)){
-            let token = jwt.sign({email: doc.email, name: doc.name, lastName: doc.lastName, typo: doc.typo},`${key.tokenPass}`,{expiresIn: '1h' })
+            let token = jwt.sign({email: doc.email, name: doc.name, lastName: doc.lastName, typo: doc.typo},`${key.tokenPass}`,{expiresIn: '6h' })
             // res.cookie('token', token);
             res.json({token});
             // res.redirect('/profile');
         }else{
             res.status(401).send({Error: 'Verifique usuario y contraseña. ErrInfo: ',})
         }
-    }catch(err){console.log(err)
+    }catch(err){
+        console.log('ERROR: ', err)
     }
 })
 

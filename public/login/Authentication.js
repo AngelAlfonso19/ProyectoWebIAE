@@ -33,11 +33,17 @@ function auth(){
     xhr.setRequestHeader("Content-Type","application/json")
     xhr.send(JSON.stringify(skel));
     xhr.onload = ()=>{
-           console.log('El request fue exitoso');
-           let jsn = JSON.parse(xhr.responseText);
-           console.log(jsn.token);
-           localStorage.setItem( "token",jsn.token)
-           window.location.replace('../profile')
+        if(xhr.status != 200){
+            xhr.send(400).statusText('ERror!')
+            // xhr.status(400).send('Error!')
+           }
+          else{
+            console.log('El request fue exitoso');
+            let jsn = JSON.parse(xhr.responseText);
+            console.log(jsn.token);
+            localStorage.setItem( "token",jsn.token)
+            window.location.replace('../')
+          } 
          }
         }
     
