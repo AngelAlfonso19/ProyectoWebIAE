@@ -34,7 +34,7 @@ function auth(){
     xhr.send(JSON.stringify(skel));
     xhr.onload = ()=>{
         if(xhr.status != 200){
-            xhr.send(400).statusText('ERror!')
+            alert(`${xhr.status} Verifique usuario y contraseña`)
             // xhr.status(400).send('Error!')
            }
           else{
