@@ -23,15 +23,13 @@ router.post('/', async (req, res)=> {
    }   
 } )
 
-router.delete('/:id', async (req, res) =>{
+router.delete('/:pollID', async (req, res) =>{
     console.log("Entra a delete /api/deleteiae");
     try{
-        if(req.param.id == req.body.id){
-            await IAE.deleteIAE(req.body.id);
-            res.status(201)
-        }
-    }
-    catch(err){
+        const removeIAE = await IAE.remove({pollID: req.params.pollID});
+        res.json(removeIAE)
+        res.status(201)
+    }catch(err){
         res.status(404).send({message: err})
     }
 })

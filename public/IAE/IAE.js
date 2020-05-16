@@ -172,9 +172,10 @@ function assignToHtml(obj){
 
 function deleteIAE(identify){
   let answer = confirm("Deseas eliminar el IAE?")
+  console.log(identify);
   if(answer == true){
    let xhr = new XMLHttpRequest();
-   xhr.open('DELETE',  `/api/assignment/${identify[0]}`)
+   xhr.open('DELETE',  `/api/IAE/${identify}`)
    xhr.setRequestHeader("Content-Type", "application/json");
    xhr.send();
    xhr.onload = () =>{
