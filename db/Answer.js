@@ -58,7 +58,7 @@ answerSchema.statics.showAnswers = ()=>{
     return Answer.find({})
 }
 
-let Answer = mongoose.model('IAEAnswers', answerSchema);
+let Answer = mongoose.model('answers', answerSchema);
 
 
 Answer.getAnswerAsync = getAnswerAsync;
