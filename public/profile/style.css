@@ -43,6 +43,7 @@ hr{
 /*Profile information design*/
 .profileInformation{
   /* UI Properties */ 
+  font-size: 3rem;
   margin-bottom: 0;
   font: Regular Helvetica Neue;
   letter-spacing: 0;
