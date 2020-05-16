@@ -12,6 +12,7 @@ const assignment = document.getElementById('assignment')
 const assessmentDetail = document.getElementById('assessmentDetail')
 const Edit = document.getElementById('emailPUT');
 const PUTform = document.getElementById('PUTform').children;
+const updateButton = document.getElementById('updateButton');
 let dicto = ['name', 'lastName', 'email']
 
 CS.addEventListener("click", ()=>{
@@ -30,6 +31,13 @@ assignment.addEventListener("click", ()=>{
     toView("assignment", "assignment");
 })
 
+assessmentDetail.addEventListener("click",()=>{
+    toView('assessmentDetail','assessmentDetail')
+})
+
+updateButton.addEventListener('click', ()=>{
+    update();
+})
 
 xhr.open('GET','http://localhost:3000/api/profile')
 let varHTML = forma.children;
@@ -87,3 +95,35 @@ function cerrarSesion(){
         window.location.replace('../login')
     }
 }
+
+function update(){
+    let skel = {name: "", lastName: "", email: "", password: ""};
+    let skel2 = {name: "", lastName: "", email: ""};
+    let i,j =0
+    if(PUTform.password == ""){
+        for( i in skel){
+            console.log(skel[i] + "\n");
+            skel[i] = PUTform[j].value
+            j+=2
+        } 
+    }else{
+        for( i in skel2){
+            skel2[i] = PUTform[j].value
+            j+=2
+        } 
+    }
+    let header = (skel.password != "")?skel:skel2
+    console.log(header.email);
+    xhr.open('PUT',`http://localhost:3000/api/users/${header.email}`)
+    xhr.setRequestHeader('Content-Type',"application/json")
+    
+    xhr.send(JSON.stringify(header))
+    xhr.onload = () =>{
+        if(xhr.status != 200){
+            xhr.responseText='No existe usuario con ese e-mail'
+        }else{
+            alert(`El usuario ha sido modificado`)
+            window.location.reload()
+        }
+    }
+    }
