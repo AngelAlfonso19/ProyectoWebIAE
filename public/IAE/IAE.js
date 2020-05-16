@@ -30,7 +30,7 @@ function assignmentToHtml(obj, objiae) {
             <div class="container-fluid">
               <div class="row">
                 <div class="col-12 mt-3 d-flex justify-content-center">
-                  <p class="userName">${obj.SubjectName}</p>
+                  <p class="userName">${obj.subjectName}</p>
                 </div>
               </div>
             </div>                                
@@ -41,10 +41,10 @@ function assignmentToHtml(obj, objiae) {
             <div class="container-fluid">
               <div class="row">
                 <div class="col-6 d-flex justify-content-center">
-                  <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/${obj.TeacherID % 100}.jpg" alt="userProfilePhoto.jpg">
+                  <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/${obj.teacherID % 100}.jpg" alt="userProfilePhoto.jpg">
                 </div>
                 <div class="col-6 d-flex justify-content-center">
-                  <p class="userName">${obj.TeacherID}</p>
+                  <p class="userName">${obj.teacherID}</p>
                 </div>
               </div>
             </div>                                            
@@ -55,7 +55,7 @@ function assignmentToHtml(obj, objiae) {
             <div class="container-fluid">
               <div class="row">
                 <div class="col-12 mt-3 d-flex justify-content-center">
-                  <p class="userName">${obj.AvailableTime}</p>
+                  <p class="userName">${obj.availableTime}</p>
                 </div>
               </div>
             </div>                     
@@ -97,7 +97,7 @@ butreg.addEventListener("click", function(event) {
     console.log(selanswer);
     let cdata =   {
             "pollID": makeid(),
-            "SubjectID": selanswer,
+            "subjectID": selanswer,
             "pollDate": ""
     }
     
@@ -143,7 +143,7 @@ function sendTeAssignment(iaedata){
       iaedata.forEach((iae)=>{
         //console.log(iae);
         assignment.forEach((assign)=>{
-        if(iae.SubjectID == assign.SubjectID){
+        if(iae.subjectID == assign.subjectID){
           text += assignmentToHtml(assign, iae);
         }
       })
@@ -166,7 +166,7 @@ function getAssignment(data){
 
 function assignToHtml(obj){
   if(obj != undefined)
-    return `<option value="${obj.SubjectID}">${obj.SubjectName} - ${obj.TeacherID}</option>`
+    return `<option value="${obj.subjectID}">${obj.subjectName} - ${obj.teacherID}</option>`
   
 }
 

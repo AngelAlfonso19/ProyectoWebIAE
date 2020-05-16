@@ -5,7 +5,7 @@ let IAESchema = mongoose.Schema({
         type: String,
         required: true
     },
-    SubjectID:{
+    subjectID:{
         type: Number,
         required: true
     },
