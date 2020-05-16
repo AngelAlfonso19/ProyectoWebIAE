@@ -4,7 +4,7 @@ let SubjectID
 let temporalIAEkey = "1234A"
 
 getProfessor();
-getAnswers();
+// getAnswers();
 
 
 function getAnswers(){
@@ -19,7 +19,7 @@ function getAnswers(){
         else{
             let anwersList = JSON.parse(xhr.responseText);
             console.log(anwersList)
-            answerListTooHTML(anwersList)
+            // answerListTooHTML(anwersList)
         }
     }
 }
@@ -87,8 +87,8 @@ function getProfessor(){
         }
         else{
             userList = JSON.parse(xhr.responseText);
-            console.log(userList[6]) 
-            document.getElementById("professorInformation").innerHTML = professorToHTML(userList[6]);
+            console.log(userList[7]) 
+            document.getElementById("professorInformation").innerHTML = professorToHTML(userList[7]);
         }
     }
 }

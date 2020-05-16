@@ -29,6 +29,9 @@ assignment.addEventListener("click", ()=>{
     toView("assignment", "assignment");
 })
 
+assessmentDetail.addEventListener("click", ()=>{
+    toView("assessmentDetail", "assessmentDetail");
+})
 
 xhr.open('GET','http://localhost:3000/api/profile')
 let varHTML = forma.children;

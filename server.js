@@ -23,36 +23,41 @@ extended:true
 }));
 
 // API
-app.use('/api/users', usersRouter);
-app.use('/api/assessmentDetail', assessmentRouter);
-app.use('/api/assignment', assignmentRouter)
-app.use('/api/answers', answerstRouter)
 app.use('/api/profile', profileRouter)
+app.use('/api/iae', IAERouter)
+app.use('/api/users', usersRouter);
+app.use('/api/assignment', assignmentRouter)
+app.use('/api/evaluaciones', evaluacionRouter)
+app.use('/api/assessmentDetail', assessmentRouter);
+app.use('/api/answers', answerstRouter)
 
 
-//Home
+
+
+//Home-Profile
 app.use("/",express.static(__dirname+"/public/profile"))
+
+//Login
+app.use("/login",express.static(__dirname+"/public/login"))
+
+//IAE
+app.use("/IAE", express.static(__dirname+"/public/IAE"))
 
 //Users
 app.use("/users",express.static(__dirname+"/public/css"))
 app.use("/users",express.static(__dirname+"/public/users"))
-app.use("/login",express.static(__dirname+"/public/login"))
 
-//Assessments
-app.use("/assessmentDetail",express.static(__dirname+"/public/css"))
-app.use("/assessmentDetail",express.static(__dirname+"/public/assessmentDetail"))
-
-//Assigment part
-app.use('/api/assignment', assignmentRouter)
+//Assigments
+// app.use('/api/assignment', assignmentRouter)
 app.use("/assignment",express.static(__dirname+"/public/css"))
 app.use("/assignment",express.static(__dirname+"/public/assignment"))
 
-//Evaluaciones window
-app.use('/api/evaluaciones', evaluacionRouter)
+//Evaluaciones
 app.use("/evaluaciones",express.static(__dirname+"/public/evaluaciones"))
-//IAE
-app.use('/api/iae', IAERouter)
-app.use("/IAE", express.static(__dirname+"/public/IAE"))
+
+//AssessmentsDetail
+app.use("/assessmentDetail",express.static(__dirname+"/public/css"))
+app.use("/assessmentDetail",express.static(__dirname+"/public/assessmentDetail"))
 
 //profiles
 // app.use("/profile",express.static(__dirname+"/public/profile"))
