@@ -4,6 +4,8 @@ const assessmentRouter = require("./routes/assessmentDetail")
 const assignmentRouter = require("./routes/assignment")
 const evaluacionRouter = require('./routes/evaluaciones')
 const answerstRouter = require('./routes/answers')
+const profileRouter = require('./routes/profile')
+const IAERouter = require('./routes/iae')
 var bodyParser = require('body-parser')
 
 const app = express()
@@ -25,25 +27,35 @@ app.use('/api/users', usersRouter);
 app.use('/api/assessmentDetail', assessmentRouter);
 app.use('/api/assignment', assignmentRouter)
 app.use('/api/answers', answerstRouter)
+app.use('/api/profile', profileRouter)
+
 
 //Home
-app.use("/",express.static(__dirname+"/public/home"))
+app.use("/",express.static(__dirname+"/public/profile"))
 
 //Users
 app.use("/users",express.static(__dirname+"/public/css"))
 app.use("/users",express.static(__dirname+"/public/users"))
+app.use("/login",express.static(__dirname+"/public/login"))
 
 //Assessments
 app.use("/assessmentDetail",express.static(__dirname+"/public/css"))
 app.use("/assessmentDetail",express.static(__dirname+"/public/assessmentDetail"))
 
 //Assigment part
+app.use('/api/assignment', assignmentRouter)
 app.use("/assignment",express.static(__dirname+"/public/css"))
 app.use("/assignment",express.static(__dirname+"/public/assignment"))
 
 //Evaluaciones window
 app.use('/api/evaluaciones', evaluacionRouter)
 app.use("/evaluaciones",express.static(__dirname+"/public/evaluaciones"))
+//IAE
+app.use('/api/iae', IAERouter)
+app.use("/IAE", express.static(__dirname+"/public/IAE"))
+
+//profiles
+// app.use("/profile",express.static(__dirname+"/public/profile"))
 
 app.listen(port, function(){
     console.log(`Listening http://localhost:${port}`);

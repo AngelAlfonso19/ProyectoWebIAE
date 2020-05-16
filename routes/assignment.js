@@ -1,4 +1,5 @@
 const Assignment = require('../db/AssignmentsDB')
+const User = require('../db/AssignmentsDB')
 const router = require('express').Router()
 
 router.get('/', async (req, res)=> {
@@ -31,5 +32,15 @@ router.post('/', async (req, res)=> {
       res.status(404).send({message: err})
    }   
 } )
+
+router.get('/api/users', async (req, res)=> {
+  try{
+      const docs = await User.getTeachers();
+      console.log(docs);
+      res.json(docs)
+  }catch(error){
+      console.log("error", error)
+  }
+})
 
 module.exports = router;

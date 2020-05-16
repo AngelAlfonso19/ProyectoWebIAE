@@ -7,24 +7,24 @@ let assignmentid = 0;
 let xhr = new XMLHttpRequest();
 xhr.open('GET', '/api/assignment')
 xhr.setRequestHeader("Content-Type", "application/json");
-xhr.setRequestHeader("Content-Type", "text/html");
 xhr.send();
 xhr.onload = () =>{
     if(xhr.status != 200){
         alert(`${xhr.status} Fallo registro de obtener`)
     }
     else{
-        showUsers(JSON.parse(xhr.responseText));
+      showTeacher()
+      showUsers(JSON.parse(xhr.responseText));
+        
     }
 }
 
 function showUsers(data){
     var text = "";
 
-   data.forEach(element => {
+   data.forEach((element) => {
       text += userToHtml(element)
    });
-
     document.getElementById("lista").innerHTML = text;
 }
 
@@ -132,6 +132,39 @@ function sendregister(datos){
             alert("La asignatura fue registrada")
         }
     }
+}
+
+function showTeacher(){
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', '/api/users')
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send();
+  xhr.onload = () =>{
+    if(xhr.status != 200){
+      alert(`${xhr.status} Fallo registro de obtener`)
+  }
+  else{
+      getTeacher(JSON.parse(xhr.responseText));
+  }
+  }
+}
+
+function getTeacher(data){
+  var text = "";
+   data.forEach(element => {
+     if(element.typo == 3){
+      console.log(element);
+      text += userToHtml(element)
+     }
+   });
+   console.log(text);
+    document.getElementById("profesor").innerHTML = text;
+}
+
+function userprofesorToHtml(obj){
+  if(obj != undefined)
+    return `<option value="${obj.name} ${obj.lastName}">${obj.name} ${obj.lastName}</option>`
+  
 }
 
 function deleteassign(identify){
