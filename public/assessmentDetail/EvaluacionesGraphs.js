@@ -12,7 +12,7 @@ getAnswers();
 function getAnswers(){
     let xhr = new XMLHttpRequest();
     xhr.open('GET', '/api/IAEAnwers')
-    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");w
     xhr.send();
     xhr.onload = () =>{
         if(xhr.status != 200){
