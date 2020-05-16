@@ -2,11 +2,14 @@ const jwt = require('jsonwebtoken');
 const key = require('../config_files')
 const User = require('../db/User')
 
+
 function checkToken(req,res,next){
-    console.log('VERIFICANDO TOKEN');
-    const token = req.get('x-auth');
+    console.log('VERIFICANDO TOKEN' + "\n" + req.headers.cookie);
+    const cookie = req.headers.cookie
+    let token = cookie.substring(6,cookie.length)
+    console.log(token);
     if(token!="" || token != undefined || token == "undefined"){
-        jwt.verify(token,`${key.tokenPass}`,function (err, payload){
+        jwt.verify(token,`${key.tokenPass}`,function(err, payload){
             if(err){
                 res.status(401).send({error: "token invalido: ", err})
             }else{
@@ -15,7 +18,7 @@ function checkToken(req,res,next){
                 req.name = payload.name;
                 req.lastName = payload.lastName;
                 req.typo = payload.typo
-                req.img = payload.img
+                req.img = payload.img;
                 next();
             }
         } )
@@ -60,6 +63,8 @@ async function profileRol (req,res,next){
     }
     
 }
+
+
 
 
 

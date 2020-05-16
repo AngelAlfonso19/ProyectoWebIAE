@@ -7,11 +7,13 @@ const answerstRouter = require('./routes/answers')
 const profileRouter = require('./routes/profile')
 const IAERouter = require('./routes/iae')
 var bodyParser = require('body-parser')
+// const cookieParser = require('cookie-parser')
 
 const app = express()
 const port = 3000;
 
 app.use(bodyParser.json())
+// app.use(cookieParser());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -32,6 +34,7 @@ app.use('/api/profile', profileRouter)
 
 //Home
 app.use("/",express.static(__dirname+"/public/profile"))
+
 
 //Users
 app.use("/users",express.static(__dirname+"/public/css"))

@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken')
 router.get('/',midAuth.checkToken, midAuth.validateRol, async (req, res)=> {
     console.log("Entra a get /api/users");
     console.log(req.query);
+    req.header('x-auth', 'iii')
     console.log("usuario logueado", req.correo);
     try{
         let docs = await User.getUsuariosSAFE();
@@ -45,7 +46,7 @@ router.post('/login', async (req,res)=>{
             let token = jwt.sign({email: doc.email, name: doc.name, lastName: doc.lastName, typo: doc.typo},`${key.tokenPass}`,{expiresIn: '6h' })
             // res.cookie('token', token);
             res.json({token});
-            // res.redirect('/profile');
+            // res.redirect('/');
         }else{
             res.status(401).send({Error: 'Verifique usuario y contraseña. ErrInfo: ',})
         }
