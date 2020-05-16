@@ -3,13 +3,12 @@ let temporalAssessments
 let SubjectID
 let temporalIAEkey = "1234A"
 
-getProfessor();
-// getAnswers();
-
+// getProfessor();
+getAnswers()
 
 function getAnswers(){
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', '/api/IAEAnwers')
+    xhr.open('GET', '/api/answers')
     xhr.setRequestHeader("Content-Type", "application/json");w
     xhr.send();
     xhr.onload = () =>{
