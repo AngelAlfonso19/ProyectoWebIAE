@@ -1,7 +1,7 @@
 
 let form = document.querySelector('#asignatura')
 let invalid = document.querySelectorAll('input:invalid')
-let butreg = document.querySelector('#CrearAsignatura')
+let butreg = document.getElementById('CrearAsignatura')
 
 
 let xhr = new XMLHttpRequest();
@@ -19,12 +19,12 @@ xhr.onload = () =>{
 }
 
 
-function assignmentToHtml(obj) {
-    //console.log(obj);
+function assignmentToHtml(obj, objiae) {
+    console.log(obj.SubjectName);
     if (obj != undefined)
         return `
         <!-- Row1 -->
-        <tr id = "${obj.SubjectID}${obj.SubjectName}" onclick="deleteassign(this.id)">
+        <tr id = "${objiae.pollID}" onclick="deleteIAE(this.id)">
           <!-- Column1 -->
           <td> 
             <div class="container-fluid">
@@ -41,7 +41,7 @@ function assignmentToHtml(obj) {
             <div class="container-fluid">
               <div class="row">
                 <div class="col-6 d-flex justify-content-center">
-                  <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/${obj.TeacherID}.jpg" alt="userProfilePhoto.jpg">
+                  <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/${obj.TeacherID % 100}.jpg" alt="userProfilePhoto.jpg">
                 </div>
                 <div class="col-6 d-flex justify-content-center">
                   <p class="userName">${obj.TeacherID}</p>
@@ -92,9 +92,9 @@ function makeid() {
 
 butreg.addEventListener("click", function(event) {
     event.preventDefault();
-    let data = document.querySelectorAll('input')
     let selected = document.getElementById('profesor')
     let selanswer = selected.options[selected.selectedIndex].value;
+    console.log(selanswer);
     let cdata =   {
             "pollID": makeid(),
             "SubjectID": selanswer,
@@ -102,6 +102,7 @@ butreg.addEventListener("click", function(event) {
     }
     
     let reguser = JSON.stringify(cdata)
+    console.log(reguser);
     sendregister(reguser)
   
     
@@ -112,7 +113,7 @@ function sendregister(datos){
     xhr.open('POST', '/api/IAE')
     xhr.setRequestHeader("Content-Type", "application/json")
     //xhr.setRequestHeader("Content-Type", "text/html")
-    console.log(datos);
+    //console.log(datos);
     xhr.send(datos)
     xhr.onload = ()=>{
         if(xhr.status != 201){
@@ -134,16 +135,18 @@ function sendTeAssignment(iaedata){
       alert(`${xhr.status} Fallo registro de obtener`)
   }
   else{
-      console.log(iaedata);
+      //console.log(iaedata);
       let assignment = JSON.parse(xhr.responseText);
-      console.log(assignment);
+      //console.log(assignment);
       getAssignment(assignment)
       let text = ''
       iaedata.forEach((iae)=>{
-        if(iae.SubjectID == assignment.SubjectID){
-          //console.log(assignment);
-          text += assignmentToHtml(assignment);
+        //console.log(iae);
+        assignment.forEach((assign)=>{
+        if(iae.SubjectID == assign.SubjectID){
+          text += assignmentToHtml(assign, iae);
         }
+      })
       })
       document.getElementById("lista").innerHTML = text;
   }
@@ -154,18 +157,35 @@ function sendTeAssignment(iaedata){
 function getAssignment(data){
   var text = "";
    data.forEach(element => {
-      console.log(element);
-      text += userprofesorToHtml(element)
+      //console.log(element);
+      text += assignToHtml(element)
  
    });
-   console.log(text);
     document.getElementById("profesor").innerHTML = text;
 }
 
 function assignToHtml(obj){
   if(obj != undefined)
-    return `<option value="${obj.SubjectName} - ${obj.TeacherID}">${obj.SubjectName} - ${obj.TeacherID}</option>`
+    return `<option value="${obj.SubjectID}">${obj.SubjectName} - ${obj.TeacherID}</option>`
   
+}
+
+function deleteIAE(identify){
+  let answer = confirm("Deseas eliminar el IAE?")
+  if(answer == true){
+   let xhr = new XMLHttpRequest();
+   xhr.open('DELETE',  `/api/assignment/${identify[0]}`)
+   xhr.setRequestHeader("Content-Type", "application/json");
+   xhr.send();
+   xhr.onload = () =>{
+       if(xhr.status != 200){
+           alert(`${xhr.status} Fallo registro de obtener`)
+       }
+       else{
+           alert("Asignatura eliminada");
+       }
+   }
+   }   
 }
 
 
