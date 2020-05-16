@@ -6,6 +6,7 @@ const User = require('../db/User')
 function checkToken(req,res,next){
     console.log('VERIFICANDO TOKEN' + "\n" + req.headers.cookie);
     const cookie = req.headers.cookie
+    console.log(cookie);
     let token = cookie.substring(6,cookie.length)
     console.log(token);
     if(token!="" || token != undefined || token == "undefined"){

@@ -44,7 +44,7 @@ router.post('/login', async (req,res)=>{
         let rPass = req.body.password
         if(bcrypt.compareSync(rPass,dPass)){
             let token = jwt.sign({email: doc.email, name: doc.name, lastName: doc.lastName, typo: doc.typo},`${key.tokenPass}`,{expiresIn: '6h' })
-            // res.cookie('token', token);
+            res.cookie('token', token);
             res.json({token});
             // res.redirect('/');
         }else{
