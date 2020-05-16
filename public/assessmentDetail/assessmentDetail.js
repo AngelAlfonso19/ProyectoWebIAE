@@ -9,15 +9,15 @@ getAnswers()
 function getAnswers(){
     let xhr = new XMLHttpRequest();
     xhr.open('GET', '/api/answers')
-    xhr.setRequestHeader("Content-Type", "application/json");w
+    xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send();
     xhr.onload = () =>{
         if(xhr.status != 200){
             alert(`${xhr.status} Fallo registro de obtener`)
         }
         else{
-            let anwersList = JSON.parse(xhr.responseText);
-            console.log(anwersList)
+            // let anwersList = JSON.parse(xhr.responseText);
+            console.log(JSON.parse(xhr.responseText));
             // answerListTooHTML(anwersList)
         }
     }
