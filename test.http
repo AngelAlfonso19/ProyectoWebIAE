@@ -1,5 +1,5 @@
-@host = http://localhost:3000/api/profile
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlzNzA4MTMzQGl0ZXNvLm14IiwibmFtZSI6ImFsZXhpcyIsImxhc3ROYW1lIjoiYmVsbCIsInR5cG8iOjAsImlhdCI6MTU4OTM3NDU4OCwiZXhwIjoxNTg5Mzc4MTg4fQ.b8aAOhXXEQn6vNmrtQ9Y3G_QQf_yzE2hRY2SAAcXzVE
+@host = http://localhost:3000/api/users
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlzNzA4MTMzQGl0ZXNvLm14IiwibmFtZSI6ImFsZXhpcyIsImxhc3ROYW1lIjoiYmVsbCIsInR5cG8iOjAsImlhdCI6MTU4OTYxMDY4NywiZXhwIjoxNTg5NjMyMjg3fQ.QHDbbi4LdKdFT31KHxsGUtXSFFJOPPldxbj_mKXERPo
 
 
 GET {{host}}

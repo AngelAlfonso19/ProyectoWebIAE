@@ -2,6 +2,7 @@ const btn = document.querySelector('input.logInButton');
 const forma = document.getElementById('Registro');
 const now = new Date();
 const but = document.getElementById('guardarRegistro');
+const token = ""
 let skel = {username: "", name: "",lastName: "",email: "",password: "",collegeMajor:"",token:"",typo: Number};
 
 // forma.addEventListener("change", () => {
@@ -25,6 +26,7 @@ btn.addEventListener("click",() =>{
 
 function auth(){
     const xhr = new XMLHttpRequest()
+
     skel.email = document.getElementById('usuarioLogIn').value;
     skel.password = document.getElementById('usuarioPass').value
     let corr = skel.email
@@ -161,3 +163,4 @@ function sendData(jsonResp){
 //     }
 // }
 
+// module.exports={token}
