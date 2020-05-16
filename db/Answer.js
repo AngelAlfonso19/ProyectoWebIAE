@@ -10,35 +10,35 @@ let answerSchema = mongoose.Schema({
         required: true
     },
     q1:{
-        type: Number,
+        type: Object,
         required: true
    },
    q2:{
-        type: Number,
+        type: Object,
         required: true
     },
     q3:{
-        type: Number,
+        type: Object,
         required: true
     },
     q4:{
-        type: Number,
+        type: Object,
         required: true
     },
     q5:{
-        type: Number,
+        type: Object,
         required: true
     },
     q6:{
-        type: String,
+        type: Object,
         required: true
     },
     q7:{
-        type: String,
+        type: Object,
         required: true
     },
     q8:{
-        type: String,
+        type: Object,
         required: true
     }
 })

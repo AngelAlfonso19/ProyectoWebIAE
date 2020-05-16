@@ -1,11 +1,12 @@
 let asssigmentList
 let temporalAssessments
 let SubjectID
-let temporalIAEkey = "1234A"
+let temporalPollID = "1234A"
 
 // getProfessor();
 getAnswers()
 
+//-------------------------------------------------Answers------------------------------------------------------------------------
 function getAnswers(){
     let xhr = new XMLHttpRequest();
     xhr.open('GET', '/api/answers')
@@ -16,12 +17,140 @@ function getAnswers(){
             alert(`${xhr.status} Fallo registro de obtener`)
         }
         else{
-            // let anwersList = JSON.parse(xhr.responseText);
-            console.log(JSON.parse(xhr.responseText));
-            // answerListTooHTML(anwersList)
+            let answerList = JSON.parse(xhr.responseText);
+            console.log(answerList);
+            const filteredList = answerList.filter(a => a.pollID.includes(temporalPollID))
+            console.log(filteredList);
+            answerListToHTML(filteredList)
         }
     }
 }
+
+function answerListToHTML(answerList){
+    let rankq1 = [0,0,0,0,0,0]
+    let rankq2 = [0,0,0,0,0,0]
+    let rankq3 = [0,0,0,0,0,0]
+    let rankq4 = [0,0,0,0,0,0]
+    let rankq5 = [0,0,0,0,0,0]
+    answerList.forEach(a => {
+        if(a.q1.type == 0){
+            switch(a.q1.answer){
+                case 0:
+                    rankq1[0]++;
+                    break;
+                case 1:
+                    rankq1[1]++;
+                    break;
+                case 2:
+                    rankq1[2]++;
+                    break;
+                case 3:
+                    rankq1[3]++;
+                    break;
+                case 4:
+                    rankq1[4]++;
+                    break;
+                case 5:
+                    rankq1[5]++;
+                    break;
+            }
+            document.getElementById("questions").innerHTML = numericAnswerToHTML(rankq1, answerList.length)
+        }
+
+        if(a.q2.type == 0){
+            switch(a.q2.answer){
+                case 0:
+                    rankq2[0]++;
+                    break;
+                case 1:
+                    rankq2[1]++;
+                    break;
+                case 2:
+                    rankq2[2]++;
+                    break;
+                case 3:
+                    rankq2[3]++;
+                    break;
+                case 4:
+                    rankq2[4]++;
+                    break;
+                case 5:
+                    rankq2[5]++;
+                    break;
+            }
+            document.getElementById("questions").innerHTML += numericAnswerToHTML(rankq2, answerList.length)
+        }    
+    })
+    
+}
+
+function numericAnswerToHTML(answers, answerListSize){ 
+    let i = 0
+    let percentage = [0,0,0,0,0,0]
+    answers.forEach(a =>{
+        percentage[i] = (a * 100)/answerListSize
+        i++
+    })
+    // console.log(percentage)
+
+    return `                                                        
+    <!-- Answer1 -->
+    <div class="row">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col mt-5 offset-1">
+                    <h3>1. Pregunta 1</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <table class="graph">                                        
+                        <caption>Bar Chart HTML From HTML Table</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Item</th>
+                                <th scope="col">Percent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="height:${percentage[0]}%">
+                                <th scope="row">0</th>
+                                <td><span>${percentage[0]}%</span></td>
+                            </tr>
+                            <tr style="height:${percentage[1]}%">
+                                <th scope="row">1</th>
+                                <td><span>${percentage[1]}%</span></td>
+                            </tr>
+                            <tr style="height:${percentage[2]}%">
+                                <th scope="row">2</th>
+                                <td><span>${percentage[2]}%</span></td>
+                            </tr>
+                            <tr style="height:${percentage[3]}%">
+                                <th scope="row">3</th>
+                                <td><span>${percentage[3]}%</span></td>
+                            </tr>
+                            <tr style="height:${percentage[4]}%">
+                                <th scope="row">4</th>
+                                <td><span>${percentage[4]}%</span></td>
+                            </tr>
+                            <tr style="height:${percentage[5]}%">
+                                <th scope="row">5</th>
+                                <td><span>${percentage[5]}%</span></td>
+                            </tr>
+                        </tbody>
+                    </table>  
+                </div>                             
+            </div>
+        </div>
+    </div>
+    <!-- /Answer1 -->`;
+}
+
+function splitAnswer(answerList){
+
+}
+
+//-------------------------------------------------/Answers------------------------------------------------------------------------
 
 function getAssessment(){
     let xhr = new XMLHttpRequest();
