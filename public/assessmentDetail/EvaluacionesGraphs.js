@@ -2,11 +2,9 @@ let asssigmentList
 let temporalAssessments
 let SubjectID
 let temporalIAEkey = "1234A"
-// getAssessment();
-// getAssigments();
+
 getProfessor();
 getAnswers();
-// getProfessors();
 
 
 function getAnswers(){
@@ -22,7 +20,6 @@ function getAnswers(){
             let anwersList = JSON.parse(xhr.responseText);
             console.log(anwersList)
             answerListTooHTML(anwersList)
-
         }
     }
 }
@@ -118,7 +115,7 @@ function professorToHTML(professor){
                 <div class="row justify-content-center">
                     <div class="col d-flex justify-content-center">
                         <a href="">
-                            <img class="img-circle evaluation_professorPhoto" src="ProfilePhotoProfessor.jpg" alt="profilePhotoProfessor.jpg">
+                            <img class="img-circle evaluation_professorPhoto" src="${professor.img}" alt="profilePhotoProfessor.jpg">
                         </a>                                            
                     </div>
                 </div> 
