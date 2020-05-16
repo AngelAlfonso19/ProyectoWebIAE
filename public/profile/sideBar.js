@@ -1,6 +1,9 @@
 const IAE = document.getElementById('IAE')
 const homeLink = document.getElementById('homeLink')
 const Users = document.getElementById('users')
+const Nameehtml = document.getElementById('statusBarName')
+const Rollhtml = document.getElementById('statusBarRol');
+const tiposs = ["Administrador","Coordinador","Profesor","Alumno"]
 const assignment = document.getElementById('assignment')
 const assessmentDetail = document.getElementById('assessmentDetail')
 const Imghtmll = document.getElementById('statusBarProfilePhoto')
@@ -18,6 +21,9 @@ xhrr.onload = ()=>{
     {
         let responses = JSON.parse(xhrr.responseText);
         console.log(responses.typo);
+        Rollhtml.innerHTML = (responses.typo == 0)?tiposs[0]:tiposs[responses.typo-1]
+        Nameehtml.innerHTML = `${responses.name} ${responses.lastName}`
+        // Emaillhtml.innerHTML = `${responses.email}`
         Imghtmll.src = responses.img
         console.log(Imghtml.src)
     }else {
