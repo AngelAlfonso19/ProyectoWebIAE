@@ -25,7 +25,8 @@
                         </div>
                         <div class="row">
                             <div class="col-12 mt-5 d-flex justify-content-center">
-                                <a class="nav-link d-flex justify-content-center" href="IAE.html">IAE</a>
+                                <!-- <a class="nav-link d-flex justify-content-center" href="IAE.html">IAE</a> -->
+                                <a id="IAE" href="#"class="nav-link d-flex justify-content-center" >IAE</a>
                             </div>
                             <div class="col-12 d-flex justify-content-center">
                                 <hr>
@@ -33,15 +34,8 @@
                         </div>
                         <div class="row">
                             <div class="col-12 mt-4 d-flex justify-content-center">
-                                <a class="nav-link d-flex justify-content-center" href="../users/index.html">Usuarios</a>
-                            </div>
-                            <div class="col-12 d-flex justify-content-center">
-                                <hr>
-                            </div>        
-                        </div>
-                        <div class="row">
-                            <div class="col-12 mt-4 d-flex justify-content-center">
-                                <a class="nav-link d-flex justify-content-center" href="../assignment/index.html">Asignaturas</a>
+                                <a id="users" href="#"class="nav-link d-flex justify-content-center" >Usuarios</a>
+                                <!-- <a class="nav-link d-flex justify-content-center" href="../users/index.html">Usuarios</a> -->
                             </div>
                             <div class="col-12 d-flex justify-content-center">
                                 <hr>
@@ -49,7 +43,17 @@
                         </div>
                         <div class="row">
                             <div class="col-12 mt-4 d-flex justify-content-center">
-                                <a class="nav-link d-flex justify-content-center" href="EvaluacionesGraphs.html">Evaluaciones</a>
+                                <!-- <a class="nav-link d-flex justify-content-center" href="../assignment/index.html">Asignaturas</a> -->
+                                <a href="#"id="assignment" class="nav-link d-flex justify-content-center">Asignaturas</a>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center">
+                                <hr>
+                            </div>        
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mt-4 d-flex justify-content-center">
+                                <a href="#"id="assessmentDetail" class="nav-link d-flex justify-content-center" >Evaluaciones</a>
+                                <!-- <a class="nav-link d-flex justify-content-center" href="EvaluacionesGraphs.html">Evaluaciones</a> -->
                             </div>
                             <div class="col-12 d-flex justify-content-center">
                                 <hr>
@@ -68,19 +72,19 @@
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-12 d-flex justify-content-center">
-                                                <p class="statusBar_profileInformation">Administrador:</p>                                                                                             
+                                                <p id="statusBarRol" class="statusBar_profileInformation">Administrador:</p>                                                                                             
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12 d-flex justify-content-center">
-                                                <p class="statusBar_profileInformation text-center">Navarro José Manuel</p>
+                                                <p id="statusBarName" class="statusBar_profileInformation text-center">Navarro José Manuel</p>
                                             </div>
                                         </div>   
                                     </div>
                                 </div>
                                 <div class="col-2 offset-1 mt-2 p-0 d-flex justify-content-center"> 
-                                    <a href="profile.html">
-                                        <img class="img-circle" id="statusBarProfilePhoto" src="AdminProfilePhoto.jpg" alt="AdminProfilePhoto.jpg"> 
+                                    <a id="homeLink"> 
+                                        <img class="img-circle" id="statusBarProfilePhoto" src="" alt="AdminProfilePhoto.jpg"> 
                                     </a>
                                 </div>           
                             </div>                   
@@ -484,5 +488,6 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
         </script>
         <script type="text/javascript" src="EvaluacionesGraphs.js"></script>
+        <script src="/sideBar.js"></script>
     </body>
 </html>

@@ -24,7 +24,7 @@
             </div>
             <div class="row">
               <div class="col-12 mt-5 d-flex justify-content-center">
-                <a class="nav-link d-flex justify-content-center" id="IAE">IAE</a>
+                <a class="nav-link d-flex justify-content-center" href="#" id="IAE">IAE</a>
               </div>
               <div class="col-12 d-flex justify-content-center">
                 <hr>
@@ -32,15 +32,7 @@
             </div>
             <div class="row">
               <div class="col-12 mt-4 d-flex justify-content-center">
-                <a class="nav-link d-flex justify-content-center" id="users">Usuarios</a>
-              </div>
-              <div class="col-12 d-flex justify-content-center">
-                <hr>
-              </div>        
-            </div>
-            <div class="row">
-              <div class="col-12 mt-4 d-flex justify-content-center">
-                <a class="nav-link d-flex justify-content-center" id="assignment">Asignaturas</a>
+                <a class="nav-link d-flex justify-content-center" href="#" id="users">Usuarios</a>
               </div>
               <div class="col-12 d-flex justify-content-center">
                 <hr>
@@ -48,7 +40,15 @@
             </div>
             <div class="row">
               <div class="col-12 mt-4 d-flex justify-content-center">
-                <a class="nav-link d-flex justify-content-center" id="assessmentDetail">Evaluaciones</a>
+                <a class="nav-link d-flex justify-content-center" href="#" id="assignment">Asignaturas</a>
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                <hr>
+              </div>        
+            </div>
+            <div class="row">
+              <div class="col-12 mt-4 d-flex justify-content-center">
+                <a class="nav-link d-flex justify-content-center"  href="#"id="assessmentDetail">Evaluaciones</a>
               </div>
               <div class="col-12 d-flex justify-content-center">
                 <hr>
@@ -132,10 +132,10 @@
                           </button>
                       </div>
                       <div class="modal-body">
-                        <form class="login-form">
+                        <form id="PUTform" class="login-form">
                           <input type="text" placeholder="Nombres..."> <br>
                           <input type="text" placeholder="Apellidos..."> <br>
-                          <input type="email" placeholder="Correo..."> <br>
+                          <input id="emailPUT" type="email" disabled placeholder=""> <br>
                           <input type="password" placeholder="Contraseña..."><br>
                         </form>
                         <button type="button" class="modalButton" data-dismiss="modal">Confirmar</button>
@@ -147,6 +147,7 @@
               </div>
             </div>
           </div>
+          <div id="homeLink"></div>
         <!-- </div> -->
       <!-- </div>
     </div> -->
