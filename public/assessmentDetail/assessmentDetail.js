@@ -6,7 +6,7 @@ let temporalPollID = localStorage.getItem('pollID')
 
 
 getAnswers()
-getAssessment()
+getIAE()
 getAssigments()
 getProfessor()
 // window.location.reload()
@@ -272,9 +272,9 @@ function stringAnswersBoxToHTML(answer){
 //-------------------------------------------------/Answers------------------------------------------------------------------------
 
 //-------------------------------------------------Assessment------------------------------------------------------------------------
-function getAssessment(){
+function getIAE(){
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', '/api/assessmentDetail')
+    xhr.open('GET', '/api/iae')
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send();
     xhr.onload = () =>{
@@ -282,10 +282,10 @@ function getAssessment(){
             alert(`${xhr.status} Fallo registro de obtener`)
         }
         else{
-            let assessmentList = (JSON.parse(xhr.responseText));
+            let iaeList = (JSON.parse(xhr.responseText));
             console.log("Obtiene assessmentList:");
-            console.log(assessmentList)
-            let filteredList = assessmentList.find(a => a.pollID == temporalPollID)
+            console.log(iaeList)
+            let filteredList = iaeList.find(iae => iae.pollID == temporalPollID)
             console.log("Filtra assessmentList");
             console.log(filteredList)
             subjectID = filteredList.subjectID
