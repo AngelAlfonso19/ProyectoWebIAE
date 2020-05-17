@@ -9,15 +9,34 @@ xhr.onload = () =>{
         alert(`${xhr.status} Fallo registro de obtener`)
     }
     else{
-        userListToHTML(JSON.parse(xhr.responseText));
+        let users = JSON.parse(xhr.responseText);
+
+        let data1 = users.filter(usr =>usr.typo == 4)
+        console.log(data1);
+        userListToHTML1(data1);
+        let data2 = users.filter(usr =>usr.typo == 3)
+        userListToHTML2(data2);
+        let data3 = users.filter(usr =>usr.typo == 2)
+        userListToHTML3(data3);
+        let data4 = users.filter(usr =>usr.typo == 1)
+        userListToHTML4(data4);
+    
         buttonsP();
     }
 }
 
 
-
-function userListToHTML(userList){
+function userListToHTML1(userList){
     document.getElementById("studentsTable").innerHTML = userList.map(u => userToHTML(u)).join('')
+}
+function userListToHTML2(userList){
+    document.getElementById("teachertable").innerHTML = userList.map(u => userToHTML(u)).join('')
+}
+function userListToHTML3(userList){
+    document.getElementById("coordinatortable").innerHTML = userList.map(u => userToHTML(u)).join('')
+}
+function userListToHTML4(userList){
+    document.getElementById("unitcoordinatortable").innerHTML = userList.map(u => userToHTML(u)).join('')
 }
 
 function userToHTML(user){
