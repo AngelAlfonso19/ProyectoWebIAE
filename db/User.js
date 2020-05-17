@@ -96,7 +96,7 @@ userSchema.statics.getUsuariosSAFE = () => {
 }
 
 userSchema.statics.SearchbyeMail = (email) =>{
-    return User.findOne({email},{_id:0, name:1, email: 1, password:1,lastName:1,token: 1, img:1, typo: 1})
+    return User.findOne({email},{name:1, email: 1, password:1,lastName:1,token: 1, img:1, typo: 1})
 }
 
 userSchema.statics.createUser = (userData) =>{
@@ -107,10 +107,11 @@ userSchema.statics.createUser = (userData) =>{
     return newUser.save()
 }
 
-userSchema.statics.updateUser = (userData) => {
+// userSchema.statics.updateUser = (userData) => {
+userSchema.methods.updateUser = function (userData){
     return  User.findOneAndUpdate(
         {_id:this._id},
-        {$set:datos},
+        {$set:userData},
         {new:true}
         )
 }

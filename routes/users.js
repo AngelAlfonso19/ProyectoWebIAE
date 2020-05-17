@@ -25,6 +25,7 @@ router.get('/:email'/*, validar_lg*/, async (req,res) =>{
     try{
         let doc = await User.SearchbyeMail(req.params.email)
         console.log(doc);
+        res.send(JSON.stringify(doc))
     }catch(err){ERROR: err}
        
 })
@@ -71,16 +72,17 @@ router.post('/', async(req,res)=>{
 })
 
 router.put('/:email',midAuth.checkToken,midAuth.validateRol, async (req,res) => {
-    if(req.params.email == req.body.img){
+    if(req.params.email == req.body.email){
         let doc;
+        let userData = req.body
         try{
             doc = await User.SearchbyeMail(req.params.email);
             if(doc){
-                await doc.updateUser(req.body);
-                res.send();
+                 await doc.updateUser(userData);
+                 res.send();
             }
         }catch(err){
-            res.status(400).send({error: "No se encontró usuario"})
+            res.status(500).send({error: "Internal Server Error"})
         }
     }else{
         res.status(400).send({error: "No se puede cambiar el correo"})

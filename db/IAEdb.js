@@ -6,7 +6,7 @@ let IAESchema = mongoose.Schema({
         required: true
     },
     subjectID:{
-        type: String,
+        type: Number,
         required: true
     },
     pollDate:{
@@ -20,7 +20,12 @@ function createIae(iae){
     .then((resp)=> console.log(resp))
     .catch((err)=> console.log("Ocurrió un error", err))    
 }
-let IAE = mongoose.model('iaes', IAESchema)
+
+IAESchema.statics.deleteIAE = (id) => {
+    return IAE.findByIdAndRemove(id);
+}
+
+let IAE = mongoose.model('iaes', IAESchema);
 IAE.createIae = createIae;
 
 module.exports = IAE
