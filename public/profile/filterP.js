@@ -32,7 +32,7 @@ assignment.addEventListener("click", ()=>{
     toView("assignment", "assignment");
 })
 
-assessmentDetail.addEventListener("click", ()=>{
+evaluaciones.addEventListener("click", ()=>{
     toView("evaluaciones", "evaluaciones");
 })
 
