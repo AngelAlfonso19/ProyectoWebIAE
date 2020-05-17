@@ -24,13 +24,16 @@ function assignmentToHtml(obj, objiae) {
     if (obj != undefined)
         return `
         <!-- Row1 -->
-        <tr id = "${objiae.pollID}" onclick="deleteIAE(this.id)">
+        <tr>
           <!-- Column1 -->
           <td> 
             <div class="container-fluid">
               <div class="row">
+              <p class="userName" id = "${objiae.pollID}" onclick="deleteIAE(this.id)"> X </p>
                 <div class="col-12 mt-3 d-flex justify-content-center">
+                <a id="${objiae.pollID}" onclick="openassesment(this.id)">
                   <p class="userName">${obj.subjectName}</p>
+                </a> 
                 </div>
               </div>
             </div>                                
@@ -189,6 +192,17 @@ function deleteIAE(identify){
    }   
 }
 
+function openassesment(id){
+  localStorage.setItem("pollID", id);
+  toView("IAEDetail", "IAEDetail")
+}
 
+function toView(link, view){
+  xhrr.open('GET', `http://localhost:3000/${link}`)
+  xhrr.send()
+  xhrr.onload = ()=>{
+      window.location.replace(`../${view}`)
+  }
+}
 
 

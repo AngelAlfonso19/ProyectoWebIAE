@@ -5,6 +5,7 @@ const assignmentRouter = require("./routes/assignment")
 const evaluacionRouter = require('./routes/evaluaciones')
 const answerstRouter = require('./routes/answers')
 const profileRouter = require('./routes/profile')
+const specUserInfo = require('./routes/userProfile')
 const IAERouter = require('./routes/iae')
 var bodyParser = require('body-parser')
 // const cookieParser = require('cookie-parser')
@@ -32,9 +33,15 @@ app.use('/api/assignment', assignmentRouter)
 app.use('/api/evaluaciones', evaluacionRouter)
 app.use('/api/assessmentDetail', assessmentRouter);
 app.use('/api/answers', answerstRouter)
+app.use('/api/profile', profileRouter)
+app.use('/api/userProfile', specUserInfo)
+
+
+//Home & profiles
 
 //Home-Profile
 app.use("/",express.static(__dirname+"/public/profile"))
+app.use("/userProfile",express.static(__dirname+"/public/userProfile"))
 
 //Login
 app.use("/login",express.static(__dirname+"/public/login"))

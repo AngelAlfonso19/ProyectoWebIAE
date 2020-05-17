@@ -20,7 +20,10 @@ router.get('/',midAuth.checkToken, midAuth.validateRol, async (req, res)=> {
     // console.log(tute);
 })
 
-router.get('/:email'/*, validar_lg*/, async (req,res) =>{
+
+
+
+router.get('/:email',midAuth.checkToken,midAuth.validateRol, async (req,res) =>{
     console.log('searchUser');
     try{
         let doc = await User.SearchbyeMail(req.params.email)
@@ -39,7 +42,7 @@ router.post('/login', async (req,res)=>{
         let dPass = doc.password
         let rPass = req.body.password
         if(bcrypt.compareSync(rPass,dPass)){
-            let token = jwt.sign({email: doc.email, name: doc.name, lastName: doc.lastName, typo: doc.typo},`${key.tokenPass}`,{expiresIn: '6h' })
+            let token = jwt.sign({email: doc.email, name: doc.name, lastName: doc.lastName, typo: doc.typo, username: doc.username},`${key.tokenPass}`,{expiresIn: '6h' })
             res.cookie('token', token);
             res.json({token});
             // res.redirect('/');
@@ -52,23 +55,15 @@ router.post('/login', async (req,res)=>{
 })
 
 router.post('/', async(req,res)=>{
-    console.log('Will POST');
-    let skip = 0
-    let doc = await User.SearchbyeMail(req.body.email)
-    if (doc){
-        res.status(400).send({error: "Ya existe un usario registrado con ese eMail"})
-    }else{
-        try{    
-            console.log(req.body);
-            let userData = req.body
-            let usr = await User.createUser(userData)
-            console.log(usr);
-            res.status(201).send(usr);
-        }catch(err){
-            console.log(req.body);
-            res.status(400).send({error: err})
-        }
-    }
+    console.log("Entra a post /api/users");
+    console.log(req.body);
+   try{
+      let savedUser = await User.createUser(req.body);
+      console.log(savedUser);
+      res.status(201).send(savedUser);
+   }catch(err){
+      res.status(404).send({message: err})
+   }   
 })
 
 router.put('/:email',midAuth.checkToken,midAuth.validateRol, async (req,res) => {

@@ -92,11 +92,14 @@ let userSchema = mongoose.Schema({
 })
 
 userSchema.statics.getUsuariosSAFE = () => {
-        return User.find({},{_id:0, userID: 1, username: 1, name: 1,lastName: 1, img:1, email: 1,collegeMajor: 1, typo:1})
+        return User.find({},{_id:0, userID: 1, username: 1, name: 1,lastName: 1, img:1,email: 1,collegeMajor: 1, typo:1})
 }
 
 userSchema.statics.SearchbyeMail = (email) =>{
-    return User.findOne({email},{name:1, email: 1, password:1,lastName:1,token: 1, img:1, typo: 1})
+    return User.findOne({email},{name:1, email: 1, username:1,password:1,lastName:1,token: 1, img:1, typo: 1})
+}
+userSchema.statics.SearchbyUN = (username) =>{
+    return User.findOne({username},{name:1, email: 1, username:1,password:1,lastName:1,token: 1, img:1, typo: 1})
 }
 
 userSchema.statics.createUser = (userData) =>{
@@ -139,6 +142,13 @@ async function getUsersAsync(){
     return docs;
 }
 
+function createUser(user){
+    let usertMongo = User(user);
+
+    usertMongo.save()
+    .then((resp)=> console.log(resp))
+    .catch((err)=> console.log("Ocurrió un error", err))    
+}
 // function createUser(user){
 //     let userMongo = User(user);
     
@@ -154,7 +164,7 @@ async function getUsersAsync(){
 
 // User.createUser = createUser;
 User.getUsersAsync = getUsersAsync;
-
+User.createUser = createUser;
 // getUsersAsync();
 // createUser(newUser);
 

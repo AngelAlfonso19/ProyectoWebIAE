@@ -25,7 +25,7 @@ xhrr.onload = ()=>{
         Nameehtml.innerHTML = `${responses.name} ${responses.lastName}`
         // Emaillhtml.innerHTML = `${responses.email}`
         Imghtmll.src = responses.img
-        console.log(Imghtml.src)
+        console.log(Imghtmll.src)
     }else {
          window.location.replace('login')
      }

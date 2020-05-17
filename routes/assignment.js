@@ -58,7 +58,7 @@ router.delete('/:subjectID', async (req, res) =>{
 router.patch('/:subjectID', async (req, res) =>{
     console.log("Entra patch");
     try{
-        const updatedPost = await Assignment.updatedPost({subjectID: req.params.subjectID},
+        const updatedPost = await Assignment.updateOne({subjectID: req.params.subjectID},
              {$set:{
                 subjectName: req.body.subjectName,
                 availableTime: req.body.availableTime,
