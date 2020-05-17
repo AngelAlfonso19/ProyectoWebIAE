@@ -1,5 +1,6 @@
 const IAE = require('../db/IAEdb')
 const router = require('express').Router()
+const midAuth = require('../middlewares/midAuth')
 
 router.get('/', async (req, res)=> {
   try{

@@ -10,6 +10,7 @@ const IAE = document.getElementById('IAE')
 const Users = document.getElementById('users')
 const assignment = document.getElementById('assignment')
 const assessmentDetail = document.getElementById('assessmentDetail')
+const evaluaciones = document.getElementById('evaluaciones')
 const Edit = document.getElementById('emailPUT');
 const PUTform = document.getElementById('PUTform').children;
 const updateButton = document.getElementById('updateButton');
@@ -34,8 +35,8 @@ assignment.addEventListener("click", ()=>{
     toView("assignment", "assignment");
 })
 
-assessmentDetail.addEventListener("click",()=>{
-    toView('assessmentDetail','assessmentDetail')
+evaluaciones.addEventListener("click",()=>{
+    toView('evaulaciones','evaluaciones')
 })
 
 updateButton.addEventListener('click', ()=>{

@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const key = require('../config_files')
 const User = require('../db/User')
+const IAE = require('../db/IAEdb')
 
 
 
@@ -41,6 +42,23 @@ async function getUserInfoo(req,res,next){
     const user = await User.SearchbyUN(req.params.username)
     console.log(user);
     if(user){
+        next();
+    }
+   }catch(err){
+        res.status(401).send({ERROR: err})
+   }
+
+}
+
+async function getIAEInfoo(req,res,next){
+    const pollID = req.headers.pollID
+    console.log('Getting userIAE');
+   console.log(pollID);
+   req.params.pollID = pollID
+   try{
+    const evall = await IAE.retrieveIAE(req.params.pollID)
+    console.log(evall);
+    if(evall){
         next();
     }
    }catch(err){
@@ -90,4 +108,4 @@ async function validateRol (req,res,next){
 
 
 
-module.exports = {checkToken, validateRol, getUserInfoo}//, profileRol};
+module.exports = {checkToken, validateRol, getUserInfoo, getIAEInfoo}//, profileRol};
