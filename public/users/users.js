@@ -9,7 +9,6 @@ xhr.onload = () =>{
         alert(`${xhr.status} Fallo registro de obtener`)
     }
     else{
-<<<<<<< HEAD
         let users = JSON.parse(xhr.responseText);
 
         let data1 = users.filter(usr =>usr.typo == 4)
@@ -22,31 +21,22 @@ xhr.onload = () =>{
         let data4 = users.filter(usr =>usr.typo == 1)
         userListToHTML4(data4);
     
-=======
-        userListToHTML(JSON.parse(xhr.responseText));
         buttonsP();
->>>>>>> master
     }
 }
 
 
-<<<<<<< HEAD
 function userListToHTML1(userList){
-    document.getElementById("studentsTable").innerHTML = userList.map(u => userToHTML(u)).join('<br>')
-=======
-
-function userListToHTML(userList){
     document.getElementById("studentsTable").innerHTML = userList.map(u => userToHTML(u)).join('')
->>>>>>> master
 }
 function userListToHTML2(userList){
-    document.getElementById("teachertable").innerHTML = userList.map(u => userToHTML(u)).join('<br>')
+    document.getElementById("teachertable").innerHTML = userList.map(u => userToHTML(u)).join('')
 }
 function userListToHTML3(userList){
-    document.getElementById("coordinatortable").innerHTML = userList.map(u => userToHTML(u)).join('<br>')
+    document.getElementById("coordinatortable").innerHTML = userList.map(u => userToHTML(u)).join('')
 }
 function userListToHTML4(userList){
-    document.getElementById("unitcoordinatortable").innerHTML = userList.map(u => userToHTML(u)).join('<br>')
+    document.getElementById("unitcoordinatortable").innerHTML = userList.map(u => userToHTML(u)).join('')
 }
 
 function userToHTML(user){
