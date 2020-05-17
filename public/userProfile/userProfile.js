@@ -1,4 +1,3 @@
-const xhr = new XMLHttpRequest();
 const CS = document.getElementById('SALIR')
 const Rolhtml = document.getElementById('profile_ROL');
 const forma = document.getElementById('datosVariables')
@@ -6,6 +5,7 @@ const Namehtml = document.getElementById('profile_Name')
 const Emailhtml = document.getElementById('profile_Email')
 const Imghtml = document.getElementById('profile_profilePhoto')
 const tipos = ["Administrador","Coordinador","Profesor","Alumno"]
+const username = localStorage.getItem('username');
 const IAE = document.getElementById('IAE')
 const Users = document.getElementById('users')
 const assignment = document.getElementById('assignment')
@@ -13,7 +13,10 @@ const assessmentDetail = document.getElementById('assessmentDetail')
 const Edit = document.getElementById('emailPUT');
 const PUTform = document.getElementById('PUTform').children;
 const updateButton = document.getElementById('updateButton');
+const studentsTable = document.getElementById('studentsTable')
+// const modifyOtherUsers = document.getElementById(`${studentsTable.tr.id.value}`)
 let dicto = ['name', 'lastName', 'email']
+const xhr = new XMLHttpRequest();
 
 CS.addEventListener("click", ()=>{
     cerrarSesion();
@@ -31,25 +34,44 @@ assignment.addEventListener("click", ()=>{
     toView("assignment", "assignment");
 })
 
-assessmentDetail.addEventListener("click", ()=>{
-    toView("assessmentDetail", "assessmentDetail");
+assessmentDetail.addEventListener("click",()=>{
+    toView('assessmentDetail','assessmentDetail')
 })
 
 updateButton.addEventListener('click', ()=>{
     update();
 })
 
-xhr.open('GET','http://localhost:3000/api/profile')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+xhr.open('GET',`http://localhost:3000/api/userProfile`)
 let varHTML = forma.children;
 console.log(document.cookie);
 xhr.setRequestHeader('Content-Type', 'application/json');
 xhr.setRequestHeader('x-auth', localStorage.getItem('token'))
+xhr.setRequestHeader('username', username)
 if(localStorage.getItem('token')=== undefined){window.location.replace('login')}
 xhr.send()
 xhr.onload = ()=>{
     if(localStorage.getItem('token'))
     {
-        let responses = JSON.parse(xhr.responseText);
+        let responses = JSON.parse(xhr.responseText)
+        console.log( responses);
         console.log(PUTform[0]);
         let j=0
         for(let i = 0 ; i< PUTform.length-2;i++){ //poner regla que si contraseña igual a "", no tomar en schema
@@ -59,7 +81,7 @@ xhr.onload = ()=>{
                 console.log('esElBR:' + PUTform[i].type+i);
                 continue
             }else{
-                console.log("qesesto:", foo);
+                console.log(foo);
                 PUTform[i].setAttribute('value' ,eval(foo))
             }
             j++
@@ -95,6 +117,13 @@ function cerrarSesion(){
         window.location.replace('../login')
     }
 }
+
+
+
+
+
+
+
 
 function update(){
     let skel = {name: "", lastName: "", email: "", password: ""};

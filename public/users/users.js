@@ -1,3 +1,4 @@
+const bat = document.getElementById('studentsTable').children
 let xhr = new XMLHttpRequest();
 xhr.open('GET', '/api/users')
 xhr.setRequestHeader("Content-Type", "application/json");
@@ -8,6 +9,7 @@ xhr.onload = () =>{
         alert(`${xhr.status} Fallo registro de obtener`)
     }
     else{
+<<<<<<< HEAD
         let users = JSON.parse(xhr.responseText);
 
         let data1 = users.filter(usr =>usr.typo == 4)
@@ -20,12 +22,22 @@ xhr.onload = () =>{
         let data4 = users.filter(usr =>usr.typo == 1)
         userListToHTML4(data4);
     
+=======
+        userListToHTML(JSON.parse(xhr.responseText));
+        buttonsP();
+>>>>>>> master
     }
 }
 
 
+<<<<<<< HEAD
 function userListToHTML1(userList){
     document.getElementById("studentsTable").innerHTML = userList.map(u => userToHTML(u)).join('<br>')
+=======
+
+function userListToHTML(userList){
+    document.getElementById("studentsTable").innerHTML = userList.map(u => userToHTML(u)).join('')
+>>>>>>> master
 }
 function userListToHTML2(userList){
     document.getElementById("teachertable").innerHTML = userList.map(u => userToHTML(u)).join('<br>')
@@ -39,15 +51,15 @@ function userListToHTML4(userList){
 
 function userToHTML(user){
     return `                                                        
-    <tr>
+    <tr id="${user.username}" >
         <td> 
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-6 d-flex justify-content-center">
-                        <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/1.jpg" alt="userProfilePhoto.jpg">
+                        <img class="img-circle" id="tableProfilePhoto" src="${user.img}" alt="userProfilePhoto.jpg">
                     </div>
                     <div class="col-6 d-flex justify-content-center">
-                        <p class="userName">${user.name} ${user.lastName}</p>
+                        <p  class="userName">${user.name} ${user.lastName}</p>
                     </div>
                 </div>
             </div>                                            
@@ -73,4 +85,25 @@ function userToHTML(user){
             </div>                     
         </td>                        
     </tr>`;
+}
+
+function buttonsP (){
+    for(let i =0 ; i<bat.length;i++){
+        console.log(`btn ${i} listo:  ${bat[i]}`);
+        bat[i].addEventListener('click',()=>{
+            localStorage.setItem('username', bat[i].id)
+            console.log(bat[i].id);
+            toView('userProfile','userProfile')
+        })
+    }
+}
+
+
+function toView(link, view){
+    xhrr.open('GET', `http://localhost:3000/${link}`)
+    xhrr.send()
+    xhrr.onload = ()=>{
+        // localStorage.setItem('username', this.id)
+        window.location.replace(`../${view}`)
+    }
 }

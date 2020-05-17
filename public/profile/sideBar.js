@@ -25,7 +25,7 @@ xhrr.onload = ()=>{
         Nameehtml.innerHTML = `${responses.name} ${responses.lastName}`
         // Emaillhtml.innerHTML = `${responses.email}`
         Imghtmll.src = responses.img
-        console.log(Imghtml.src)
+        console.log(Imghtmll.src)
     }else {
          window.location.replace('login')
      }
@@ -40,9 +40,11 @@ IAE.addEventListener("click", ()=>{
 Users.addEventListener("click", ()=>{
     toView("users", "users");
 })
+
 homeLink.addEventListener("click", ()=>{
     toView("profile", "");
 })
+
 assignment.addEventListener("click", ()=>{
     toView("assignment", "assignment");
 })
@@ -50,6 +52,7 @@ assignment.addEventListener("click", ()=>{
 assessmentDetail.addEventListener("click", ()=>{
     toView("assessmentDetail", "assessmentDetail");
 })
+
 function toView(link, view){
     xhrr.open('GET', `http://localhost:3000/${link}`)
     xhrr.send()

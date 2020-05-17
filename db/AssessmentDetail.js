@@ -1,23 +1,23 @@
 const mongoose = require('./mongodb-connect'); 
 
 let assessmentSchema = mongoose.Schema({
-    AssessmentID:{
+    assessmentID:{
         type: String,
         required: true
     },
-    SubjectID:{
+    subjectID:{
         type: String,
         required: true
     },
-    PollID:{
+    pollID:{
         type: String,
         required: true
    },
-   AssessmentDate:{
+   assessmentDate:{
         type: Date,
         required: true
     },
-    AssessmentResult:{
+    assessmentResult:{
         type: String,
         required: true
     }

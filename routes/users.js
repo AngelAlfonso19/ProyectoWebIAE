@@ -23,7 +23,7 @@ router.get('/',midAuth.checkToken, midAuth.validateRol, async (req, res)=> {
 
 
 
-router.get('/:email'/*, validar_lg*/, async (req,res) =>{
+router.get('/:email',midAuth.checkToken,midAuth.validateRol, async (req,res) =>{
     console.log('searchUser');
     try{
         let doc = await User.SearchbyeMail(req.params.email)
@@ -32,8 +32,6 @@ router.get('/:email'/*, validar_lg*/, async (req,res) =>{
     }catch(err){ERROR: err}
        
 })
-
-
 
 router.post('/login', async (req,res)=>{
     console.log('Login');
@@ -44,7 +42,7 @@ router.post('/login', async (req,res)=>{
         let dPass = doc.password
         let rPass = req.body.password
         if(bcrypt.compareSync(rPass,dPass)){
-            let token = jwt.sign({email: doc.email, name: doc.name, lastName: doc.lastName, typo: doc.typo},`${key.tokenPass}`,{expiresIn: '6h' })
+            let token = jwt.sign({email: doc.email, name: doc.name, lastName: doc.lastName, typo: doc.typo, username: doc.username},`${key.tokenPass}`,{expiresIn: '6h' })
             res.cookie('token', token);
             res.json({token});
             // res.redirect('/');
@@ -55,8 +53,6 @@ router.post('/login', async (req,res)=>{
         console.log('ERROR: ', err)
     }
 })
-
-
 
 router.post('/', async(req,res)=>{
     console.log('Will POST');
@@ -95,9 +91,6 @@ router.put('/:email',midAuth.checkToken,midAuth.validateRol, async (req,res) => 
         res.status(400).send({error: "No se puede cambiar el correo"})
     }
 })
-
-
-
 
 // function validar(req,res,next) {
 //     // let {username, name, lastName, email, password, collegeMajor,typo } = req.body;
