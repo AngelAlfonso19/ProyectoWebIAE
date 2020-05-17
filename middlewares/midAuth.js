@@ -4,10 +4,9 @@ const User = require('../db/User')
 
 
 function checkToken(req,res,next){
-    console.log('VERIFICANDO TOKEN' + "\n" + req.headers.cookie);
+    console.log('VERIFICANDO TOKEN'); 
     const cookie = req.headers.cookie
     let token = cookie.substring(6,cookie.length)
-    console.log(token);
     if(token!="" || token != undefined || token == "undefined"){
         jwt.verify(token,`${key.tokenPass}`,function(err, payload){
             if(err){

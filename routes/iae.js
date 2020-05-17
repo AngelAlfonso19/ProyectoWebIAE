@@ -23,4 +23,15 @@ router.post('/', async (req, res)=> {
    }   
 } )
 
+router.delete('/:pollID', async (req, res) =>{
+    console.log("Entra a delete /api/deleteiae");
+    try{
+        const removeIAE = await IAE.remove({pollID: req.params.pollID});
+        res.json(removeIAE)
+        res.status(201)
+    }catch(err){
+        res.status(404).send({message: err})
+    }
+})
+
 module.exports = router;

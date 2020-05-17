@@ -1,23 +1,23 @@
 const mongoose = require('./mongodb-connect')
 
 let assignmentSchema = mongoose.Schema({
-    SubjectID: {
+    subjectID: {
       type: Number,
       required: true,
     },
-    TeacherID: {
+    teacherID: {
         type: Number,
         required: true
       },
-    SubjectName: {
+    subjectName: {
         type: String,
         required: true
     },
-    Score: {
+    score: {
         type: Number,
         required: true
     },
-    AvailableTime: {
+    availableTime: {
         type: String,
         required: true
     }
