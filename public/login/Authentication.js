@@ -31,7 +31,7 @@ function auth(){
     skel.password = document.getElementById('usuarioPass').value
     let corr = skel.email
     // xhr.open('GET',`http://localhost:3000/api/users/:email`)
-    xhr.open('POST',`http://localhost:3000/api/users/login`)
+    xhr.open('POST',`/api/users/login`)
     xhr.setRequestHeader("Content-Type","application/json")
     xhr.send(JSON.stringify(skel));
     xhr.onload = ()=>{
@@ -137,7 +137,7 @@ function sendData(jsonResp){
     const xhr = new XMLHttpRequest();
 
     // xhr.addEventListener("error", ()=>{alert('Oops! Something went wrong.');})
-    xhr.open('POST', 'http://localhost:3000/api/users');
+    xhr.open('POST', '/api/users');
     xhr.setRequestHeader('Content-Type','application/json');
     // xhr.setRequestHeader('x-auth', `${localStorage.token}`);
     

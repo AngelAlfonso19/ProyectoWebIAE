@@ -90,7 +90,7 @@ function buttonsP (){
 }
 
 function toView(link, view){
-    xhrr.open('GET', `http://localhost:3000/${link}`)
+    xhrr.open('GET', `/${link}`)
     xhrr.send()
     xhrr.onload = ()=>{
         // localStorage.setItem('username', this.id)

@@ -12,7 +12,7 @@ console.log('SIDEBAR');
 const xhrr = new XMLHttpRequest()
 
 
-xhrr.open('GET','http://localhost:3000/api/profile')
+xhrr.open('GET','/api/profile')
 xhrr.setRequestHeader('Content-Type', 'application/json');
 xhrr.setRequestHeader('x-auth', localStorage.getItem('token'))
 if(localStorage.getItem('token')=== undefined){window.location.replace('login')}
@@ -55,7 +55,7 @@ evaluaciones.addEventListener("click", ()=>{
 })
 
 function toView(link, view){
-    xhrr.open('GET', `http://localhost:3000/${link}`)
+    xhrr.open('GET', `/${link}`)
     xhrr.send()
     xhrr.onload = ()=>{
         window.location.replace(`../${view}`)

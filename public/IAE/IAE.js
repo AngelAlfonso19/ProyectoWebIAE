@@ -198,7 +198,7 @@ function openassesment(id){
 }
 
 function toView(link, view){
-  xhrr.open('GET', `http://localhost:3000/${link}`)
+  xhrr.open('GET', `/${link}`)
   xhrr.send()
   xhrr.onload = ()=>{
       window.location.replace(`../${view}`)

@@ -44,7 +44,7 @@ updateButton.addEventListener('click', ()=>{
     update();
 })
 
-xhr.open('GET','http://localhost:3000/api/profile')
+xhr.open('GET','/api/profile')
 let varHTML = forma.children;
 console.log(document.cookie);
 xhr.setRequestHeader('Content-Type', 'application/json');
@@ -84,7 +84,7 @@ xhr.onload = ()=>{
 
 
 function toView(link, view){
-    xhr.open('GET', `http://localhost:3000/${link}`)
+    xhr.open('GET', `/${link}`)
     xhr.send()
     xhr.onload = ()=>{
         window.location.replace(`../${view}`)
@@ -93,7 +93,7 @@ function toView(link, view){
 
 
 function cerrarSesion(){
-    xhr.open('GET', 'http://localhost:3000/login')
+    xhr.open('GET', '/login')
     xhr.send()
     xhr.onload = ()=>{
         localStorage.removeItem('token')
@@ -119,7 +119,7 @@ function update(){
     }
     let header = (skel.password != "")?skel:skel2
     console.log(header.email);
-    xhr.open('PUT',`http://localhost:3000/api/users/${header.email}`)
+    xhr.open('PUT',`/api/users/${header.email}`)
     xhr.setRequestHeader('Content-Type',"application/json")
     
     xhr.send(JSON.stringify(header))
