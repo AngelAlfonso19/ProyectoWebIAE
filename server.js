@@ -42,6 +42,10 @@ app.use("/login",express.static(__dirname+"/public/login"))
 //IAE
 app.use("/IAE", express.static(__dirname+"/public/IAE"))
 
+//IAEDetails
+app.use("/IAEDetail",express.static(__dirname+"/public/css"))
+app.use("/IAEDetail", express.static(__dirname+"/public/IAEDetail"))
+
 //Users
 app.use("/users",express.static(__dirname+"/public/css"))
 app.use("/users",express.static(__dirname+"/public/users"))
