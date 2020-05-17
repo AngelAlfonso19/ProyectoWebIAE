@@ -57,7 +57,7 @@ async function validateRol (req,res,next){
     try{
         // const user =  await User.searchbyeMail(req.params.email)
         const user = await User.SearchbyeMail(req.params.email)
-        if(user && (user.typo == 0 ))
+        if(user )//&&(user.typo == 0 ))
         {
             next()
         }else{
