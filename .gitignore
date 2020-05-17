@@ -177,7 +177,7 @@ $RECYCLE.BIN/
 *.lnk
 
 #packages
-package.json
+# package.json
 package-lock.json
 
 #mongodb-connect file
