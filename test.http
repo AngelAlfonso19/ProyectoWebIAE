@@ -60,3 +60,12 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/IAE
+###
+PATCH http://localhost:3000/api/assignment/9264
+Context-Type: application/json
+
+{
+    "subjectName": "Mecanica Analitica",
+    "availableTime": "Primavera 2020",
+    "teacherID": 13289516
+}
