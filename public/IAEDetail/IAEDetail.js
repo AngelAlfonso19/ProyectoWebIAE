@@ -26,42 +26,42 @@ butSend.addEventListener("click", function(event) {
             "pollID": temporalPollID,
             "q1": {
                 "type":0,
-                "title": "1. hola",
+                "title": "1. pregunta1",
                 "answer": parseInt(numericData[0].value)
             },
             "q2": {
                 "type":0,
-                "title": "1. hola",
+                "title": "2. pregunta2",
                 "answer": parseInt(numericData[1].value)
             },
             "q3": {
                 "type":0,
-                "title": "1. hola",
+                "title": "3. pregunta3",
                 "answer": parseInt(numericData[2].value)
             },
             "q4": {
                 "type":0,
-                "title": "1. hola",
+                "title": "4. pregunta4",
                 "answer": parseInt(numericData[3].value)
             },
             "q5": {
                 "type":0,
-                "title": "1. hola",
+                "title": "5. pregunta5",
                 "answer": parseInt(numericData[4].value)
             },
             "q6": {
                 "type":1,
-                "title": "1. hola",
+                "title": "6. pregunta6",
                 "answer": stringData[0].value
             },
             "q7": {
                 "type":1,
-                "title": "1. hola",
+                "title": "7. pregunta7",
                 "answer": stringData[1].value
             },
             "q8": {
                 "type":1,
-                "title": "1. hola",
+                "title": "8. pregunta8",
                 "answer": stringData[2].value
             }
         }
