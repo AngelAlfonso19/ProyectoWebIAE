@@ -2,13 +2,14 @@
 // let temporalAssessments
 let subjectID
 let teacherID
-let temporalPollID = "1234A"
+let temporalPollID = localStorage.getItem('pollID')
 
 
 getAnswers()
 getAssessment()
 getAssigments()
 getProfessor()
+// window.location.reload()
 
 //-------------------------------------------------Answers------------------------------------------------------------------------
 function getAnswers(){
