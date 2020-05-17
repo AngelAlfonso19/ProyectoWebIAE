@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken')
 router.get('/',midAuth.checkToken, midAuth.validateRol, async (req, res)=> {
     console.log("Entra a get /api/users");
     console.log(req.query);
-    req.header('x-auth', 'iii')
+    // req.header('x-auth', 'iii')
     console.log("usuario logueado", req.correo);
     try{
         let docs = await User.getUsuariosSAFE();

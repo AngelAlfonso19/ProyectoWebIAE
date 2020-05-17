@@ -1,5 +1,5 @@
 @host = http://localhost:3000/api/users
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlzNzA4MTMzQGl0ZXNvLm14IiwibmFtZSI6ImFsZXhpcyIsImxhc3ROYW1lIjoiYmVsbCIsInR5cG8iOjAsImlhdCI6MTU4OTYxMDY4NywiZXhwIjoxNTg5NjMyMjg3fQ.QHDbbi4LdKdFT31KHxsGUtXSFFJOPPldxbj_mKXERPo
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlzNzA4MTMzQGl0ZXNvLm14IiwibmFtZSI6IkphdmllciIsImxhc3ROYW1lIjoiTWVuZG96YSIsInR5cG8iOjAsInVzZXJuYW1lIjoiYWJjMzIxNSIsImlhdCI6MTU4OTY5MjAzMiwiZXhwIjoxNTg5NzEzNjMyfQ._xADtTWLh-u2jeb9qkOk9lzscK9dkphcvdrHpnQ_JEc
 
 
 GET {{host}}
@@ -26,6 +26,11 @@ Content-Type: application/json
     "email": "barbat@iteso.mx",
     "password": "barbat321",
 }
+
+###
+GET http://localhost:3000/api/iae
+Content-Type: application/application/json
+x-auth : {{token}}
 
 ###
 PUT http://localhost:3000/api/users/img

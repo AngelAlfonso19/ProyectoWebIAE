@@ -50,7 +50,7 @@
             </div>
             <div class="row">
             <div class="col-12 mt-4 d-flex justify-content-center">
-              <a class="nav-link d-flex justify-content-center"href="#" href="assessmentDetail">Evaluaciones</a>
+              <a class="nav-link d-flex justify-content-center"href="#" id="evaluaciones">Evaluaciones</a>
             </div>
             <div class="col-12 d-flex justify-content-center">
               <hr>
@@ -350,7 +350,7 @@
                 <input type="text" name="SubjectName" placeholder="Nombre de asignatura..." required> <br>
                 <input type="text" name="AvailableTime" placeholder="Periodo..." required> <br>
                 <label for="profesor">Selecciona a profesor</label>
-                <select name="profesor" type="select" placeholder="Profesor..." required> </select> <br> 
+                <select id="profesor" name="profesor" type="select" placeholder="Profesor..." required> </select> <br> 
               </form>
               <button id = "CrearAsignatura" type="button" class="modalButton" data-dismiss="modal">Confirmar</button>
               <button type="button" class="modalButton" data-dismiss="modal">Cancelar</button>
@@ -366,7 +366,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-    <script src="Assets/usersTables.js"></script>
-    <script type="text/javascript" src="evaluaciones.js"></script>
+    <!-- <script src="Assets/usersTables.js"></script> -->
+    <script src="../sideBar.js"></script>
+    <script type="text/javascript" src="./evaluaciones.js"></script>
   </body>
 </html>

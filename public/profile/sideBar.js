@@ -7,6 +7,7 @@ const tiposs = ["Administrador","Coordinador","Profesor","Alumno"]
 const assignment = document.getElementById('assignment')
 const assessmentDetail = document.getElementById('assessmentDetail')
 const Imghtmll = document.getElementById('statusBarProfilePhoto')
+const evaluaciones = document.getElementById('evaluaciones')
 console.log('SIDEBAR');
 const xhrr = new XMLHttpRequest()
 
@@ -49,8 +50,8 @@ assignment.addEventListener("click", ()=>{
     toView("assignment", "assignment");
 })
 
-assessmentDetail.addEventListener("click", ()=>{
-    toView("assessmentDetail", "assessmentDetail");
+evaluaciones.addEventListener("click", ()=>{
+    toView("evaluaciones", "evaluaciones");
 })
 
 function toView(link, view){

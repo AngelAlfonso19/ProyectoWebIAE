@@ -25,6 +25,10 @@ IAESchema.statics.deleteIAE = (id) => {
     return IAE.findByIdAndRemove(id);
 }
 
+IAESchema.statics.retrieveIAE = (pollID) => {
+    return IAE.findOne({pollID})
+}
+
 let IAE = mongoose.model('iaes', IAESchema);
 IAE.createIae = createIae;
 

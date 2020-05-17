@@ -2,7 +2,7 @@ const express = require("express");
 const usersRouter = require("./routes/users");
 const assessmentRouter = require("./routes/assessmentDetail")
 const assignmentRouter = require("./routes/assignment")
-const evaluacionRouter = require('./routes/evaluaciones')
+const evalRouter = require("./routes/evaluaciones")
 const answerstRouter = require('./routes/answers')
 const profileRouter = require('./routes/profile')
 const specUserInfo = require('./routes/userProfile')
@@ -30,10 +30,9 @@ app.use('/api/profile', profileRouter)
 app.use('/api/iae', IAERouter)
 app.use('/api/users', usersRouter);
 app.use('/api/assignment', assignmentRouter)
-app.use('/api/evaluaciones', evaluacionRouter)
+app.use('/api/evaluaciones', evalRouter)
 app.use('/api/assessmentDetail', assessmentRouter);
 app.use('/api/answers', answerstRouter)
-app.use('/api/profile', profileRouter)
 app.use('/api/userProfile', specUserInfo)
 
 

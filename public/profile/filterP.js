@@ -12,6 +12,7 @@ const assignment = document.getElementById('assignment')
 const assessmentDetail = document.getElementById('assessmentDetail')
 const Edit = document.getElementById('emailPUT');
 const PUTform = document.getElementById('PUTform').children;
+const evaluaciones = document.getElementById('evaluaciones')
 const updateButton = document.getElementById('updateButton');
 let dicto = ['name', 'lastName', 'email']
 
@@ -32,8 +33,12 @@ assignment.addEventListener("click", ()=>{
 })
 
 assessmentDetail.addEventListener("click", ()=>{
-    toView("assessmentDetail", "assessmentDetail");
+    toView("evaluaciones", "evaluaciones");
 })
+
+// assessmentDetail.addEventListener("click", ()=>{
+//     toView("assessmentDetail", "assessmentDetail");
+// })
 
 updateButton.addEventListener('click', ()=>{
     update();
