@@ -1,6 +1,6 @@
 let subjectID
 let teacherID
-let temporalPollID = "1234A"
+let temporalPollID = localStorage.getItem('pollID')
 let form = document.querySelector('#questioncreator')
 let invalid = document.querySelectorAll('input:invalid')
 let butSend = document.getElementById('SEND1')
