@@ -15,10 +15,7 @@
     "mongoose": "^5.9.13"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AngelAlfonso19/ProyectoWebIAE.git"
