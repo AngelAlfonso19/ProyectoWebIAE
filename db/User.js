@@ -92,7 +92,7 @@ let userSchema = mongoose.Schema({
 })
 
 userSchema.statics.getUsuariosSAFE = () => {
-        return User.find({},{_id:0, userID: 1, username: 1, name: 1,lastName: 1, img:1,email: 1,collegeMajor: 1, typo:1})
+        return User.find({},{_id:0, userID: 1, username: 1, name: 1,lastName: 1, img:1,email: 1,collegeMajor: 1, typo:1, department: 1})
 }
 
 userSchema.statics.SearchbyeMail = (email) =>{
