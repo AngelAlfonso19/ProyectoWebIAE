@@ -3,6 +3,11 @@ const key = require('../config_files')
 const User = require('../db/User')
 
 
+
+
+
+
+
 function checkToken(req,res,next){
     console.log('VERIFICANDO TOKEN'); 
     const cookie = req.headers.cookie
@@ -18,6 +23,7 @@ function checkToken(req,res,next){
                 req.lastName = payload.lastName;
                 req.typo = payload.typo
                 req.img = payload.img;
+                req.username = payload.username
                 next();
             }
         } )
@@ -26,9 +32,26 @@ function checkToken(req,res,next){
     }
 }
 
+async function getUserInfoo(req,res,next){
+    const un = req.headers.username
+    console.log('Getting user info');
+   console.log(un);
+   req.params.username = un
+   try{
+    const user = await User.SearchbyUN(req.params.username)
+    console.log(user);
+    if(user){
+        next();
+    }
+   }catch(err){
+        res.status(401).send({ERROR: err})
+   }
+
+}
+
 async function validateRol (req,res,next){
+    console.log('VALIDATING ROL');
     const img = req.img
-    console.log(req.body);
     const email = req.email;
     req.params.email = email;
     try{
@@ -45,26 +68,26 @@ async function validateRol (req,res,next){
     }
     
 }
-async function profileRol (req,res,next){
-    const email = req.email;
-    req.params.email = email;
-    try{
-        // const user =  await User.searchbyeMail(req.params.email)
-        const user = await User.SearchbyeMail(req.params.email)
-        if(user)
-        {
-            next()
-        }else{
-            res.send(req.body)
-        }
-    }catch(err){
-        res.status(401).send({error: 'No está autorizado'})
-    }
+// async function profileRol (req,res,next){
+//     const email = req.email;
+//     req.params.email = email;
+//     try{
+//         // const user =  await User.searchbyeMail(req.params.email)
+//         const user = await User.SearchbyeMail(req.params.email)
+//         if(user)
+//         {
+//             next()
+//         }else{
+//             res.send(req.body)
+//         }
+//     }catch(err){
+//         res.status(401).send({error: 'No está autorizado'})
+//     }
     
-}
+// }
 
 
 
 
 
-module.exports = {checkToken, validateRol, profileRol};
+module.exports = {checkToken, validateRol, getUserInfoo}//, profileRol};

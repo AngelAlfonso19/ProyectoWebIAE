@@ -23,7 +23,7 @@ router.get('/',midAuth.checkToken, midAuth.validateRol, async (req, res)=> {
 
 
 
-router.get('/:email'/*, validar_lg*/, async (req,res) =>{
+router.get('/:email',midAuth.checkToken,midAuth.validateRol, async (req,res) =>{
     console.log('searchUser');
     try{
         let doc = await User.SearchbyeMail(req.params.email)
@@ -44,7 +44,7 @@ router.post('/login', async (req,res)=>{
         let dPass = doc.password
         let rPass = req.body.password
         if(bcrypt.compareSync(rPass,dPass)){
-            let token = jwt.sign({email: doc.email, name: doc.name, lastName: doc.lastName, typo: doc.typo},`${key.tokenPass}`,{expiresIn: '6h' })
+            let token = jwt.sign({email: doc.email, name: doc.name, lastName: doc.lastName, typo: doc.typo, username: doc.username},`${key.tokenPass}`,{expiresIn: '6h' })
             res.cookie('token', token);
             res.json({token});
             // res.redirect('/');

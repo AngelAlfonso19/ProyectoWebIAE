@@ -3,7 +3,7 @@ const User = require("../db/User")
 const key = require('../config_files')
 const midAuth = require('../middlewares/midAuth')
 
-router.get('/',midAuth.checkToken,midAuth.profileRol,async (req,res) => {
+router.get('/',midAuth.checkToken,midAuth.validateRol,async (req,res) => {
     console.log('Entering PROFILE');
     // console.log(token);
     let doc;
