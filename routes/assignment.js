@@ -11,10 +11,10 @@ router.get('/', async (req, res)=> {
   }
 })
 
-router.get('/:SubjectID', async (req, res)=> {
-    console.log("Entra a get /api/assignments/:SubjectID");
+router.get('/:subjectID', async (req, res)=> {
+    console.log(req.params.SubjectID);
     try{
-        let docs = await Assignment.SearchByID(req.params.SubjectID);
+        let docs = await Assignment.findOne({subjectID: req.params.subjectID});
         res.json(docs);
         console.log(docs);
     }catch(error){
@@ -42,5 +42,34 @@ router.get('/api/users', async (req, res)=> {
       console.log("error", error)
   }
 })
+
+router.delete('/:subjectID', async (req, res) =>{
+    console.log("Entra a delete /api/deletesubject");
+    try{
+        const removeSubject = await Assignment.remove({subjectID: req.params.subjectID});
+        console.log(removeSubject);
+        res.json(removeSubject)
+        res.status(201)
+    }catch(err){
+        res.status(404).send({message: err})
+    }
+})
+
+router.patch('/:subjectID', async (req, res) =>{
+    console.log("Entra patch");
+    try{
+        const updatedPost = await Assignment.updatedPost({subjectID: req.params.subjectID},
+             {$set:{
+                subjectName: req.body.subjectName,
+                availableTime: req.body.availableTime,
+                teacherID: req.body.teacherID
+             }})
+             console.log(updatedPost);
+             res.json(updatedPost)
+    }catch(err){
+        res.status(404).send({message: err})
+    }
+})
+
 
 module.exports = router;

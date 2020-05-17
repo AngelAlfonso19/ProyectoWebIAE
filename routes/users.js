@@ -33,8 +33,6 @@ router.get('/:email',midAuth.checkToken,midAuth.validateRol, async (req,res) =>{
        
 })
 
-
-
 router.post('/login', async (req,res)=>{
     console.log('Login');
     console.log(req.body.email);
@@ -55,8 +53,6 @@ router.post('/login', async (req,res)=>{
         console.log('ERROR: ', err)
     }
 })
-
-
 
 router.post('/', async(req,res)=>{
     console.log('Will POST');
@@ -95,9 +91,6 @@ router.put('/:email',midAuth.checkToken,midAuth.validateRol, async (req,res) => 
         res.status(400).send({error: "No se puede cambiar el correo"})
     }
 })
-
-
-
 
 // function validar(req,res,next) {
 //     // let {username, name, lastName, email, password, collegeMajor,typo } = req.body;

@@ -2,8 +2,8 @@ let form = document.querySelector('#asignatura')
 let invalid = document.querySelectorAll('input:invalid')
 let butreg = document.querySelector('#CrearAsignatura')
 let assignmentid = 0;
-
-
+let row = document.getElementsByClassName("open")
+console.log(row);
 let xhr = new XMLHttpRequest();
 xhr.open('GET', '/api/assignment')
 xhr.setRequestHeader("Content-Type", "application/json");
@@ -33,13 +33,15 @@ function userToHtml(obj) {
     if (obj != undefined)
         return `
         <!-- Row1 -->
-        <tr id = "${obj.SubjectID}${obj.SubjectName}" onclick="deleteassign(this.id)">
+        <tr id = "${obj.subjectID}">
           <!-- Column1 -->
           <td> 
             <div class="container-fluid">
               <div class="row">
                 <div class="col-12 mt-3 d-flex justify-content-center">
-                  <p class="userName">${obj.SubjectName}</p>
+                <a data-toggle="modal" data-target="#modeleditId"href="#modeleditId" data-toggle="modal" data-target="#modeleditId" onclick="editassignment(${obj.subjectID})">
+                  <p class="userName">${obj.subjectName}</p>
+                </a> 
                 </div>
               </div>
             </div>                                
@@ -50,10 +52,10 @@ function userToHtml(obj) {
             <div class="container-fluid">
               <div class="row">
                 <div class="col-6 d-flex justify-content-center">
-                  <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/${obj.TeacherID}.jpg" alt="userProfilePhoto.jpg">
+                  <img class="img-circle" id="tableProfilePhoto" src="https://randomuser.me/api/portraits/men/${obj.teacherID % 100}.jpg" alt="userProfilePhoto.jpg">
                 </div>
                 <div class="col-6 d-flex justify-content-center">
-                  <p class="userName">${obj.TeacherID}</p>
+                  <p class="userName">${obj.teacherID}</p>
                 </div>
               </div>
             </div>                                            
@@ -64,7 +66,7 @@ function userToHtml(obj) {
             <div class="container-fluid">
               <div class="row">
                 <div class="col-12 mt-3 d-flex justify-content-center">
-                  <p class="userName">${obj.AvailableTime}</p>
+                  <p class="userName">${obj.availableTime}</p>
                 </div>
               </div>
             </div>                     
@@ -77,11 +79,11 @@ function userToHtml(obj) {
 
 form.addEventListener("change", () =>{
     let invalid = document.querySelectorAll('input:invalid');
-    
-   if (invalid.length<1){
+    console.log(invalid);
+   if (invalid.length<3){
         butreg.disabled = false;
     }
-    else if ( invalid.length >0){
+    else if ( invalid.length >2){
         butreg.disabled = true;
     }
     
@@ -102,13 +104,15 @@ function makeid() {
 butreg.addEventListener("click", function(event) {
     event.preventDefault();
     let data = document.querySelectorAll('input')
+    let selected = document.getElementById('profesor')
+    let selanswer = selected.options[selected.selectedIndex].value;
 
     let cdata =   {
-            "SubjectID": makeid(),
-            "TeacherID": 5,
-            "SubjectName": data[0].value,
-            "Score":  0,
-            "AvailableTime": data[1].value
+            "subjectID": makeid(),
+            "teacherID": selanswer,
+            "subjectName": data[0].value,
+            "score":  0,
+            "availableTime": data[1].value
     }
     
     let reguser = JSON.stringify(cdata)
@@ -151,19 +155,20 @@ function showTeacher(){
 
 function getTeacher(data){
   var text = "";
-   data.forEach(element => {
+   data.forEach((element) => {
      if(element.typo == 3){
       console.log(element);
-      text += userToHtml(element)
+      text += userprofesorToHtml(element)
      }
    });
    console.log(text);
     document.getElementById("profesor").innerHTML = text;
+    document.getElementById("editprofesor").innerHTML = text
 }
 
 function userprofesorToHtml(obj){
   if(obj != undefined)
-    return `<option value="${obj.name} ${obj.lastName}">${obj.name} ${obj.lastName}</option>`
+    return `<option value="${obj.userID}">${obj.name} ${obj.lastName}</option>`
   
 }
 
@@ -171,7 +176,8 @@ function deleteassign(identify){
   let answer = confirm("Deseas eliminar la asignatura?")
   if(answer == true){
    let xhr = new XMLHttpRequest();
-   xhr.open('DELETE',  `/api/assignment/${identify[0]}`)
+   console.log(identify);
+   xhr.open('DELETE',  `/api/assignment/${identify}`)
    xhr.setRequestHeader("Content-Type", "application/json");
    xhr.send();
    xhr.onload = () =>{
@@ -185,4 +191,58 @@ function deleteassign(identify){
    }   
 }
 
+function editassignment(id){
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', `/api/assignment/${id}`)
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send();
+  xhr.onload = () =>{
+    if(xhr.status != 200){
+        alert(`${xhr.status} Fallo registro de obtener`)
+    }
+    else{
+      
+    
+      let data = JSON.parse(xhr.responseText)
+      console.log(data);
+      let name = document.getElementById("editname")
+      let period = document.getElementById("editperiod")
+      let selected = document.getElementById("editprofesor")
+      let selanswer = selected.options[selected.selectedIndex].value;
+      name.value = data.subjectName;
+      period.value = data.availableTime;
+      let confirm = document.getElementById("edit")
+      let erase = document.getElementById("delete")
+      confirm.addEventListener("click", () =>{
+        editassign(id, name.value, period.value, selanswer);
+      })
+
+      erase.addEventListener("click", () =>{
+        deleteassign(id);
+      })
+
+    }
+}
+}
+
+function editassign(id, name, period, profesor){
+  let data = {
+    "subjectName": name,
+    "availableTime": period,
+    "teacherID": profesor
+  }
+  let xhr = new XMLHttpRequest();
+  xhr.open('PATCH', `/api/assignment/${id}`)
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(JSON.stringify(data))
+  xhr.onload = ()=>{
+    if(xhr.status != 200){
+      alert(`${xhr.status} Fallo registro de obtener`)
+  }
+  else{
+      
+
+    }
+  }
+}
 

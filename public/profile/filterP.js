@@ -31,8 +31,8 @@ assignment.addEventListener("click", ()=>{
     toView("assignment", "assignment");
 })
 
-assessmentDetail.addEventListener("click",()=>{
-    toView('assessmentDetail','assessmentDetail')
+assessmentDetail.addEventListener("click", ()=>{
+    toView("assessmentDetail", "assessmentDetail");
 })
 
 updateButton.addEventListener('click', ()=>{
