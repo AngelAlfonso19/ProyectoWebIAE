@@ -142,6 +142,13 @@ async function getUsersAsync(){
     return docs;
 }
 
+function createUser(user){
+    let usertMongo = User(user);
+
+    usertMongo.save()
+    .then((resp)=> console.log(resp))
+    .catch((err)=> console.log("Ocurrió un error", err))    
+}
 // function createUser(user){
 //     let userMongo = User(user);
     
@@ -157,7 +164,7 @@ async function getUsersAsync(){
 
 // User.createUser = createUser;
 User.getUsersAsync = getUsersAsync;
-
+User.createUser = createUser;
 // getUsersAsync();
 // createUser(newUser);
 

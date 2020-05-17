@@ -344,7 +344,7 @@ function getProfessor(){
         else{
             let usersList = (JSON.parse(xhr.responseText));
             console.log("Obtiene usersList:");
-            console.log(usersList)
+            console.log(teacherID)
             let teacher = usersList.find(a => a.userID == teacherID)
             console.log("Obtiene teacher:");
             console.log(teacher)
@@ -355,68 +355,66 @@ function getProfessor(){
 
 function professorToHTML(professor){
     return `
-    <!-- ProfessorInformation-->
-    <div class="container" id="professorInformation">
-        <div class="row">
-            <div class="col-12 mt-0 d-flex justify-content-center">
-                <!-- ProfessorProfilePhoto -->
-                <div class="col-3 p-0 d-flex justify-content-center"> 
-                    <div class="container-fluid">
-                        <div class="row justify-content-center">
-                            <div class="col d-flex justify-content-center">
-                                <a href="">
-                                    <img class="img-circle evaluation_professorPhoto" src="${professor.img}" alt="profilePhotoProfessor.jpg">
-                                </a>                                            
-                            </div>
-                        </div> 
+    <div class="row">
+    <div class="col-12 mt-0 d-flex justify-content-center">
+        <!-- ProfessorProfilePhoto -->
+        <div class="col-3 p-0 d-flex justify-content-center"> 
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col d-flex justify-content-center">
+                        <a href="">
+                            <img class="img-circle evaluation_professorPhoto" src="${professor.img}" alt="profilePhotoProfessor.jpg">
+                        </a>                                            
                     </div>
-                </div>
-                <!-- /ProfessorProfilePhoto -->
-                <!-- ProfessorDataEvaluation -->
-                <div class="col-5 p-0 mt-3 d-flex justify-content-center">
-                    <div class="container-fluid p-0">
-                        <div class="row">
-                            <div class="col-5 pr-0">
-                                <p class="evaluation_professorInformation">Promedio:</p>
-                            </div>
-                            <div class="col-1 p-0">
-                                <p class="evaluation_professorInformation">A</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-7">
-                                <p class="evaluation_professorInformation">Promedio clase:</p>
-                            </div>
-                            <div class="col-2 p-0">
-                                <p class="evaluation_professorInformation">A+</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="form">
-                                    <input type="text" id="form1" class="form-control">
-                                    <label class="mb-0" for="form1">Fecha</label>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <input class="button" type="submit" value="Eliminar">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /ProfessorDataEvaluation -->
-            </div>                            
-        </div>
-        <!-- ProfessorName -->
-        <div class="row">
-            <div class="col-5 offset-1 p-0 d-flex justify-content-center" id="evaluation_professorNameContainer">
-                <a href="">
-                    <p class="evaluation_professorInformation text-center" id="evaluation_professorName">${professor.name} ${professor.lastName}</p>
-                </a>
+                </div> 
             </div>
         </div>
-        <!-- /ProfessorName  -->
-    <!-- /ProfessorInformation  --></div>`;
+        <!-- /ProfessorProfilePhoto -->
+        <!-- ProfessorDataEvaluation -->
+        <div class="col-5 p-0 mt-3 d-flex justify-content-center">
+            <div class="container-fluid p-0">
+                <div class="row">
+                    <div class="col-5 pr-0">
+                        <p class="evaluation_professorInformation">Promedio:</p>
+                    </div>
+                    <div class="col-1 p-0">
+                        <p class="evaluation_professorInformation">A</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-7">
+                        <p class="evaluation_professorInformation">Promedio clase:</p>
+                    </div>
+                    <div class="col-2 p-0">
+                        <p class="evaluation_professorInformation">A+</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form">
+                            <input type="text" id="form1" class="form-control">
+                            <label class="mb-0" for="form1">Fecha</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <input class="button" type="submit" value="Eliminar">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /ProfessorDataEvaluation -->
+    </div>                            
+</div>
+<!-- ProfessorName -->
+<div class="row">
+    <div class="col-5 offset-1 p-0 d-flex justify-content-center" id="evaluation_professorNameContainer">
+        <a href="">
+            <p class="evaluation_professorInformation text-center" id="evaluation_professorName">${professor.lastName} ${professor.name}</p>
+        </a>
+    </div>
+</div>
+ <!-- /ProfessorName  -->
+<!-- /ProfessorInformation  -->`;
 }
 
 

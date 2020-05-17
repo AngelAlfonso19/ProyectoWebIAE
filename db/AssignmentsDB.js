@@ -96,7 +96,7 @@ let assignmentSchema = mongoose.Schema({
     assignmentMongo.save()
     .then((resp)=> console.log(resp))
     .catch((err)=> console.log("Ocurrió un error", err))    
-}
+    }
 
 Assignment.createAssignment = createAssignment;
 module.exports = Users;

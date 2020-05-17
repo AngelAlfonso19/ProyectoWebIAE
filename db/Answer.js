@@ -58,9 +58,17 @@ answerSchema.statics.showAnswers = ()=>{
     return Answer.find({})
 }
 
+function createAnswer(answer){
+    let answerMongo = Answer(answer);
+    answerMongo.save()
+    .then((resp)=> console.log(resp))
+    .catch((err)=> console.log("Ocurrió un error", err))    
+}
+
 let Answer = mongoose.model('answers', answerSchema);
 
 
+Answer.createAnswer = createAnswer;
 Answer.getAnswerAsync = getAnswerAsync;
 
 module.exports = Answer;

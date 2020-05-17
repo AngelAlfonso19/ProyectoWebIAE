@@ -77,6 +77,7 @@ function userToHTML(user){
     </tr>`;
 }
 
+
 function buttonsP (){
     for(let i =0 ; i<bat.length;i++){
         console.log(`btn ${i} listo:  ${bat[i]}`);
@@ -88,12 +89,87 @@ function buttonsP (){
     }
 }
 
-
 function toView(link, view){
     xhrr.open('GET', `http://localhost:3000/${link}`)
     xhrr.send()
     xhrr.onload = ()=>{
         // localStorage.setItem('username', this.id)
         window.location.replace(`../${view}`)
+    }
+}
+
+
+let form = document.querySelector('#usuario')
+let invalid = document.querySelectorAll('input:invalid')
+let butreg = document.querySelector('#CrearUsuario')
+
+form.addEventListener("change", () =>{
+    let invalid = document.querySelectorAll('input:invalid');
+    console.log(invalid);
+   if (invalid.length<3){
+        butreg.disabled = false;
+    }
+    else if ( invalid.length >2){
+        butreg.disabled = true;
+    }
+    
+    
+});
+
+function makeid() {
+  var result           = '';
+  var characters       = '0123456789';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < 8; i++ ) {
+     result += characters.charAt(Math.floor(Math.random() * 10));
+  }
+  return result;
+}
+function makeid2() {
+    var result           = '';
+    var characters       = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < 15; i++ ) {
+       result += characters.charAt(Math.floor(Math.random() * 10));
+    }
+    return result;
+  }
+
+
+butreg.addEventListener("click", function(event) {
+    event.preventDefault();
+    let data = document.querySelectorAll('input')
+    let typo = Number(data[2].value);
+  
+    let cdata =   {
+            "userID": makeid(),
+            "name": data[0].value,
+            "lastName": data[1].value,
+            "typo":  typo,
+            "email": data[3].value,
+            "password": data[4].value,
+            "username": `${makeid()}`,
+            "allowLessons": true,
+            "token": makeid2(),
+            "img": ""
+    }
+    
+    let reguser = JSON.stringify(cdata)
+    sendregister(reguser)
+  
+})
+
+function sendregister(datos){
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', '/api/users')
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(datos)
+    xhr.onload = ()=>{
+        if(xhr.status != 201){
+            alert(`${xhr.status} Fallo registro`)
+        }
+        else{
+            alert("La asignatura fue registrada")
+        }
     }
 }
